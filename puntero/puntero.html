@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursores personalizados</title>
+    <link rel="stylesheet" href="../puntero/cursor.css">
+
+
+    <style>
+        /* Cursor principal (normal) */
+        body,
+        html {
+            cursor: url("puntero/roundynormal.cur"), auto;
+        }
+
+        /* Cursor cuando se pasa por encima de botones/enlaces */
+        a,
+        button,
+        .clickable {
+            cursor: url("puntero/roundybg.ani"), pointer;
+        }
+
+        /* Cursor ocupado */
+        .busy,
+        .loading,
+        input:disabled,
+        button:disabled {
+            cursor: url("puntero/busyroundywheeeee.ani"), wait;
+        }
+
+        a,
+        button,
+        .clickable {
+            cursor: url("puntero/roundyhand.cur"), pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Prueba de cursores personalizados</h1>
+    <p>Pasa el ratón sobre los elementos para ver los cursores.</p>
+
+    <button class="clickable">Botón interactivo</button>
+
+    <button class="busy">Botón ocupado</button>
+
+    <p><a href="#" class="clickable">Enlace de prueba</a></p>
+
+</body>
+
+</html>

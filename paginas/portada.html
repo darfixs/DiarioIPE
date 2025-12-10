@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portada IPEII</title>
+    <link rel="stylesheet" href="../puntero/cursor.css">
+    <link rel="stylesheet" href="../paginas/portada.css" />
+</head>
+
+<body>
+    <!-- VIDEO DE FONDO -->
+    <div class="video-bg">
+        <video src="../imagenes/video/video1.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <!-- BARRA SUPERIOR TIPO VENTANA XP -->
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <img src="../imagenes/topletras/primera.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/Logoprincipal.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/segunda.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/tercera.png" class="top-icon-img" alt="icono">
+            <span class="top-title">Diario IPE DAW II </span>
+        </div>
+        <div class="top-buttons">
+            <div class="top-btn">▁</div>
+        </div><button id="fullscreen-btn" class="top-btn maximize">▢</button>
+        <div class="top-btn close">✕</div>
+        </div>
+        </div>
+    </header>
+
+    <!-- LOGO DVD CON TU CARA REBOTANDO -->
+    <div id="dvd-pfp" class="dvd-pfp">
+        <div class="dvd-frame">
+            <div class="dvd-inner">
+                <img src="../imagenes/pfp.png" alt="Foto de perfil de Jose Dario Alfaro Santos">
+            </div>
+        </div>
+    </div>
+
+    <!-- CAPA CENTRAL: CARTA DE PRESENTACIÓN -->
+    <main class="card-layer">
+        <section class="intro-card">
+            <div class="intro-header">
+                <h2 class="intro-title">Carta de presentación</h2>
+                <span class="intro-badge">IPE II · Diario personal</span>
+            </div>
+
+            <div class="tabs-row">
+                <button class="tab-btn active" data-panel="ipe">
+                    <span class="tab-dot"></span>
+                    <span>IPE II</span>
+                </button>
+                <button class="tab-btn" data-panel="diario">
+                    <span class="tab-dot"></span>
+                    <span>Diario personal</span>
+                </button>
+                <button class="tab-btn" data-panel="alumno">
+                    <span class="tab-dot"></span>
+                    <span>Jose Dario Alfaro Santos</span>
+                </button>
+            </div>
+
+            <div class="card-body">
+                <!-- Panel 1 -->
+                <div class="info-panel active" id="panel-ipe">
+                    <div class="info-main">IPE II</div>
+                    <p class="info-sub">
+                        Este espacio recoge mi trabajo en
+                        <strong>Itinerario Personal para la Empleabilidad II</strong>:
+                        un recorrido por mis metas, mis decisiones y la forma en la que
+                        preparo mi salto al mundo profesional.
+                    </p>
+                    <p class="info-tagline">
+                        Aquí se ve cómo conecto lo que soy ahora con lo que quiero llegar a ser.
+                    </p>
+                </div>
+
+                <!-- Panel 2 -->
+                <div class="info-panel" id="panel-diario">
+                    <div class="info-main">Diario personal</div>
+                    <p class="info-sub">
+                        El diario funciona como una bitácora: reflexiono sobre mis experiencias,
+                        mis puntos fuertes, lo que necesito mejorar y las oportunidades que voy
+                        descubriendo durante el curso.
+                    </p>
+                    <p class="info-tagline">
+                        No es solo un resumen de actividades: es mi manera de entender cómo crezco
+                        a nivel académico, profesional y personal.
+                    </p>
+                </div>
+
+                <!-- Panel 3 -->
+                <div class="info-panel" id="panel-alumno">
+                    <div class="info-main">Jose Dario Alfaro Santos</div>
+                    <p class="info-sub">
+                        Soy estudiante de <strong>Desarrollo de Aplicaciones Web</strong> y utilizo
+                        este diario para alinear mis intereses tecnológicos con mi proyecto vital:
+                        aprender, mejorar y construir un perfil profesional con personalidad propia.
+                    </p>
+                    <p class="info-tagline">
+                        Esta portada es el punto de entrada a todo ese camino: código, diseño y
+                        empleabilidad en una misma dirección.
+                    </p>
+                </div>
+            </div>
+
+            <!-- burbujas decorativas -->
+            <div class="bubble b1"></div>
+            <div class="bubble b2"></div>
+            <div class="bubble b3"></div>
+            <div class="bubble b4"></div>
+        </section>
+    </main>
+
+    <!-- BARRA INFERIOR: ESTILO WINDOWS 7 -->
+    <footer class="bottom-bar">
+        <!-- BOTÓN INICIO WINDOWS 7 -->
+        <button class="start-button" onclick="location.href='portada.html'">
+            <img src="../imagenes/iconos/App004.ico" class="taskbar-icon" alt="Inicio Windows 7">
+            <span class="start-text">Inicio</span>
+        </button>
+
+        <!-- ZONA CENTRAL: 5 ICONOS -->
+        <div class="task-area">
+            <button class="task-button" onclick="location.href='ra2.html'">
+                <img src="../imagenes/iconos/Alert026.ico" class="task-icon-img" alt="RA2 – Competencias">
+                <span>RA2 – Competencias</span>
+            </button>
+
+            <button class="task-button" onclick="location.href='equipo.html'">
+                <img src="../imagenes/iconos/User003.ico" class="task-icon-img" alt="Equipo de trabajo">
+                <span>Equipo de trabajo</span>
+            </button>
+
+            <button class="task-button" onclick="location.href='comunicacion.html'">
+                <img src="../imagenes/iconos/Display052.ico" class="task-icon-img" alt="Comunicación">
+                <span>Comunicación</span>
+            </button>
+
+            <button class="task-button" onclick="location.href='emocional.html'">
+                <img src="../imagenes/iconos/Game007.ico" class="task-icon-img" alt="Gestión emocional">
+                <span>Gestión emocional</span>
+            </button>
+
+            <button class="task-button" onclick="location.href='tiempo.html'">
+                <img src="../imagenes/iconos/Clock005.ico" class="task-icon-img" alt="Gestión del tiempo">
+                <span>Gestión del tiempo</span>
+            </button>
+        </div>
+
+        <!-- DERECHA: PESTAÑA GITHUB / APPS -->
+        <div class="tray-area">
+            <div class="tray-tab" id="tray-tab">
+                <div class="tray-arrow"></div>
+            </div>
+
+            <div class="tray-popup" id="tray-popup">
+                <!-- GRID 3x3 DE ICONOS GRANDES -->
+                <div class="tray-popup-grid">
+                    <!-- GitHub -->
+                    <div class="tray-grid-item">
+                        <a href="https://github.com/darfixs" target="_blank" class="tray-grid-link"
+                            title="GitHub @darfixs">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Google Sites -->
+                    <div class="tray-grid-item">
+                        <a href="https://sites.google.com/g.educaand.es/jose-daro-alfaro-santos?usp=sharing"
+                            target="_blank" class="tray-grid-link" title="Portafolio Google Sites">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/skin1.ico" alt="Google Sites">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Google Drive -->
+                    <div class="tray-grid-item">
+                        <a href="https://drive.google.com/file/d/1Z9_u-usSgHbeIQ0XDAJBIhYxPz-ANJ00/view?usp=drive_link"
+                            target="_blank" class="tray-grid-link" title="Documento en Drive">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/skin2.ico" alt="Google Drive">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Skin3 -->
+                    <div class="tray-grid-item">
+                        <a href="https://skin3i.com" target="_blank" class="tray-grid-link" title="skin3i.com">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/skin3.ico" alt="Skin3">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- RELLENO DECORATIVO (sin enlace) -->
+                    <div class="tray-grid-item">
+                        <span class="tray-grid-icon"></span>
+                    </div>
+                    <div class="tray-grid-item">
+                        <span class="tray-grid-icon"></span>
+                    </div>
+                    <div class="tray-grid-item">
+                        <span class="tray-grid-icon"></span>
+                    </div>
+                    <div class="tray-grid-item">
+                        <span class="tray-grid-icon"></span>
+                    </div>
+                    <div class="tray-grid-item">
+                        <span class="tray-grid-icon"></span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta mensaje GitHub -->
+                <div class="tray-popup-github">
+                    <a href="https://github.com/darfixs" target="_blank" class="tray-popup-link">
+                        <span class="popup-github-mark">
+                            <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                        </span>
+                        <span class="popup-text">¡Sígueme en GitHub!</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tabs
+        const tabs = document.querySelectorAll('.tab-btn');
+        const panels = {
+            ipe: document.getElementById('panel-ipe'),
+            diario: document.getElementById('panel-diario'),
+            alumno: document.getElementById('panel-alumno')
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-panel');
+
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                Object.entries(panels).forEach(([key, panel]) => {
+                    if (key === target) panel.classList.add('active');
+                    else panel.classList.remove('active');
+                });
+            });
+        });
+        document.getElementById("fullscreen-btn").addEventListener("click", function () {
+            const doc = document.documentElement;
+
+            // Si NO está en pantalla completa → entrar
+            if (!document.fullscreenElement) {
+                if (doc.requestFullscreen) doc.requestFullscreen();
+                else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
+                else if (doc.mozRequestFullScreen) doc.mozRequestFullScreen();
+                else if (doc.msRequestFullscreen) doc.msRequestFullscreen();
+            }
+            // Si YA está en pantalla completa → salir
+            else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+                else if (document.msExitFullscreen) document.msExitFullscreen();
+            }
+        });
+
+        // DVD LOGO BOUNCING
+        (function () {
+            const logo = document.getElementById('dvd-pfp');
+            const topBar = document.querySelector('.top-bar');
+            const bottomBar = document.querySelector('.bottom-bar');
+            const card = document.querySelector('.intro-card');
+            if (!logo || !topBar || !bottomBar || !card) return;
+
+            const LOGO_WIDTH = 90;
+            logo.style.width = LOGO_WIDTH + "px";
+
+            const topHeight = topBar.offsetHeight;
+            const cardTop = card.getBoundingClientRect().top;
+
+            let x = 40;
+            let y = topHeight + ((cardTop - topHeight) / 2) - (LOGO_WIDTH * 4 / 6);
+
+            let vx = 2.4;
+            let vy = 2.0;
+
+            const bounds = { left: 0, right: 0, top: 0, bottom: 0, w: 0, h: 0 };
+            let cardRect = null;
+
+            function updateBounds() {
+                const rect = logo.getBoundingClientRect();
+                bounds.w = rect.width;
+                bounds.h = rect.height;
+
+                bounds.left = 0;
+                bounds.right = window.innerWidth - bounds.w;
+
+                const topH = topBar.offsetHeight;
+                const bottomH = bottomBar.offsetHeight;
+                bounds.top = topH;
+                bounds.bottom = window.innerHeight - bottomH - bounds.h;
+
+                cardRect = card.getBoundingClientRect();
+            }
+
+            function step() {
+                x += vx;
+                y += vy;
+
+                if (x <= bounds.left) { x = bounds.left; vx = Math.abs(vx); }
+                else if (x >= bounds.right) { x = bounds.right; vx = -Math.abs(vx); }
+
+                if (y <= bounds.top) { y = bounds.top; vy = Math.abs(vy); }
+                else if (y >= bounds.bottom) { y = bounds.bottom; vy = -Math.abs(vy); }
+
+                if (cardRect) {
+                    const logoRect = {
+                        left: x, right: x + bounds.w,
+                        top: y, bottom: y + bounds.h
+                    };
+
+                    const intersects =
+                        logoRect.right > cardRect.left &&
+                        logoRect.left < cardRect.right &&
+                        logoRect.bottom > cardRect.top &&
+                        logoRect.top < cardRect.bottom;
+
+                    if (intersects) {
+                        const overlapLeft = logoRect.right - cardRect.left;
+                        const overlapRight = cardRect.right - logoRect.left;
+                        const overlapTop = logoRect.bottom - cardRect.top;
+                        const overlapBottom = cardRect.bottom - logoRect.top;
+
+                        const minOverlap = Math.min(
+                            overlapLeft, overlapRight, overlapTop, overlapBottom
+                        );
+
+                        if (minOverlap === overlapLeft) { x -= overlapLeft; vx = -Math.abs(vx); }
+                        else if (minOverlap === overlapRight) { x += overlapRight; vx = Math.abs(vx); }
+                        else if (minOverlap === overlapTop) { y -= overlapTop; vy = -Math.abs(vy); }
+                        else { y += overlapBottom; vy = Math.abs(vy); }
+                    }
+                }
+
+                logo.style.left = x + 'px';
+                logo.style.top = y + 'px';
+
+                requestAnimationFrame(step);
+            }
+
+            window.addEventListener('resize', updateBounds);
+            updateBounds();
+            requestAnimationFrame(step);
+        })();
+
+        // Pestaña GitHub / Apps
+        (function () {
+            const trayTab = document.getElementById('tray-tab');
+            const trayPopup = document.getElementById('tray-popup');
+
+            if (!trayTab || !trayPopup) return;
+
+            trayTab.addEventListener('click', () => {
+                trayTab.classList.toggle('open');
+
+                trayPopup.classList.remove('animate');
+                void trayPopup.offsetWidth; // reflow
+                trayPopup.classList.add('animate');
+            });
+        })();
+    </script>
+</body>
+
+</html>

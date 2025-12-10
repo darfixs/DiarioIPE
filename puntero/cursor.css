@@ -1,0 +1,30 @@
+/* Cursor normal en toda la página */
+html,
+body {
+    cursor: url("roundynormal.cur"), auto;
+}
+
+/* Mano personalizada en elementos clicables */
+button,
+a,
+[role="button"],
+.clickable,
+input[type="button"],
+input[type="submit"],
+input[type="checkbox"],
+input[type="radio"],
+label,
+select,
+summary {
+    cursor: url("roundyhand.cur"), pointer;
+}
+
+/* Cursor ocupado / cargando */
+.loading,
+.busy,
+button:disabled,
+input:disabled,
+body.waiting,
+html.waiting {
+    cursor: url("busyroundywheeeee.ani"), wait;
+}

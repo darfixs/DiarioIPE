@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comunicación · IPE DAW II</title>
+    <link rel="stylesheet" href="../puntero/cursor.css">
+    <link rel="stylesheet" href="../paginas/comunicacion.css" />
+</head>
+
+<body>
+    <!-- VIDEO DE FONDO -->
+    <div class="video-bg">
+        <video src="../imagenes/video/video2.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <img src="../imagenes/topletras/primera.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/Logoprincipal.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/segunda.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/tercera.png" class="top-icon-img" alt="icono">
+            <span class="top-title">Diario IPE DAW II </span>
+        </div>
+        <div class="top-buttons">
+            <div class="top-btn">▁</div>
+        </div>
+        <button id="fullscreen-btn" class="top-btn maximize">▢</button>
+        <div class="top-btn close">✕</div>
+    </header>
+
+    <!-- LOGO DVD -->
+    <div id="dvd-pfp" class="dvd-pfp">
+        <div class="dvd-frame">
+            <div class="dvd-inner">
+                <img src="../imagenes/pfp.png" alt="Foto de perfil">
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <main class="activities-layer">
+        <div class="activities-grid">
+            <!-- Actividad 1 – Escena interactiva → Scroll → Educativa -->
+            <article class="activity-card" data-activity="a1">
+                <button class="activity-close" type="button">✕</button>
+                <header class="activity-header">
+                    <span class="activity-title">Actividad 1</span>
+                    <span class="activity-subtitle">Tipos de comunicación</span>
+                </header>
+                <div class="activity-body">
+                    <div class="activity-icon">
+                        <img src="../imagenes/iconos/Display052.ico" alt="Icono">
+                    </div>
+                    <div class="activity-text">
+                        <h3>Performance: Comunicación agresiva</h3>
+                        <p>Revive la escena con Guillermo y Victor. Avanza paso a paso.</p>
+                        <span class="activity-tag">Haz clic para empezar</span>
+                    </div>
+                </div>
+                <section class="activity-content">
+                    <!-- FASE 1: Narrativa paso a paso -->
+                    <div id="scene-interactive"
+                        style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div
+                            style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                            <div id="scene-speaker" style="
+                    font-size: 1.5rem;
+                    font-weight: 800;
+                    padding: 6px 20px;
+                    border-radius: 12px;
+                    margin-bottom: 16px;
+                    min-width: 180px;
+                "></div>
+                            <div id="scene-dialog" style="
+                    font-size: 1.7rem;
+                    line-height: 1.4;
+                    max-width: 90%;
+                    padding: 20px;
+                    border-radius: 16px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+                    border: 1px solid rgba(0,0,0,0.15);
+                "></div>
+                        </div>
+                        <div style="text-align: center; padding: 20px 0;">
+                            <button id="scene-next" style="
+                    background: linear-gradient(180deg, #e3f2fd, #bbdefb);
+                    border: 1px solid #42a5f5;
+                    border-radius: 50px;
+                    padding: 10px 34px;
+                    font-size: 1.15rem;
+                    font-weight: 700;
+                    color: #0d47a1;
+                    cursor: url('../puntero/roundyhand.cur'), pointer;
+                    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+                ">▶ Siguiente</button>
+                        </div>
+                    </div>
+
+                    <!-- FASE 2: Scroll con solo 2 mensajes visibles -->
+                    <div id="scene-scroll" style="display: none; height: 100%; position: relative;">
+                        <div class="messages-scroll-container" style="
+                height: 320px;
+                overflow-y: auto;
+                padding: 0 12px;
+                margin-bottom: 20px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            ">
+                            <div class="message"
+                                style="background: linear-gradient(180deg, #e8f5e8, #c8e6c9); border: 1px solid #4caf50; border-radius: 14px; padding: 14px; margin-bottom: 16px; font-size: 1.45rem; line-height: 1.5;">
+                                <div style="font-weight: 800; color: #1b5e20; margin-bottom: 6px;">Guillermo</div>
+                                <div>“Jefe... estoy terminando el informe, pero hubo un problema con los datos de
+                                    origen. Necesito un poco más de tiempo para revisarlos bien.”</div>
+                            </div>
+                            <div class="message"
+                                style="background: linear-gradient(180deg, #ffebee, #ffcdd2); border: 1px solid #f44336; border-radius: 14px; padding: 14px; margin-bottom: 16px; font-size: 1.45rem; line-height: 1.5;">
+                                <div style="font-weight: 800; color: #c62828; margin-bottom: 6px;">Tú</div>
+                                <div>“¡¿Otra vez con excusas?! ¡Esto no es excusa, es incompetencia! ¡Quiero ese informe
+                                    sobre mi mesa AHORA!”</div>
+                            </div>
+                            <div class="message"
+                                style="background: linear-gradient(180deg, #e8f5e8, #c8e6c9); border: 1px solid #4caf50; border-radius: 14px; padding: 14px; margin-bottom: 16px; font-size: 1.45rem; line-height: 1.5;">
+                                <div style="font-weight: 800; color: #1b5e20; margin-bottom: 6px;">Guillermo</div>
+                                <div>“Pero es que si entrego algo mal, el cliente nos devolverá el trabajo y tendremos
+                                    que rehacerlo...”</div>
+                            </div>
+                            <div class="message"
+                                style="background: linear-gradient(180deg, #ffebee, #ffcdd2); border: 1px solid #f44336; border-radius: 14px; padding: 14px; margin-bottom: 16px; font-size: 1.45rem; line-height: 1.5;">
+                                <div style="font-weight: 800; color: #c62828; margin-bottom: 6px;">Tú</div>
+                                <div>“¡CÁLLATE! ¡No me importa! ¡Hazlo YA! ¡Y sin más tonterías!”</div>
+                            </div>
+                            <div class="message"
+                                style="background: linear-gradient(180deg, #e3f2fd, #bbdefb); border: 1px solid #2196f3; border-radius: 14px; padding: 14px; margin-bottom: 16px; font-size: 1.45rem; line-height: 1.5;">
+                                <div style="font-weight: 800; color: #0d47a1; margin-bottom: 6px;">Victor</div>
+                                <div>“Esta interacción es un ejemplo claro de comunicación agresiva. Se caracteriza por
+                                    el uso de un tono hostil, interrupciones constantes, lenguaje acusatorio y total
+                                    ausencia de escucha activa. Este tipo de comunicación genera miedo, paraliza al
+                                    receptor y destruye la confianza en el equipo. En lugar de resolver el problema, lo
+                                    agrava.”</div>
+                            </div>
+                        </div>
+                        <div
+                            style="text-align: center; position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 0;">
+                            <button id="btn-educational" style="
+                    background: linear-gradient(180deg, #fffde7, #ffd54f);
+                    border: 1px solid #ffc107;
+                    border-radius: 50px;
+                    padding: 10px 28px;
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    color: #5d4037;
+                    cursor: url('../puntero/roundyhand.cur'), pointer;
+                    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+                ">🔍 Profundizar en comunicación agresiva</button>
+                        </div>
+                    </div>
+
+                    <!-- FASE 3: Escena educativa con botón de imagen -->
+                    <div id="scene-educational" style="display: none; height: 100%; padding: 0 16px; overflow: hidden;">
+                        <h3 style="text-align: center; color: #0a2348; margin: 16px 0; font-size: 1.6rem;">🧠 ¿Qué es la
+                            comunicación agresiva?</h3>
+
+                        <div
+                            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px;">
+                            <!-- Tarjeta 1: Definición -->
+                            <div class="info-card" style="
+            background: linear-gradient(180deg, #e3f2fd, #bbdefb);
+            border: 1px solid #42a5f5;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.8);
+            cursor: url('../puntero/roundyhand.cur'), pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        ">
+                                <h4 style="color: #0d47a1; margin-bottom: 8px; font-size: 1.1rem;">Definición</h4>
+                                <p style="font-size: 0.95rem; line-height: 1.5;">
+                                    Estilo de comunicación en el que una persona expresa sus necesidades, opiniones o
+                                    emociones de forma hostil, dominante o despectiva, sin respetar los derechos del
+                                    interlocutor.
+                                </p>
+                            </div>
+
+                            <!-- Tarjeta 2: Características -->
+                            <div class="info-card" style="
+            background: linear-gradient(180deg, #e8f5e8, #c8e6c9);
+            border: 1px solid #4caf50;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.8);
+            cursor: url('../puntero/roundyhand.cur'), pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        ">
+                                <h4 style="color: #1b5e20; margin-bottom: 8px; font-size: 1.1rem;">Características clave
+                                </h4>
+                                <ul style="padding-left: 16px; font-size: 0.95rem; line-height: 1.5;">
+                                    <li>Interrupciones constantes</li>
+                                    <li>Tono de voz elevado</li>
+                                    <li>Lenguaje acusatorio</li>
+                                    <li>Ausencia de escucha activa</li>
+                                    <li>Gestos hostiles</li>
+                                </ul>
+                            </div>
+
+                            <!-- Tarjeta 3: Consecuencias -->
+                            <div class="info-card" style="
+            background: linear-gradient(180deg, #ffebee, #ffcdd2);
+            border: 1px solid #f44336;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.8);
+            cursor: url('../puntero/roundyhand.cur'), pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        ">
+                                <h4 style="color: #c62828; margin-bottom: 8px; font-size: 1.1rem;">Consecuencias</h4>
+                                <ul style="padding-left: 16px; font-size: 0.95rem; line-height: 1.5;">
+                                    <li>Genera miedo y ansiedad</li>
+                                    <li>Destruye la confianza</li>
+                                    <li>Paraliza la colaboración</li>
+                                    <li>Aumenta los conflictos</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Botón para ver imagen -->
+                        <div style="text-align: center;">
+                            <button id="btn-show-image" style="
+            background: linear-gradient(180deg, #e3f2fd, #bbdefb);
+            border: 1px solid #42a5f5;
+            border-radius: 20px;
+            padding: 12px 40px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #0d47a1;
+            cursor: url('../puntero/roundyhand.cur'), pointer;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.9);
+        ">🖼️ Ver infografía</button>
+                        </div>
+
+                        <!-- Contenedor de imagen (solo visible al pulsar) -->
+                        <div id="full-image-overlay" style="
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+">
+                            <img src="../imagenes/comunicacion.jpg" alt="Infografía: Comunicación agresiva" style="
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.85);
+    cursor: url('../puntero/roundyhand.cur'), pointer;
+">
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Actividad 2 – Feedback con análisis secuencial del método sándwich -->
+            <article class="activity-card" data-activity="a2">
+                <button class="activity-close" type="button">✕</button>
+                <header class="activity-header">
+                    <span class="activity-title">Actividad 2</span>
+                    <span class="activity-subtitle">Feedback a Victor</span>
+                </header>
+                <div class="activity-body">
+                    <div class="activity-icon">
+                        <img src="../imagenes/iconos/Alert026.ico" alt="Icono">
+                    </div>
+                    <div class="activity-text">
+                        <h3>Feedback con método sándwich</h3>
+                        <p>Después de la performance, le di a Victor un feedback estructurado.</p>
+                        <span class="activity-tag">Haz clic para revelar paso a paso</span>
+                    </div>
+                </div>
+                <section class="activity-content">
+                    <!-- FASE 1: Instrucción -->
+                    <div id="feedback-instruction" style="text-align: center; padding: 20px 0;">
+                        <p style="font-size: 1.1rem; color: #0a2348;">Haz clic en el botón para revelar el feedback y su
+                            análisis paso a paso.</p>
+                        <button id="btn-start-feedback" style="
+                margin-top: 20px;
+                background: linear-gradient(180deg, #e3f2fd, #bbdefb);
+                border: 1px solid #42a5f5;
+                border-radius: 50px;
+                padding: 10px 28px;
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #0d47a1;
+                cursor: url('../puntero/roundyhand.cur'), pointer;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            ">▶ Empezar análisis</button>
+                    </div>
+
+                    <!-- FASE 2: Dos columnas (feedback + análisis) -->
+                    <div id="feedback-analysis" style="display: none; height: 100%; padding-top: 10px;">
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; height: calc(100% - 60px);">
+                            <!-- Columna izquierda: Feedback real -->
+                            <div id="feedback-column">
+                                <h4 style="color: #0d47a1; margin-bottom: 12px; text-align: center;">Mi feedback a
+                                    Victor</h4>
+                                <div id="feedback-step-1" style="display: none; margin-bottom: 14px;">
+                                    <div style="
+                            background: linear-gradient(180deg, #e8f5e9, #c8e6c9);
+                            border-left: 4px solid #4caf50;
+                            padding: 12px;
+                            border-radius: 0 12px 12px 0;
+                        ">
+                                        <strong>🔹 Primera parte (positiva):</strong><br>
+                                        “Me gustó mucho cómo explicaste la representación que Guillermo y yo hicimos.
+                                        Destacaste claramente los puntos clave: mis interrupciones, el tono de voz y los
+                                        gestos autoritarios.”
+                                    </div>
+                                </div>
+                                <div id="feedback-step-2" style="display: none; margin-bottom: 14px;">
+                                    <div style="
+                            background: linear-gradient(180deg, #fff8e1, #ffd54f);
+                            border-left: 4px solid #ffc107;
+                            padding: 12px;
+                            border-radius: 0 12px 12px 0;
+                        ">
+                                        <strong>🔸 Segunda parte (mejora):</strong><br>
+                                        “Durante la preparación, cuando estábamos diseñando la infografía, podrías
+                                        haberme ayudado un poco más con el diseño visual.”
+                                    </div>
+                                </div>
+                                <div id="feedback-step-3" style="display: none;">
+                                    <div style="
+                            background: linear-gradient(180deg, #e8f5e9, #c8e6c9);
+                            border-left: 4px solid #4caf50;
+                            padding: 12px;
+                            border-radius: 0 12px 12px 0;
+                        ">
+                                        <strong>🔹 Tercera parte (cierre positivo):</strong><br>
+                                        “Aun así, tu intervención en la explicación final fue realmente sólida y
+                                        profesional.”
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Columna derecha: Análisis -->
+                            <div id="analysis-column">
+                                <h4 style="color: #0d47a1; margin-bottom: 12px; text-align: center;">Análisis del método
+                                    sándwich</h4>
+                                <div id="analysis-step-1" style="display: none; margin-bottom: 14px;">
+                                    <div style="
+                            background: #e3f2fd;
+                            padding: 12px;
+                            border-left: 3px solid #2196f3;
+                            border-radius: 0 10px 10px 0;
+                        ">
+                                        ✅ <strong>Capa superior:</strong> Crea un ambiente receptivo y reconoce el valor
+                                        del receptor.
+                                    </div>
+                                </div>
+                                <div id="analysis-step-2" style="display: none; margin-bottom: 14px; margin-top: 58px;">
+                                    <div style="
+                            background: #ffebee;
+                            padding: 12px;
+                            border-left: 3px solid #f44336;
+                            border-radius: 0 10px 10px 0;
+                        ">
+                                        ⚠️ <strong>Capa central:</strong> Ofrece una crítica constructiva clara y
+                                        específica, sin juicios personales.
+                                    </div>
+                                </div>
+                                <div id="analysis-step-3" style="display: none; margin-top: 36px;">
+                                    <div style="
+                            background: #e3f2fd;
+                            padding: 12px;
+                            border-left: 3px solid #2196f3;
+                            border-radius: 0 10px 10px 0;
+                        ">
+                                        ✅ <strong>Capa inferior:</strong> Refuerza la confianza, muestra apoyo y cierra
+                                        de forma positiva.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botón de avance (aparece al inicio, luego se actualiza) -->
+                        <div id="feedback-controls" style="text-align: center; margin-top: 16px;">
+                            <button id="btn-next-step" style="
+                    background: linear-gradient(180deg, #e3f2fd, #bbdefb);
+                    border: 1px solid #42a5f5;
+                    border-radius: 50px;
+                    padding: 10px 28px;
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    color: #0d47a1;
+                    cursor: url('../puntero/roundyhand.cur'), pointer;
+                    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+                ">▶ Mostrar siguiente parte</button>
+                        </div>
+
+                        <!-- Conclusión final (aparece al terminar) -->
+                        <div id="conclusion"
+                            style="display: none; margin-top: 24px; padding: 14px; background: #f5f9ff; border: 1px solid #42a5f5; border-radius: 12px;">
+                            <p style="font-size: 0.95rem; line-height: 1.5;">
+                                <strong>✅ Has completado el análisis del método sándwich.</strong><br>
+                                El método sándwich es una técnica de feedback que intercala una crítica constructiva
+                                entre dos comentarios positivos.
+                                Su objetivo es hacer que la retroalimentación sea más receptiva, respetuosa y efectiva,
+                                manteniendo la motivación de la otra persona.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- BARRA INFERIOR -->
+    <footer class="bottom-bar">
+        <button class="start-button" onclick="location.href='portada.html'">
+            <img src="../imagenes/iconos/App004.ico" class="taskbar-icon" alt="Inicio">
+            <span class="start-text">Inicio</span>
+        </button>
+        <div class="task-area">
+            <button class="task-button" onclick="location.href='ra2.html'">
+                <img src="../imagenes/iconos/Alert026.ico" class="task-icon-img" alt="RA2">
+                <span>RA2 – Competencias</span>
+            </button>
+            <button class="task-button" onclick="location.href='equipo.html'">
+                <img src="../imagenes/iconos/User003.ico" class="task-icon-img" alt="Equipo">
+                <span>Equipo de trabajo</span>
+            </button>
+            <button class="task-button active-task" onclick="location.href='comunicacion.html'">
+                <img src="../imagenes/iconos/Display052.ico" class="task-icon-img" alt="Comunicación">
+                <span>Comunicación</span>
+            </button>
+            <button class="task-button" onclick="location.href='emocional.html'">
+                <img src="../imagenes/iconos/Game007.ico" class="task-icon-img" alt="Emocional">
+                <span>Gestión emocional</span>
+            </button>
+            <button class="task-button" onclick="location.href='tiempo.html'">
+                <img src="../imagenes/iconos/Clock005.ico" class="task-icon-img" alt="Tiempo">
+                <span>Gestión del tiempo</span>
+            </button>
+        </div>
+        <div class="tray-area">
+            <div class="tray-tab" id="tray-tab">
+                <div class="tray-arrow"></div>
+            </div>
+            <div class="tray-popup" id="tray-popup">
+                <div class="tray-popup-grid">
+                    <div class="tray-grid-item">
+                        <a href="https://github.com/darfixs" target="_blank" class="tray-grid-link"
+                            title="GitHub @darfixs">
+                            <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <div class="tray-grid-item">
+                        <a href="https://sites.google.com/g.educaand.es/jose-daro-alfaro-santos?usp=sharing"
+                            target="_blank" class="tray-grid-link" title="Portafolio Google Sites">
+                            <img src="../imagenes/skin1.ico" alt="Google Sites">
+                        </a>
+                    </div>
+                    <div class="tray-grid-item">
+                        <a href="https://drive.google.com/file/d/1Z9_u-usSgHbeIQ0XDAJBIhYxPz-ANJ00/view?usp=drive_link"
+                            target="_blank" class="tray-grid-link" title="Documento en Drive">
+                            <img src="../imagenes/skin2.ico" alt="Google Drive">
+                        </a>
+                    </div>
+                    <div class="tray-grid-item">
+                        <a href="https://skin3i.com" target="_blank" class="tray-grid-link" title="skin3i.com">
+                            <img src="../imagenes/skin3.ico" alt="Skin3">
+                        </a>
+                    </div>
+                    <div class="tray-grid-item"><span></span></div>
+                    <div class="tray-grid-item"><span></span></div>
+                    <div class="tray-grid-item"><span></span></div>
+                    <div class="tray-grid-item"><span></span></div>
+                    <div class="tray-grid-item"><span></span></div>
+                </div>
+                <div class="tray-popup-github">
+                    <a href="https://github.com/darfixs" target="_blank" class="tray-popup-link">
+                        <span class="popup-github-mark">
+                            <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                        </span>
+                        <span class="popup-text">¡Sígueme en GitHub!</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // === Scripts comunes ===
+        document.getElementById("fullscreen-btn").addEventListener("click", function () {
+            const doc = document.documentElement;
+            if (!document.fullscreenElement) {
+                if (doc.requestFullscreen) doc.requestFullscreen();
+                else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
+                else if (doc.mozRequestFullScreen) doc.mozRequestFullScreen();
+                else if (doc.msRequestFullscreen) doc.msRequestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+                else if (document.msExitFullscreen) document.msExitFullscreen();
+            }
+        });
+
+        // DVD bouncing
+        (function () {
+            const logo = document.getElementById('dvd-pfp');
+            const topBar = document.querySelector('.top-bar');
+            const bottomBar = document.querySelector('.bottom-bar');
+            if (!logo || !topBar || !bottomBar) return;
+            const LOGO_WIDTH = 90;
+            logo.style.width = LOGO_WIDTH + "px";
+            let x = 40;
+            let y = topBar.offsetHeight + 40;
+            let vx = 2.4;
+            let vy = 2.0;
+            const bounds = { left: 0, right: 0, top: 0, bottom: 0, w: 0, h: 0 };
+            function updateBounds() {
+                const rect = logo.getBoundingClientRect();
+                bounds.w = rect.width;
+                bounds.h = rect.height;
+                bounds.left = 0;
+                bounds.right = window.innerWidth - bounds.w;
+                const topH = topBar.offsetHeight;
+                const bottomH = bottomBar.offsetHeight;
+                bounds.top = topH;
+                bounds.bottom = window.innerHeight - bottomH - bounds.h;
+            }
+            function step() {
+                x += vx;
+                y += vy;
+                if (x <= bounds.left) { x = bounds.left; vx = Math.abs(vx); }
+                else if (x >= bounds.right) { x = bounds.right; vx = -Math.abs(vx); }
+                if (y <= bounds.top) { y = bounds.top; vy = Math.abs(vy); }
+                else if (y >= bounds.bottom) { y = bounds.bottom; vy = -Math.abs(vy); }
+                logo.style.left = x + 'px';
+                logo.style.top = y + 'px';
+                requestAnimationFrame(step);
+            }
+            window.addEventListener('resize', updateBounds);
+            updateBounds();
+            requestAnimationFrame(step);
+        })();
+
+        // Tray popup
+        (function () {
+            const tab = document.getElementById('tray-tab');
+            const popup = document.getElementById('tray-popup');
+            if (tab && popup) {
+                tab.addEventListener('click', () => {
+                    tab.classList.toggle('open');
+                    popup.classList.remove('animate');
+                    void popup.offsetWidth;
+                    popup.classList.add('animate');
+                });
+            }
+        })();
+
+        // Tarjetas de actividades
+        (function () {
+            const layer = document.querySelector('.activities-layer');
+            const cards = document.querySelectorAll('.activity-card');
+            if (!layer || !cards.length) return;
+            function closeAll() {
+                layer.classList.remove('expanded');
+                cards.forEach(c => c.classList.remove('expanded'));
+            }
+            cards.forEach(card => {
+                const closeBtn = card.querySelector('.activity-close');
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.activity-close')) return;
+                    if (card.classList.contains('expanded')) return;
+                    closeAll();
+                    layer.classList.add('expanded');
+                    card.classList.add('expanded');
+
+                    // Reiniciar Actividad 1
+                    if (card.dataset.activity === 'a1') {
+                        initSceneNarrative();
+                    }
+                    // Reiniciar Actividad 2
+                    else if (card.dataset.activity === 'a2') {
+                        resetActivity2(card);
+                    }
+                });
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        closeAll();
+                    });
+                }
+            });
+            layer.addEventListener('click', (e) => {
+                if (layer.classList.contains('expanded') && !e.target.closest('.activity-card')) {
+                    closeAll();
+                }
+            });
+        })();
+function resetActivity2(card) {
+    // Reiniciar pantalla de instrucción
+    const instruction = card.querySelector('#feedback-instruction');
+    const analysis = card.querySelector('#feedback-analysis');
+    const conclusion = card.querySelector('#conclusion');
+    
+    if (instruction) instruction.style.display = 'block';
+    if (analysis) analysis.style.display = 'none';
+    if (conclusion) conclusion.style.display = 'none';
+
+    // Ocultar todos los pasos
+    card.querySelectorAll('[id^="feedback-step"], [id^="analysis-step"]').forEach(el => {
+        el.style.display = 'none';
+    });
+
+    // Reiniciar botón
+    const btnNext = card.querySelector('#btn-next-step');
+    if (btnNext) {
+        btnNext.textContent = "▶ Mostrar siguiente parte";
+        btnNext.disabled = false;
+        btnNext.style.opacity = '1';
+    }
+}
+        function initSceneNarrative() {
+            // Reiniciar estado cada vez que se entra
+            let currentPhase = 1;
+            let step = 0;
+
+            const speakerEl = document.getElementById('scene-speaker');
+            const dialogEl = document.getElementById('scene-dialog');
+            const nextBtn = document.getElementById('scene-next');
+            const interactive = document.getElementById('scene-interactive');
+            const scrollScene = document.getElementById('scene-scroll');
+            const educationalScene = document.getElementById('scene-educational');
+            const imageOverlay = document.getElementById('full-image-overlay');
+
+            // Reset UI
+            interactive.style.display = 'flex';
+            scrollScene.style.display = 'none';
+            educationalScene.style.display = 'none';
+            if (imageOverlay) imageOverlay.style.display = 'none';
+
+            const script = [
+                { speaker: "Guillermo", text: "Jefe... estoy terminando el informe, pero hubo un problema con los datos de origen. Necesito un poco más de tiempo para revisarlos bien.", bg: "linear-gradient(180deg, #e8f5e8, #c8e6c9)", color: "#1b5e20", border: "#4caf50" },
+                { speaker: "Tú", text: "¡¿Otra vez con excusas?! ¡Esto no es excusa, es incompetencia! ¡Quiero ese informe sobre mi mesa AHORA!", bg: "linear-gradient(180deg, #ffebee, #ffcdd2)", color: "#c62828", border: "#f44336" },
+                { speaker: "Guillermo", text: "Pero es que si entrego algo mal, el cliente nos devolverá el trabajo y tendremos que rehacerlo...", bg: "linear-gradient(180deg, #e8f5e8, #c8e6c9)", color: "#1b5e20", border: "#4caf50" },
+                { speaker: "Tú", text: "¡CÁLLATE! ¡No me importa! ¡Hazlo YA! ¡Y sin más tonterías!", bg: "linear-gradient(180deg, #ffebee, #ffcdd2)", color: "#c62828", border: "#f44336" },
+                { speaker: "Victor", text: "Esta interacción es un ejemplo claro de comunicación agresiva. Se caracteriza por el uso de un tono hostil, interrupciones constantes, lenguaje acusatorio y total ausencia de escucha activa. Este tipo de comunicación genera miedo, paraliza al receptor y destruye la confianza en el equipo. En lugar de resolver el problema, lo agrava.", bg: "linear-gradient(180deg, #e3f2fd, #bbdefb)", color: "#0d47a1", border: "#2196f3" }
+            ];
+
+            function updateMessage() {
+                const msg = script[step];
+                speakerEl.textContent = msg.speaker;
+                speakerEl.style.background = msg.bg;
+                speakerEl.style.color = msg.color;
+                speakerEl.style.border = `1px solid ${msg.border}`;
+                dialogEl.textContent = msg.text;
+                dialogEl.style.background = msg.bg;
+                dialogEl.style.color = msg.color;
+                dialogEl.style.border = `1px solid ${msg.border}`;
+            }
+
+            // Fase 1: narrativa
+            nextBtn.innerHTML = "▶ Siguiente";
+            nextBtn.onclick = () => {
+                step++;
+                if (step < script.length) {
+                    updateMessage();
+                    nextBtn.innerHTML = step === script.length - 1 ? "✅ Ver conversación" : "▶ Siguiente";
+                } else {
+                    interactive.style.display = 'none';
+                    scrollScene.style.display = 'block';
+                }
+            };
+            updateMessage();
+
+            // Fase 2: scroll → Fase 3
+            const btnEducational = document.getElementById('btn-educational');
+            if (btnEducational) {
+                btnEducational.onclick = () => {
+                    scrollScene.style.display = 'none';
+                    educationalScene.style.display = 'block';
+
+                    // Hover en tarjetas
+                    const cards = educationalScene.querySelectorAll('.info-card');
+                    cards.forEach(card => {
+                        card.addEventListener('mouseenter', () => {
+                            card.style.transform = 'translateY(-4px)';
+                            card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.9)';
+                        });
+                        card.addEventListener('mouseleave', () => {
+                            card.style.transform = 'translateY(0)';
+                            card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.8)';
+                        });
+                    });
+
+                    // Botón de imagen
+                    const btnShowImage = document.getElementById('btn-show-image');
+                    if (btnShowImage) {
+                        btnShowImage.onclick = () => {
+                            imageOverlay.style.display = 'flex';
+                        };
+                    }
+
+                    // Cerrar imagen al hacer clic
+                    if (imageOverlay) {
+                        imageOverlay.onclick = (e) => {
+                            if (e.target === imageOverlay) {
+                                imageOverlay.style.display = 'none';
+                            }
+                        };
+                    }
+                };
+            }
+        }
+        // === Actividad 2: Análisis secuencial del método sándwich ===
+        (function () {
+            const card = document.querySelector('.activity-card[data-activity="a2"]');
+            if (!card) return;
+
+            let currentStep = 0;
+            const maxSteps = 3;
+
+            const btnStart = card.querySelector('#btn-start-feedback');
+            const btnNext = card.querySelector('#btn-next-step');
+            const instruction = card.querySelector('#feedback-instruction');
+            const feedbackAnalysis = card.querySelector('#feedback-analysis');
+            const controls = card.querySelector('#feedback-controls');
+            const conclusion = card.querySelector('#conclusion');
+
+            function showStep(step) {
+                if (step >= 1) {
+                    card.querySelector('#feedback-step-1').style.display = 'block';
+                    card.querySelector('#analysis-step-1').style.display = 'block';
+                }
+                if (step >= 2) {
+                    card.querySelector('#feedback-step-2').style.display = 'block';
+                    card.querySelector('#analysis-step-2').style.display = 'block';
+                }
+                if (step >= 3) {
+                    card.querySelector('#feedback-step-3').style.display = 'block';
+                    card.querySelector('#analysis-step-3').style.display = 'block';
+                    btnNext.textContent = "✅ Feedback completo";
+                    btnNext.disabled = true;
+                    btnNext.style.opacity = '0.7';
+                    setTimeout(() => {
+                        conclusion.style.display = 'block';
+                    }, 300);
+                }
+            }
+
+            btnStart?.addEventListener('click', () => {
+                instruction.style.display = 'none';
+                feedbackAnalysis.style.display = 'block';
+                currentStep = 0;
+                showStep(currentStep);
+            });
+
+            btnNext?.addEventListener('click', () => {
+                currentStep++;
+                showStep(currentStep);
+            });
+        })();
+    </script>
+</body>
+
+</html>

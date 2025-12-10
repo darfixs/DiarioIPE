@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portada IPEII</title>
+    <link rel="stylesheet" href="../puntero/cursor.css">
+    <link rel="stylesheet" href="../paginas/equipo.css" />
+</head>
+
+<body>
+    <!-- VIDEO DE FONDO -->
+    <div class="video-bg">
+        <video src="../imagenes/video/video3.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <!-- BARRA SUPERIOR TIPO VENTANA XP -->
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <img src="../imagenes/topletras/primera.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/Logoprincipal.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/segunda.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/tercera.png" class="top-icon-img" alt="icono">
+            <span class="top-title">Diario IPE DAW II </span>
+        </div>
+        <div class="top-buttons">
+            <div class="top-btn">▁</div>
+        </div>
+        <button id="fullscreen-btn" class="top-btn maximize">▢</button>
+        <div class="top-btn close">✕</div>
+    </header>
+
+    <!-- LOGO DVD CON TU CARA REBOTANDO -->
+    <div id="dvd-pfp" class="dvd-pfp">
+        <div class="dvd-frame">
+            <div class="dvd-inner">
+                <img src="../imagenes/pfp.png" alt="Foto de perfil de Jose Dario Alfaro Santos">
+            </div>
+        </div>
+    </div>
+
+    <!-- CAPA CENTRAL: ACTIVIDADES RA2 -->
+    <main class="activities-layer">
+        <div class="activities-grid">
+             <!-- Actividad 1 -->
+            <article class="activity-card" data-activity="a3">
+                <button class="activity-close" type="button">✕</button>
+                <header class="activity-header">
+                    <span class="activity-title">Actividad 1</span>
+                    <span class="activity-subtitle">Trabajo en equipo</span>
+                </header>
+                <div class="activity-body">
+                    <div class="activity-icon">
+                        <img src="../imagenes/iconos/Game007.ico" alt="Icono actividad 3">
+                    </div>
+                    <div class="activity-text">
+                        <h3>Radar de grupo</h3>
+                        <p>
+                            Analiza tu rol dentro del grupo y el de tus compañeros
+                            a partir de una dinámica tipo “radar”.
+                        </p>
+                        <span class="activity-tag">Haz clic para abrir</span>
+                    </div>
+                </div>
+
+                <section class="activity-content">
+                    <h3>Actividad 3 · Radar de grupo</h3>
+                    <p>
+                        Diseña un radar con varios aspectos del trabajo en equipo:
+                        comunicación, responsabilidad, iniciativa, escucha, apoyo…
+                    </p>
+                    <ul>
+                        <li>Valórate a ti mismo en cada aspecto (1–5).</li>
+                        <li>Valora al grupo en conjunto.</li>
+                        <li>Escribe al final dos compromisos de mejora.</li>
+                    </ul>
+                    <p>
+                        Esta reflexión formará parte de tu diario y podrás revisarla
+                        al final del trimestre.
+                    </p>
+                </section>
+            </article>
+
+
+            <!-- Actividad 2 – Identifico tipos de liderazgo -->
+            <article class="activity-card" data-activity="a2">
+                <button class="activity-close" type="button">✕</button>
+                <header class="activity-header">
+                    <span class="activity-title">Actividad 2</span>
+                    <span class="activity-subtitle">Identificación de liderazgo en 3 vídeos</span>
+                </header>
+
+                <div class="activity-body">
+                    <div class="activity-icon">
+                        <img src="../imagenes/iconos/Display052.ico" alt="Icono actividad 2">
+                    </div>
+                    <div class="activity-text">
+                        <h3>Mira cada vídeo y desbloquea tu análisis</h3>
+                        <p>
+                            Observa los tres clips y determina qué tipo de liderazgo aparece en cada uno.
+                            Después pulsa para mostrar tu reflexión.
+                        </p>
+                        <span class="activity-tag">Haz clic en la tarjeta para ampliarla</span>
+                    </div>
+                </div>
+
+                <!-- CONTENIDO INTERNO (solo visible al hacer clic y expandir) -->
+                <section class="activity-content activity2-content">
+                    <div class="activity2-row">
+                        <!-- VIDEO 1 -->
+                        <article class="video-mini-card" data-video="1">
+                            <span class="mini-title">Vídeo 1</span>
+
+                            <div class="mini-video-frame">
+                                <iframe src="https://www.youtube.com/watch?v=9O44I0POZDw" allowfullscreen></iframe>
+                            </div>
+
+                            <button class="mini-unlock-btn">🎮 Mostrar mi análisis</button>
+
+                            <div class="mini-answer">
+                                <p>
+                                    Un liderazgo centrado en el <strong>bien común</strong>, que deja de lado intereses
+                                    personales y actúa pensando en lo mejor para todos sin buscar un beneficio propio.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- VIDEO 2 -->
+                        <article class="video-mini-card" data-video="2">
+                            <span class="mini-title">Vídeo 2</span>
+
+                            <div class="mini-video-frame">
+                                <iframe src="https://www.youtube.com/watch?v=E8UQrDD2nQw" allowfullscreen></iframe>
+                            </div>
+
+                            <button class="mini-unlock-btn">🎮 Mostrar mi análisis</button>
+
+                            <div class="mini-answer">
+                                <p>
+                                    Un liderazgo que <strong>rompe esquemas</strong> y toma la iniciativa incluso cuando
+                                    existen riesgos importantes, priorizando avanzar a toda costa.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- VIDEO 3 -->
+                        <article class="video-mini-card" data-video="3">
+                            <span class="mini-title">Vídeo 3</span>
+
+                            <div class="mini-video-frame">
+                                <iframe src="https://www.youtube.com/watch?v=7nZbDqN3A44" allowfullscreen></iframe>
+                            </div>
+
+                            <button class="mini-unlock-btn">🎮 Mostrar mi análisis</button>
+
+                            <div class="mini-answer">
+                                <p>
+                                    Un liderazgo guiado por <strong>emociones y sentimientos personales</strong>,
+                                    actuando
+                                    según cómo se siente y persiguiendo sus objetivos sin importar las consecuencias.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </article>
+
+
+            <!-- Actividad 3 – Selector de rol tipo videojuego -->
+            <article class="activity-card" data-activity="a1">
+                <button class="activity-close" type="button">✕</button>
+                <header class="activity-header">
+                    <span class="activity-title">Actividad 3</span>
+                    <span class="activity-subtitle">“Elijo mi rol en el equipo”</span>
+                </header>
+
+                <div class="activity-body">
+                    <div class="activity-icon">
+                        <img src="../imagenes/iconos/Alert026.ico" alt="Icono actividad 1">
+                    </div>
+                    <div class="activity-text">
+                        <h3>Selecciona tu rol para desbloquear la ficha</h3>
+                        <p>
+                            Elige el rol que encaja más contigo en un equipo.
+                            Solo si aciertas, se desbloqueará tu respuesta real en el diario.
+                        </p>
+                        <span class="activity-tag">Haz clic en una carta de rol</span>
+                    </div>
+                </div>
+
+                <!-- CONTENIDO INTERACTIVO TIPO VIDEOJUEGO -->
+                <section class="activity-content activity1-content">
+                    <div class="role-selector">
+                        <div class="role-selector-hud">
+                            <span class="role-hud-label">RA2 · Competencias</span>
+                            <span class="role-hud-step">Paso 1/2 · Elige tu rol</span>
+                        </div>
+
+                        <div class="role-grid">
+                            <!-- GUIDADO (rol correcto) -->
+                            <button class="role-card" data-role="guiado" type="button">
+                                <span class="role-name">Rol: Guiado</span>
+                                <span class="role-desc">
+                                    Me centro en el bien común, organizo y escucho.
+                                </span>
+                                <span class="role-stats">
+                                    Fortalezas: Escucha · Claridad · Responsabilidad
+                                </span>
+                            </button>
+
+                            <!-- INICIATIVA -->
+                            <button class="role-card" data-role="iniciativa" type="button">
+                                <span class="role-name">Rol: Iniciativa</span>
+                                <span class="role-desc">
+                                    Rompo esquemas y tomo riesgos para avanzar.
+                                </span>
+                                <span class="role-stats">
+                                    Fortalezas: Creatividad · Rapidez · Valor
+                                </span>
+                            </button>
+
+                            <!-- EMOCIONAL -->
+                            <button class="role-card" data-role="emocional" type="button">
+                                <span class="role-name">Rol: Emocional</span>
+                                <span class="role-desc">
+                                    Cuido el ambiente del grupo y mantengo la motivación.
+                                </span>
+                                <span class="role-stats">
+                                    Fortalezas: Emoción · Motivación · Persistencia
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="role-footer">
+                            <button class="role-unlock-btn" type="button" disabled>
+                                🔒 Elige un rol para desbloquear tu respuesta
+                            </button>
+                            <p class="role-hint">Consejo: piensa en cómo actúas realmente cuando trabajas con otras
+                                personas.</p>
+                        </div>
+
+                        <!-- Paso 2: respuesta desbloqueada -->
+                        <div class="role-result">
+                            <h3>Respuesta desbloqueada · Rol: Guiado ✅</h3>
+                            <p class="role-result-text">
+                                He elegido el rol <strong>Guiado</strong> porque cuando trabajo en equipo
+                                suelo preocuparme por que todo el mundo entienda lo que hay que hacer,
+                                organizo las tareas y escucho antes de tomar decisiones.
+                                Me gusta que el grupo vaya alineado y me siento responsable de que las cosas
+                                salgan bien para todos.
+                            </p>
+                            <p class="role-result-note">
+                                Esta reflexión es la que llevaré a mi diario IPE como evidencia de la actividad.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </article>
+          
+        </div>
+    </main>
+
+    <!-- BARRA INFERIOR: ESTILO WINDOWS 7 -->
+    <footer class="bottom-bar">
+        <!-- BOTÓN INICIO WINDOWS 7 -->
+        <button class="start-button" onclick="location.href='portada.html'">
+            <img src="../imagenes/iconos/App004.ico" class="taskbar-icon" alt="Inicio Windows 7">
+            <span class="start-text">Inicio</span>
+        </button>
+
+        <!-- ZONA CENTRAL: 5 ICONOS -->
+        <div class="task-area">
+            <button class="task-button" onclick="location.href='ra2.html'">
+                <img src="../imagenes/iconos/Alert026.ico" class="task-icon-img" alt="RA2 – Competencias">
+                <span>RA2 – Competencias</span>
+            </button>
+
+            <button class="task-button active-task" onclick="location.href='equipo.html'">
+                <img src="../imagenes/iconos/User003.ico" class="task-icon-img" alt="Equipo de trabajo">
+                <span>Equipo de trabajo</span>
+            </button>
+
+            <button class="task-button" onclick="location.href='comunicacion.html'">
+                <img src="../imagenes/iconos/Display052.ico" class="task-icon-img" alt="Comunicación">
+                <span>Comunicación</span>
+            </button>
+
+            <button class="task-button" onclick="location.href='emocional.html'">
+                <img src="../imagenes/iconos/Game007.ico" class="task-icon-img" alt="Gestión emocional">
+                <span>Gestión emocional</span>
+            </button>
+
+            <button class="task-button" onclick="location.href='tiempo.html'">
+                <img src="../imagenes/iconos/Clock005.ico" class="task-icon-img" alt="Gestión del tiempo">
+                <span>Gestión del tiempo</span>
+            </button>
+        </div>
+
+        <!-- DERECHA: PESTAÑA GITHUB / APPS -->
+        <div class="tray-area">
+            <div class="tray-tab" id="tray-tab">
+                <div class="tray-arrow"></div>
+            </div>
+
+            <div class="tray-popup" id="tray-popup">
+                <!-- GRID 3x3 DE ICONOS GRANDES -->
+                <div class="tray-popup-grid">
+                    <!-- GitHub -->
+                    <div class="tray-grid-item">
+                        <a href="https://github.com/darfixs" target="_blank" class="tray-grid-link"
+                            title="GitHub @darfixs">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Google Sites -->
+                    <div class="tray-grid-item">
+                        <a href="https://sites.google.com/g.educaand.es/jose-daro-alfaro-santos?usp=sharing"
+                            target="_blank" class="tray-grid-link" title="Portafolio Google Sites">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/skin1.ico" alt="Google Sites">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Google Drive -->
+                    <div class="tray-grid-item">
+                        <a href="https://drive.google.com/file/d/1Z9_u-usSgHbeIQ0XDAJBIhYxPz-ANJ00/view?usp=drive_link"
+                            target="_blank" class="tray-grid-link" title="Documento en Drive">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/skin2.ico" alt="Google Drive">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Skin3 -->
+                    <div class="tray-grid-item">
+                        <a href="https://skin3i.com" target="_blank" class="tray-grid-link" title="skin3i.com">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/skin3.ico" alt="Skin3">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- RELLENO DECORATIVO (sin enlace) -->
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
+                </div>
+
+                <!-- Tarjeta mensaje GitHub -->
+                <div class="tray-popup-github">
+                    <a href="https://github.com/darfixs" target="_blank" class="tray-popup-link">
+                        <span class="popup-github-mark">
+                            <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                        </span>
+                        <span class="popup-text">¡Sígueme en GitHub!</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("fullscreen-btn").addEventListener("click", function () {
+            const doc = document.documentElement;
+            if (!document.fullscreenElement) {
+                if (doc.requestFullscreen) doc.requestFullscreen();
+                else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
+                else if (doc.mozRequestFullScreen) doc.mozRequestFullScreen();
+                else if (doc.msRequestFullscreen) doc.msRequestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+                else if (document.msExitFullscreen) document.msExitFullscreen();
+            }
+        });
+
+        // DVD LOGO BOUNCING (versión sin intro-card)
+        (function () {
+            const logo = document.getElementById('dvd-pfp');
+            const topBar = document.querySelector('.top-bar');
+            const bottomBar = document.querySelector('.bottom-bar');
+
+            if (!logo || !topBar || !bottomBar) return;
+
+            const LOGO_WIDTH = 90;
+            logo.style.width = LOGO_WIDTH + "px";
+
+            let x = 40;
+            let y = topBar.offsetHeight + 40;
+
+            let vx = 2.4;
+            let vy = 2.0;
+
+            const bounds = { left: 0, right: 0, top: 0, bottom: 0, w: 0, h: 0 };
+
+            function updateBounds() {
+                const rect = logo.getBoundingClientRect();
+                bounds.w = rect.width;
+                bounds.h = rect.height;
+
+                bounds.left = 0;
+                bounds.right = window.innerWidth - bounds.w;
+
+                const topH = topBar.offsetHeight;
+                const bottomH = bottomBar.offsetHeight;
+                bounds.top = topH;
+                bounds.bottom = window.innerHeight - bottomH - bounds.h;
+            }
+
+            function step() {
+                x += vx;
+                y += vy;
+
+                if (x <= bounds.left) { x = bounds.left; vx = Math.abs(vx); }
+                else if (x >= bounds.right) { x = bounds.right; vx = -Math.abs(vx); }
+
+                if (y <= bounds.top) { y = bounds.top; vy = Math.abs(vy); }
+                else if (y >= bounds.bottom) { y = bounds.bottom; vy = -Math.abs(vy); }
+
+                logo.style.left = x + 'px';
+                logo.style.top = y + 'px';
+
+                requestAnimationFrame(step);
+            }
+
+            window.addEventListener('resize', updateBounds);
+            updateBounds();
+            requestAnimationFrame(step);
+        })();
+
+
+
+        // Pestaña GitHub / Apps
+        (function () {
+            const trayTab = document.getElementById('tray-tab');
+            const trayPopup = document.getElementById('tray-popup');
+
+            if (!trayTab || !trayPopup) return;
+
+            trayTab.addEventListener('click', () => {
+                trayTab.classList.toggle('open');
+
+                trayPopup.classList.remove('animate');
+                void trayPopup.offsetWidth;
+                trayPopup.classList.add('animate');
+            });
+        })();
+
+        // Animación tarjetas de actividades
+        (function () {
+            const layer = document.querySelector('.activities-layer');
+            const cards = document.querySelectorAll('.activity-card');
+
+            if (!layer || !cards.length) return;
+
+            function closeAll() {
+                layer.classList.remove('expanded');
+                cards.forEach(c => c.classList.remove('expanded'));
+            }
+
+            cards.forEach(card => {
+                const closeBtn = card.querySelector('.activity-close');
+
+                card.addEventListener('click', (e) => {
+                    // si se ha hecho clic en el botón de cerrar, cerramos inmediatamente
+                    if (e.target.closest('.activity-close')) {
+                        closeAll();
+                        return;
+                    }
+
+                    // si ya está expandida, no hacer nada al clic interno
+                    if (card.classList.contains('expanded')) {
+                        e.stopPropagation();
+                        return;
+                    }
+
+                    // si no está expandida, expandirla
+                    const already = card.classList.contains('expanded');
+                    closeAll();
+                    if (!already) {
+                        layer.classList.add('expanded');
+                        card.classList.add('expanded');
+                    }
+                });
+
+                // opcional: también cerrar con el botón de cerrar
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        closeAll();
+                    });
+                }
+            });
+
+            // cerrar al hacer clic en el fondo oscuro (fuera de la ventana expandida)
+            layer.addEventListener('click', (e) => {
+                if (!layer.classList.contains('expanded')) return;
+                if (e.target.closest('.activity-card')) return;
+                closeAll();
+            });
+        })();
+
+        // Minijuego Actividad 1: elegir rol guiado
+        (function () {
+            const card = document.querySelector('.activity-card[data-activity="a1"]');
+            if (!card) return;
+
+            const roleCards = card.querySelectorAll('.role-card');
+            const unlockBtn = card.querySelector('.role-unlock-btn');
+            const resultBox = card.querySelector('.role-result');
+            const hint = card.querySelector('.role-hint');
+
+            let selectedRole = null;
+            let unlocked = false;
+
+            // al hacer clic en una carta de rol
+            roleCards.forEach(rc => {
+                rc.addEventListener('click', (e) => {
+                    e.stopPropagation(); // no activar la animación de maximizar
+
+                    if (unlocked) return;
+
+                    roleCards.forEach(r => r.classList.remove('selected', 'wrong'));
+                    rc.classList.add('selected');
+
+                    selectedRole = rc.dataset.role;
+
+                    if (selectedRole === 'guiado') {
+                        // rol correcto → habilitar botón de desbloqueo
+                        unlockBtn.disabled = false;
+                        unlockBtn.classList.add('enabled');
+                        unlockBtn.textContent = '✅ Confirmar rol Guiado y desbloquear respuesta';
+                        hint.textContent = 'Has elegido Guiado. Pulsa el botón para ver tu respuesta en el diario.';
+                    } else {
+                        // feedback de error suave
+                        rc.classList.add('wrong');
+                        unlockBtn.disabled = true;
+                        unlockBtn.classList.remove('enabled');
+                        unlockBtn.textContent = '🔒 Este no es mi rol real. Prueba otro.';
+                        hint.textContent = 'Piensa en qué sueles hacer tú: ¿organizar y escuchar, arriesgar o animar al grupo?';
+                    }
+                });
+            });
+
+            // al pulsar el botón de desbloqueo
+            unlockBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                if (selectedRole !== 'guiado' || unlocked) return;
+
+                unlocked = true;
+                resultBox.style.display = 'block';
+                hint.textContent = 'Respuesta guardada mentalmente: ya puedes trasladarla a tu diario IPE.';
+                unlockBtn.textContent = 'Rol Guiado confirmado ✔';
+                unlockBtn.disabled = true;
+                unlockBtn.classList.remove('enabled');
+            });
+        })();
+
+        // Actividad 2 versión horizontal
+        (function () {
+            const cards = document.querySelectorAll('.video-mini-card');
+
+            cards.forEach(card => {
+                const btn = card.querySelector('.mini-unlock-btn');
+                const ans = card.querySelector('.mini-answer');
+
+                btn.addEventListener('click', () => {
+                    const isVisible = ans.classList.contains("visible");
+
+                    if (!isVisible) {
+                        ans.classList.add("visible");
+                        btn.textContent = "✅ Análisis mostrado";
+                    } else {
+                        ans.classList.remove("visible");
+
+                        const v = card.dataset.video;
+
+                        btn.textContent = `🎮 Mostrar mi análisis`;
+                    }
+                });
+            });
+        })();
+
+
+
+    </script>
+</body>
+
+</html>

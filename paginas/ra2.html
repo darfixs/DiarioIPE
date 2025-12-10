@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RA2 – Competencias · IPE DAW II</title>
+
+    <link rel="stylesheet" href="../puntero/cursor.css">
+    <link rel="stylesheet" href="../paginas/ra2.css">
+    <style>
+        /* PANEL DE IMAGEN: scroll vertical + barra oculta */
+        .entrecomp-image-frame {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            border-radius: 16px;
+            box-shadow:
+                0 8px 22px rgba(0, 0, 0, 0.7),
+                0 0 0 2px rgba(255, 255, 255, 0.9);
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .entrecomp-image-frame::-webkit-scrollbar {
+            display: none !important;
+        }
+        .entrecomp-image-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* PANEL DE TEXTO: contenedor visual (sin scroll) */
+        .entrecomp-panel {
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            background: linear-gradient(180deg, #fbfdff, #e2ebff);
+            border-radius: 16px;
+            border: 1px solid #284a82;
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+                0 3px 10px rgba(0, 0, 0, 0.6);
+            padding: 8px 10px 8px;
+            /* ⚠️ SIN overflow aquí */
+        }
+
+        /* 🎯 CONTENEDOR CON SCROLL (el que realmente se desborda) */
+        .entrecomp-slides {
+            flex: 1;
+            min-height: 0;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            /* 👇 OCULTAR BARRA DE SCROLL EN TODOS LOS NAVEGADORES */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .entrecomp-slides::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        /* Asegurar que los hijos no causen scroll adicional */
+        .entrecomp-slide {
+            overflow: visible !important;
+        }
+        .entrecomp-slide p,
+        .entrecomp-slide ul,
+        .entrecomp-slide li {
+            overflow: visible !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- VIDEO DE FONDO -->
+    <div class="video-bg">
+        <video src="../imagenes/video/video2.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <!-- BARRA SUPERIOR (IDÉNTICA) -->
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <img src="../imagenes/topletras/primera.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/Logoprincipal.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/segunda.png" class="top-icon-img" alt="icono">
+            <img src="../imagenes/topletras/tercera.png" class="top-icon-img" alt="icono">
+            <span class="top-title">Diario IPE DAW II </span>
+        </div>
+        <div class="top-buttons">
+            <div class="top-btn">▁</div>
+        </div>
+        <button id="fullscreen-btn" class="top-btn maximize">▢</button>
+        <div class="top-btn close">✕</div>
+    </header>
+
+    <!-- LOGO DVD -->
+    <div id="dvd-pfp" class="dvd-pfp">
+        <div class="dvd-frame">
+            <div class="dvd-inner">
+                <img src="../imagenes/pfp.png" alt="Foto de perfil">
+            </div>
+        </div>
+    </div>
+
+    <!-- ESCENA ENTRECOMP -->
+    <main class="activities-layer entrecomp-layer">
+        <section class="entrecomp-shell">
+            <!-- HUD SUPERIOR DE LA ESCENA -->
+            <header class="entrecomp-header">
+                <div class="entrecomp-tagline">
+                    <span class="entrecomp-pill">RA2 · Competencias emprendedoras</span>
+                    <span class="entrecomp-mini">EntreComp: tu código para transformar ideas en valor</span>
+                </div>
+                <h1 class="entrecomp-title">EntreComp: entendiendo el emprendimiento como competencia</h1>
+                <p class="entrecomp-subtitle">
+                    Aquí recojo cómo explicamos en clase qué es EntreComp, usando nuestra
+                    propia “performance” de la mochila y la infografía principal.
+                </p>
+            </header>
+
+            <!-- CUERPO PRINCIPAL: IMAGEN + PANEL INTERACTIVO -->
+            <div class="entrecomp-body">
+                <!-- PANEL DE IMAGEN PRINCIPAL -->
+                <div class="entrecomp-image-panel">
+                    <div class="entrecomp-image-frame">
+                        <img src="../imagenes/rentrecomp.jpg" alt="Infografía EntreComp">
+                    </div>
+                    <!-- ❌ Línea eliminada según solicitud -->
+                </div>
+
+                <!-- PANEL DE TEXTO INTERACTIVO -->
+                <div class="entrecomp-panel">
+                    <!-- Pestañas -->
+                    <nav class="entrecomp-tabs">
+                        <button class="entrecomp-tab entrecomp-tab-active" data-step="0">¿Qué es?</button>
+                        <button class="entrecomp-tab" data-step="1">Mochila</button>
+                        <button class="entrecomp-tab" data-step="2">Áreas</button>
+                        <button class="entrecomp-tab" data-step="3">Uso específico</button>
+                    </nav>
+
+                    <!-- DIAPOSITIVAS -->
+                    <section class="entrecomp-slides">
+                        <!-- 0 · QUÉ ES -->
+                        <article class="entrecomp-slide entrecomp-slide-active" data-step="0">
+                            <h2>¿Qué es EntreComp?</h2>
+                            <p>
+                                En la exposición empecé así:
+                                <strong>“Compañeros, hoy les voy a hablar de algo que se llama EntreComp.
+                                Puede sonar raro al principio, pero si lo desarmamos, van a ver que es bastante
+                                sencillo.”</strong>
+                            </p>
+                            <p>
+                                La idea nace de una necesidad muy concreta: <strong>Europa tiene que impulsar el
+                                    cambio</strong>.
+                                En un mundo que cambia rápido, necesitamos <strong>ideas, oportunidades y
+                                    acciones</strong>
+                                que creen valor para los demás. Eso solo es posible con personas con
+                                <strong>mentalidad emprendedora</strong> en todos los sectores de la sociedad.
+                            </p>
+                            <p>
+                                Para responder a esto se creó <strong>EntreComp</strong>, un marco que entiende el
+                                emprendimiento como <strong>una competencia clave</strong> para el aprendizaje y el
+                                trabajo
+                                a lo largo de la vida. Nace en 2016 dentro de la
+                                <em>New Skills Agenda for Europe</em>.
+                            </p>
+                            <p>
+                                EntreComp es un <strong>marco de 3 áreas</strong> que engloban
+                                <strong>15 competencias</strong> en total (que más tarde iremos viendo).
+                                Pero antes de nada, también aclaramos qué entendemos por emprendimiento:
+                            </p>
+                            <p class="entrecomp-highlight">
+                                El emprendimiento es la <strong>capacidad de actuar sobre oportunidades e ideas
+                                    y transformarlas en valor para los demás</strong>.
+                            </p>
+                            <p>
+                                Y el nombre de EntreComp también tiene sentido:
+                            </p>
+                            <ul>
+                                <li><strong>“Entre”</strong> viene de <strong>entrepreneurship</strong> (emprender),
+                                    es decir, poner en marcha algo nuevo.</li>
+                                <li><strong>“Comp”</strong> viene de <strong>competences</strong>, las habilidades y
+                                    actitudes necesarias para hacerlo bien.</li>
+                            </ul>
+                            <p>
+                                Dicho de forma simple: <strong>EntreComp es el marco de competencias
+                                    emprendedoras</strong>
+                                que Europa propone para ayudarnos a convertir ideas en valor real.
+                            </p>
+                        </article>
+
+                        <!-- 1 · MOCHILA -->
+                        <article class="entrecomp-slide" data-step="1">
+                            <h2>La mochila del emprendedor 🎒</h2>
+                            <p>
+                                Para que no se quedara en algo teórico, utilizamos la metáfora de la
+                                <strong>“mochila del emprendedor”</strong>.
+                            </p>
+                            <p>
+                                Imaginamos que <strong>“Entre”</strong> es como la <strong>cremallera de la
+                                    mochila</strong>:
+                                representa el emprendimiento, es decir, <strong>abrir la puerta a las
+                                    oportunidades</strong>.
+                                Es el momento en el que decides dar el paso y empezar algo.
+                            </p>
+                            <p>
+                                Por otro lado, <strong>“Comp”</strong> son las <strong>competencias que llevas
+                                    dentro</strong>:
+                                habilidades, actitudes, conocimientos, forma de pensar… todo lo que te permite
+                                construir algo con sentido.
+                            </p>
+                            <p class="entrecomp-highlight">
+                                Así lo contábamos en la exposición:
+                                <strong>“EntreComp es como una mochila: ‘Entre’ abre la puerta al emprendimiento,
+                                    y ‘Comp’ son las competencias que llevamos dentro para crear valor.”</strong>
+                            </p>
+                            <p>
+                                Esa mochila no está cerrada: se va llenando con la experiencia, con proyectos,
+                                con errores y con aprendizajes. Y EntreComp nos sirve como
+                                <strong>mapa para ver qué llevamos dentro y qué nos falta por meter</strong>.
+                            </p>
+                        </article>
+
+                        <!-- 2 · ÁREAS -->
+                        <article class="entrecomp-slide" data-step="2">
+                            <h2>Las 3 áreas y las 15 competencias</h2>
+                            <p>
+                                En la segunda parte de la exposición conectamos con lo que explicó José Manuel
+                                y con la rosquilla del póster:
+                                <strong>las 15 competencias se reparten en 3 grandes áreas</strong>.
+                            </p>
+                            <p class="entrecomp-highlight">
+                                <strong>Ideas y oportunidades</strong><br>
+                                Aquí van la creatividad, la visión de futuro, detectar oportunidades, valorar
+                                ideas y pensar de forma ética y sostenible.
+                            </p>
+                            <p>
+                                Es la capacidad de crear desde un lienzo en blanco, incluso cuando
+                                no estás “inspirado”. Es mirar alrededor, ver problemas reales y
+                                transformarlos en posibles soluciones.
+                            </p>
+                            <p class="entrecomp-highlight">
+                                <strong>Recursos</strong><br>
+                                Aquí guardamos el autoconocimiento, la motivación, cómo movilizar recursos,
+                                la alfabetización financiera y cómo involucrar a otras personas.
+                            </p>
+                            <p>
+                                Tiene que ver con <strong>cómo sincronizas todas tus habilidades</strong> para construir
+                                algo grande: saber qué se te da bien, qué necesitas de los demás y cómo
+                                sostener el proyecto a nivel económico y emocional.
+                            </p>
+                            <p class="entrecomp-highlight">
+                                <strong>En acción</strong><br>
+                                Aquí añadimos la iniciativa, la planificación, la gestión del riesgo,
+                                el trabajo en equipo y aprender de la experiencia.
+                            </p>
+                            <p>
+                                Es la parte donde <strong>bajas todo a tierra</strong>: organizas el tiempo,
+                                te marcas pasos, gestionas los fallos y los conviertes en aprendizaje.
+                            </p>
+                            <p>
+                                Cada persona puede avanzar en estas competencias
+                                <strong>desde un nivel básico hasta uno experto</strong>. Todas son
+                                complementarias y dependen unas de otras. El marco plantea que
+                                una buena comprensión y aplicación <strong>intrapersonal</strong> de estas
+                                competencias puede <strong>catapultar a cualquier persona hacia el éxito
+                                    emprendedor</strong>.
+                            </p>
+                        </article>
+
+                        <!-- 3 · USO ESPECÍFICO -->
+                        <article class="entrecomp-slide" data-step="3">
+                            <h2>Uso específico de EntreComp</h2>
+                            <p class="entrecomp-epic">
+                                En la exposición hubo un momento clave:
+                                <strong>“EntreComp NO ES SOLO TEORÍA”</strong>.
+                            </p>
+                            <p>
+                                El marco se puede <strong>usar de forma práctica</strong> para muchas cosas:
+                            </p>
+                            <ul>
+                                <li>
+                                    <strong>Movilizar</strong> · generar interés y motivar a un grupo
+                                    hacia la acción.
+                                </li>
+                                <li>
+                                    <strong>Crear valor</strong> · una vez que reconoces tus habilidades,
+                                    les das valor aplicándolas de forma eficiente en la actividad
+                                    que estás realizando; adaptas tus competencias al contexto.
+                                </li>
+                                <li>
+                                    <strong>Evaluar</strong> · autoevaluar habilidades y medir tu progreso
+                                    personal o profesional.
+                                </li>
+                                <li>
+                                    <strong>Implementar</strong> · usarlo para diseñar actividades de aprendizaje,
+                                    trayectorias profesionales o incluso para apoyar start-ups.
+                                </li>
+                                <li>
+                                    <strong>Reconocer</strong> · identificar y certificar las competencias
+                                    que has ido adquiriendo.
+                                </li>
+                            </ul>
+                            <p>
+                                Aterrizado a nuestro contexto de DAW, esto significa cosas muy concretas:
+                            </p>
+                            <ul>
+                                <li>Detectar un <strong>problema real</strong> en nuestro entorno digital
+                                    o en nuestros compañeros.</li>
+                                <li>Reconocer nuestras <strong>fortalezas y debilidades
+                                        como desarrolladores web</strong>.</li>
+                                <li>Planificar y organizar un <strong>proyecto digital</strong> que
+                                    responda a ese problema.</li>
+                            </ul>
+                            <p class="entrecomp-highlight">
+                                Al final, mi conclusión al exponerlo fue:
+                                <strong>EntreComp no es únicamente un concepto europeo,
+                                    sino una guía práctica para crecer tanto a nivel individual
+                                    como profesional.</strong>
+                            </p>
+                        </article>
+                    </section>
+
+                    <!-- PIE INTERACTIVO -->
+                    <footer class="entrecomp-footer">
+                        <div class="entrecomp-progress">
+                            <span class="entrecomp-dot entrecomp-dot-active" data-step="0"></span>
+                            <span class="entrecomp-dot" data-step="1"></span>
+                            <span class="entrecomp-dot" data-step="2"></span>
+                            <span class="entrecomp-dot" data-step="3"></span>
+                        </div>
+
+                        <div class="entrecomp-nav-buttons">
+                            <button id="entrecomp-prev" class="entrecomp-main-btn entrecomp-main-btn-secondary">
+                                ◀ Atrás
+                            </button>
+                            <button id="entrecomp-next" class="entrecomp-main-btn">
+                                Siguiente ▶
+                            </button>
+                        </div>
+                        <p class="entrecomp-hint">
+                            Usa las pestañas, los botones o las flechas para recorrer la exposición tal y como la
+                            contamos en clase.
+                        </p>
+                    </footer>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BARRA INFERIOR (IDÉNTICA) -->
+    <footer class="bottom-bar">
+        <button class="start-button" onclick="location.href='portada.html'">
+            <img src="../imagenes/iconos/App004.ico" class="taskbar-icon" alt="Inicio">
+            <span class="start-text">Inicio</span>
+        </button>
+
+        <div class="task-area">
+            <button class="task-button active-task" onclick="location.href='ra2.html'">
+                <img src="../imagenes/iconos/Alert026.ico" class="task-icon-img" alt="RA2">
+                <span>RA2 – Competencias</span>
+            </button>
+            <button class="task-button" onclick="location.href='equipo.html'">
+                <img src="../imagenes/iconos/User003.ico" class="task-icon-img" alt="Equipo">
+                <span>Equipo de trabajo</span>
+            </button>
+            <button class="task-button" onclick="location.href='comunicacion.html'">
+                <img src="../imagenes/iconos/Display052.ico" class="task-icon-img" alt="Comunicación">
+                <span>Comunicación</span>
+            </button>
+            <button class="task-button" onclick="location.href='emocional.html'">
+                <img src="../imagenes/iconos/Game007.ico" class="task-icon-img" alt="Emocional">
+                <span>Gestión emocional</span>
+            </button>
+            <button class="task-button" onclick="location.href='tiempo.html'">
+                <img src="../imagenes/iconos/Clock005.ico" class="task-icon-img" alt="Tiempo">
+                <span>Gestión del tiempo</span>
+            </button>
+        </div>
+
+        <div class="tray-area">
+            <div class="tray-tab" id="tray-tab">
+                <div class="tray-arrow"></div>
+            </div>
+            <div class="tray-popup" id="tray-popup">
+                <div class="tray-popup-grid">
+                    <div class="tray-grid-item">
+                        <a href="https://github.com/darfixs  " target="_blank" class="tray-grid-link"
+                            title="GitHub @darfixs">
+                            <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <div class="tray-grid-item">
+                        <a href="https://sites.google.com/g.educaand.es/jose-daro-alfaro-santos?usp=sharing  "
+                            target="_blank" class="tray-grid-link" title="Portafolio Google Sites">
+                            <img src="../imagenes/skin1.ico" alt="Google Sites">
+                        </a>
+                    </div>
+                    <div class="tray-grid-item">
+                        <a href="https://drive.google.com/file/d/1Z9_u-usSgHbeIQ0XDAJBIhYxPz-ANJ00/view?usp=drive_link  "
+                            target="_blank" class="tray-grid-link" title="Documento en Drive">
+                            <img src="../imagenes/skin2.ico" alt="Google Drive">
+                        </a>
+                    </div>
+                    <div class="tray-grid-item">
+                        <a href="https://skin3i.com  " target="_blank" class="tray-grid-link" title="skin3i.com">
+                            <img src="../imagenes/skin3.ico" alt="Skin3">
+                        </a>
+                    </div>
+                    <div class="tray-grid-item"><span></span></div>
+                    <div class="tray-grid-item"><span></span></div>
+                    <div class="tray-grid-item"><span></span></div>
+                    <div class="tray-grid-item"><span></span></div>
+                    <div class="tray-grid-item"><span></span></div>
+                </div>
+                <div class="tray-popup-github">
+                    <a href="https://github.com/darfixs  " target="_blank" class="tray-popup-link">
+                        <span class="popup-github-mark">
+                            <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                        </span>
+                        <span class="popup-text">¡Sígueme en GitHub!</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Pantalla completa
+        document.getElementById("fullscreen-btn").addEventListener("click", function () {
+            const doc = document.documentElement;
+            if (!document.fullscreenElement) {
+                if (doc.requestFullscreen) doc.requestFullscreen();
+                else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
+                else if (doc.mozRequestFullScreen) doc.mozRequestFullScreen();
+                else if (doc.msRequestFullscreen) doc.msRequestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+                else if (document.msExitFullscreen) document.msExitFullscreen();
+            }
+        });
+
+        // DVD bouncing
+        (function () {
+            const logo = document.getElementById('dvd-pfp');
+            const topBar = document.querySelector('.top-bar');
+            const bottomBar = document.querySelector('.bottom-bar');
+            if (!logo || !topBar || !bottomBar) return;
+
+            const LOGO_WIDTH = 90;
+            logo.style.width = LOGO_WIDTH + "px";
+
+            let x = 40;
+            let y = topBar.offsetHeight + 40;
+            let vx = 2.4;
+            let vy = 2.0;
+
+            const bounds = { left: 0, right: 0, top: 0, bottom: 0, w: 0, h: 0 };
+
+            function updateBounds() {
+                const rect = logo.getBoundingClientRect();
+                bounds.w = rect.width;
+                bounds.h = rect.height;
+                bounds.left = 0;
+                bounds.right = window.innerWidth - bounds.w;
+                const topH = topBar.offsetHeight;
+                const bottomH = bottomBar.offsetHeight;
+                bounds.top = topH;
+                bounds.bottom = window.innerHeight - bottomH - bounds.h;
+            }
+
+            function step() {
+                x += vx;
+                y += vy;
+
+                if (x <= bounds.left) {
+                    x = bounds.left;
+                    vx = Math.abs(vx);
+                } else if (x >= bounds.right) {
+                    x = bounds.right;
+                    vx = -Math.abs(vx);
+                }
+
+                if (y <= bounds.top) {
+                    y = bounds.top;
+                    vy = Math.abs(vy);
+                } else if (y >= bounds.bottom) {
+                    y = bounds.bottom;
+                    vy = -Math.abs(vy);
+                }
+
+                logo.style.left = x + 'px';
+                logo.style.top = y + 'px';
+                requestAnimationFrame(step);
+            }
+
+            window.addEventListener('resize', updateBounds);
+            updateBounds();
+            requestAnimationFrame(step);
+        })();
+
+        // Tray popup
+        (function () {
+            const tab = document.getElementById('tray-tab');
+            const popup = document.getElementById('tray-popup');
+            if (tab && popup) {
+                tab.addEventListener('click', () => {
+                    tab.classList.toggle('open');
+                    popup.classList.remove('animate');
+                    void popup.offsetWidth;
+                    popup.classList.add('animate');
+                });
+            }
+        })();
+
+        // LÓGICA ENTRECOMP (pestañas y navegación)
+        function initEntrecomp() {
+            const slides = Array.from(document.querySelectorAll('.entrecomp-slide'));
+            if (!slides.length) return;
+
+            const tabs = Array.from(document.querySelectorAll('.entrecomp-tab'));
+            const dots = Array.from(document.querySelectorAll('.entrecomp-dot'));
+            const btnPrev = document.getElementById('entrecomp-prev');
+            const btnNext = document.getElementById('entrecomp-next');
+
+            let current = 0;
+
+            function updateView() {
+                slides.forEach((s, i) => {
+                    s.classList.toggle('entrecomp-slide-active', i === current);
+                });
+                tabs.forEach((t, i) => {
+                    t.classList.toggle('entrecomp-tab-active', i === current);
+                });
+                dots.forEach((d, i) => {
+                    d.classList.toggle('entrecomp-dot-active', i === current);
+                });
+
+                if (btnPrev) btnPrev.disabled = current === 0;
+                if (btnNext) btnNext.textContent = current === slides.length - 1
+                    ? 'Volver al inicio ▶'
+                    : 'Siguiente ▶';
+            }
+
+            function goTo(step) {
+                if (step < 0) step = 0;
+                if (step >= slides.length) {
+                    step = 0;
+                }
+                current = step;
+                updateView();
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const step = parseInt(tab.dataset.step, 10) || 0;
+                    goTo(step);
+                });
+            });
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const step = parseInt(dot.dataset.step, 10) || 0;
+                    goTo(step);
+                });
+            });
+
+            if (btnPrev) {
+                btnPrev.addEventListener('click', () => goTo(current - 1));
+            }
+
+            if (btnNext) {
+                btnNext.addEventListener('click', () => goTo(current + 1));
+            }
+
+            window.addEventListener('keydown', (ev) => {
+                if (ev.key === 'ArrowRight') {
+                    goTo(current + 1);
+                } else if (ev.key === 'ArrowLeft') {
+                    goTo(current - 1);
+                }
+            });
+
+            updateView();
+        }
+
+        document.addEventListener('DOMContentLoaded', initEntrecomp);
+    </script>
+</body>
+
+</html>
