@@ -7,6 +7,318 @@
     <title>Comunicación · IPE DAW II</title>
     <link rel="stylesheet" href="../puntero/cursor.css">
     <link rel="stylesheet" href="../paginas/comunicacion.css" />
+    <style>
+        /* ================================
+           Actividad 3 (Resolución de conflictos)
+           Solo estilos para este bloque
+        ================================ */
+        .conflict-content{
+            margin-top: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .conflict-nav{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 6px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.35);
+            border: 1px solid rgba(0,40,90,0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
+        }
+        .conflict-tab{
+            border: 1px solid rgba(0,40,90,0.8);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: linear-gradient(180deg,#ffffff,#d7e8ff);
+            color: #10213a;
+            cursor: url("../puntero/roundyhand.cur"), pointer;
+            box-shadow: 1px 1px 0 rgba(255,255,255,0.9), 2px 2px 0 rgba(0,40,90,0.6);
+            transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+        }
+        .conflict-tab:hover{
+            transform: translateY(-1px);
+            box-shadow: 1px 1px 0 rgba(255,255,255,0.9), 3px 3px 0 rgba(0,40,90,0.7);
+        }
+        .conflict-tab.active{
+            background: linear-gradient(180deg,#fffbdc,#ffe090);
+            border-color: #c58a1e;
+            box-shadow: 1px 1px 0 rgba(255,255,255,0.9), 3px 3px 0 rgba(197,138,30,0.9);
+        }
+
+        .conflict-scene{
+            display:none;
+            opacity: 0;
+            transform: translateY(10px) scale(0.99);
+            filter: blur(1px);
+            transition: opacity .28s ease, transform .28s ease, filter .28s ease;
+        }
+        .conflict-scene.active{
+            display:block;
+            opacity:1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        .conflict-scene h3{
+            font-size: 1.05rem;
+            color: #0b2470;
+            text-shadow: 0 1px 0 #ffffff;
+            margin-top: 2px;
+        }
+        .conflict-desc{
+            margin-top: 6px;
+            font-size: 0.92rem;
+            color: #10213a;
+            opacity: 0.95;
+        }
+
+        .conflict-box{
+            margin-top: 10px;
+            padding: 14px 14px;
+            border-radius: 16px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(210,226,255,0.98));
+            border: 1px solid rgba(0,40,90,0.85);
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.9),
+                0 10px 18px rgba(0,0,0,0.45);
+            position: relative;
+            overflow: hidden;
+        }
+        .conflict-box::after{
+            content:"";
+            position:absolute;
+            inset:0;
+            background-image:
+                repeating-linear-gradient(45deg,
+                    rgba(255,255,255,0.07) 0,
+                    rgba(255,255,255,0.07) 1px,
+                    transparent 1px,
+                    transparent 4px);
+            opacity: .45;
+            mix-blend-mode: soft-light;
+            pointer-events:none;
+        }
+        .conflict-box > *{ position: relative; z-index: 1; }
+
+        .conflict-case{
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: #0a2148;
+        }
+        .conflict-case p{ margin-bottom: 10px; }
+        .conflict-case strong{ color: #06224a; }
+
+        .conflict-actions{
+            margin-top: 10px;
+            display:flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .conflict-btn{
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,40,90,0.85);
+            background: linear-gradient(180deg,#ffffff,#ccd9ff);
+            font-weight: 800;
+            cursor: url("../puntero/roundyhand.cur"), pointer;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.9), 0 3px 8px rgba(0,0,0,0.45);
+            transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+        }
+        .conflict-btn:hover{
+            transform: translateY(-1px);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.92), 0 6px 14px rgba(0,0,0,0.55);
+            background: linear-gradient(180deg,#ffffff,#b9d1ff);
+        }
+        .conflict-btn.secondary{
+            background: linear-gradient(180deg,#fffef6,#ffe49b);
+            border-color: #c2911f;
+        }
+
+        .qa-panel{
+            margin-top: 10px;
+            display:grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 12px;
+        }
+        .qa-card{
+            border-radius: 16px;
+            padding: 14px 14px;
+            background: rgba(10,30,70,0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.85);
+            box-shadow:
+                0 12px 26px rgba(0,0,0,0.45),
+                0 0 0 2px rgba(36,94,219,0.55),
+                inset 0 0 0 1px rgba(255,255,255,0.85);
+            overflow:hidden;
+            position:relative;
+        }
+        .qa-card::before{
+            content:"";
+            position:absolute;
+            inset:-25%;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(0,190,255,0.35), transparent 55%),
+                radial-gradient(circle at 100% 0%, rgba(255,230,120,0.30), transparent 55%),
+                radial-gradient(circle at 50% 100%, rgba(120,255,180,0.28), transparent 55%);
+            opacity: .9;
+            mix-blend-mode: screen;
+            pointer-events:none;
+        }
+        .qa-card > *{ position:relative; z-index:1; }
+
+        .qa-kicker{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.78rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 900;
+            color:#0b2470;
+        }
+        .qa-kicker .qa-count{
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: linear-gradient(180deg,#f6fbff,#d7e8ff);
+            border: 1px solid rgba(0,40,90,0.35);
+        }
+        .qa-q{
+            font-size: 1.03rem;
+            font-weight: 900;
+            color:#0a234a;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+            margin-bottom: 8px;
+        }
+        .qa-a{
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color:#0a2148;
+            background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(224,233,255,0.96));
+            border: 1px solid rgba(60,90,143,0.75);
+            border-radius: 12px;
+            padding: 10px 12px;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.85);
+        }
+
+        .qa-mini{
+            font-size: 0.86rem;
+            color:#10213a;
+            line-height: 1.45;
+        }
+        .qa-mini strong{ color:#06224a; }
+
+        .conflict-fix{
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: #0a2148;
+        }
+        .conflict-fix li{ margin: 6px 0; }
+
+        @media (max-width: 900px){
+            .qa-panel{ grid-template-columns: 1fr; }
+        }
+    
+        .qa-frame{
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.40);
+            border: 1px solid rgba(0,40,90,0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
+        }
+        .qa-head{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .qa-badge{
+            font-size: 0.78rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: #0b2470;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: linear-gradient(180deg,#f6fbff,#d7e8ff);
+            border: 1px solid rgba(0,40,90,0.35);
+        }
+        .qa-step{
+            font-size: 0.8rem;
+            font-weight: 900;
+            color:#10213a;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: linear-gradient(180deg,#fffef6,#ffe49b);
+            border: 1px solid rgba(194,145,31,0.9);
+        }
+        .qa-controls{
+            margin-top: 10px;
+            display:flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        /* Botones work-btn (por si en comunicacion.css no existen como en tiempo) */
+        .work-btn{
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,40,90,0.85);
+            background: linear-gradient(180deg,#ffffff,#ccd9ff);
+            font-weight: 800;
+            cursor: url("../puntero/roundyhand.cur"), pointer;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.9), 0 3px 8px rgba(0,0,0,0.45);
+            transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+        }
+        .work-btn:hover{
+            transform: translateY(-1px);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.92), 0 6px 14px rgba(0,0,0,0.55);
+            background: linear-gradient(180deg,#ffffff,#b9d1ff);
+        }
+        .work-btn[disabled]{
+            opacity: .55;
+            cursor: default;
+            transform:none;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.9), 0 2px 6px rgba(0,0,0,0.35);
+        }
+        .work-btn-secondary{
+            background: linear-gradient(180deg,#fffef6,#ffe49b);
+            border-color: #c2911f;
+        }
+
+</style>
+
+
+    <style>
+        /* Fix: no mostrar contenido de las actividades en la tarjeta cerrada */
+        .activity-content { display: none; }
+        .activity-close { display: none; }
+        .activity-card.expanded .activity-content { display: block; }
+        .activity-card.expanded .activity-close { display: flex; }
+    </style>
+
+
+    <style>
+        /* Asegura que el contenido extendido NO se vea en la tarjeta (solo al ampliar) */
+        .activity-card:not(.expanded) .activity-content { display: none !important; }
+        .activity-card:not(.expanded) .activity-close { display: none !important; }
+    </style>
 </head>
 
 <body>
@@ -60,7 +372,7 @@
                         <span class="activity-tag">Haz clic para empezar</span>
                     </div>
                 </div>
-                <section class="activity-content">
+                <section class="activity-content" hidden>
                     <!-- FASE 1: Narrativa paso a paso -->
                     <div id="scene-interactive"
                         style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
@@ -286,7 +598,7 @@
                         <span class="activity-tag">Haz clic para revelar paso a paso</span>
                     </div>
                 </div>
-                <section class="activity-content">
+                <section class="activity-content" hidden>
                     <!-- FASE 1: Instrucción -->
                     <div id="feedback-instruction" style="text-align: center; padding: 20px 0;">
                         <p style="font-size: 1.1rem; color: #0a2348;">Haz clic en el botón para revelar el feedback y su
@@ -421,6 +733,186 @@
                     </div>
                 </section>
             </article>
+            <!-- Actividad 3 · Resolución de conflictos -->
+            <article class="activity-card" data-activity="a3">
+                <button class="activity-close" type="button">✕</button>
+
+                <header class="activity-header">
+                    <span class="activity-title">Actividad 3</span>
+                    <span class="activity-subtitle">Resolución de conflictos · Caso Jimena / Alfonso / Jorge</span>
+                </header>
+
+                <div class="activity-body">
+                    <div class="activity-icon">
+                        <img src="../imagenes/iconos/Display052.ico" alt="Conflicto">
+                    </div>
+                    <div class="activity-text">
+                        <h3>Leer, analizar y resolver</h3>
+                        <p>
+                            Primero leo el caso con calma, luego voy sacando conclusiones y por último propongo
+                            una versión “bien resuelta” para que el equipo funcione mejor.
+                        </p>
+                        <span class="activity-tag">Haz clic para ampliarla</span>
+                    </div>
+                </div>
+
+                <!-- CONTENIDO EXTENDIDO -->
+                <section class="activity-content conflict-content" hidden>
+
+                    <!-- SCENE SWITCH -->
+                    <div class="conflict-nav">
+                        <button class="conflict-tab active" type="button" data-scene="case" type="button">1 · Caso</button>
+                        <button class="conflict-tab" type="button" data-scene="qa" type="button">2 · Preguntas</button>
+                        <button class="conflict-tab" type="button" data-scene="fix" type="button">3 · Versión corregida</button>
+                    </div>
+
+                    <!-- ESCENA 1: CASO -->
+                    <div class="conflict-scene active" data-scene="case">
+                        <h3>📌 Texto del caso (para leer)</h3>
+
+                        <div class="conflict-box">
+                            <p>
+                                Jimena es empleada de una empresa de programación de aplicaciones especializada en
+                                gestión
+                                de eventos en streaming. Cada año la cifra de negocios ha ido aumentado y ella ha ido
+                                promocionando gracias a su empeño en seguir formándose y creciendo como profesional,
+                                siendo una referente en el sector.
+                            </p>
+                            <p>
+                                Cada cierto tiempo, participa en congresos y conferencias y su subordinado, Alfonso,
+                                se queda al mando de los proyectos. Alfonso ha sido padre recientemente y tiene falta
+                                de sueño; antes no le importaba quedarse por las tardes haciendo horas extra para
+                                sacar adelante los proyectos pero ahora prefiere volver antes a casa y hacerse cargo
+                                de su bebé.
+                            </p>
+                            <p>
+                                Jimena delega en él constantemente, lo hace por inercia y él no sabe cómo decirle
+                                que no en ocasiones.
+                            </p>
+                            <p>
+                                Por otro lado, Jorge, un administrativo que lleva muchos años, tiene mucha confianza
+                                con la directora y cada vez que ve que hay problemas para entregar un proyecto se ofrece
+                                para ayudar en lo que pueda; tanto que siendo autodidacta en programación, colabora
+                                realizando algunas tareas en algunos proyectos.
+                            </p>
+                            <p>
+                                El pasado jueves, en la última reunión de proyectos, ha habido un problema: Jimena ha
+                                revisado el estado de los dos últimos proyectos y se ha dado cuenta de que no están
+                                las cosas como debieran. Ha pedido explicaciones a Alfonso y Alfonso no ha sabido
+                                cómo justificar que la pasada semana ha estado pendiente de su bebé porque ha estado
+                                enfermo. Simplemente se ha limitado a balbucear y a responder que no volverá a suceder.
+                            </p>
+                            <p>
+                                En ese momento, Jorge se ha ofrecido a corregir los fallos del proyecto y Jimena ha
+                                agradecido el gesto, lo que ha incomodado muchísimo a Alfonso, porque piensa que lo
+                                ha dejado en mal lugar.
+                            </p>
+                            <p>
+                                El día después, Alfonso aprovechando una coincidencia en el aseo, ha reprochado a Jorge
+                                que se inmiscuya en su trabajo y Jorge le ha comentado que sólo tenía intención de
+                                ayudar
+                                por el bien común de la empresa; se ha dado la vuelta en dirección al despacho de la
+                                directora.
+                            </p>
+                            <p>
+                                La directora ha convocado una reunión urgente: ¿Qué ha sucedido? ¿Qué podemos hacer al
+                                respecto?
+                            </p>
+                        </div>
+
+                        <div class="conflict-actions">
+                            <button class="work-btn" type="button" data-next="qa" type="button">Ir a preguntas →</button>
+                        </div>
+                    </div>
+
+                    <!-- ESCENA 2: Q&A UNO A UNO -->
+                    <div class="conflict-scene" data-scene="qa">
+                        <h3>🎮 Preguntas + respuestas (una a una)</h3>
+                        <p class="section-desc">
+                            Pulso “Siguiente” y voy mostrando cada respuesta como si estuviera explicándolo yo.
+                        </p>
+
+                        <div class="qa-frame">
+                            <div class="qa-head">
+                                <span class="qa-badge">Modo análisis</span>
+                                <span id="qaStep" class="qa-step">0/0</span>
+                            </div>
+
+                            <div class="qa-card">
+                                <div id="qaQuestion" class="qa-q">Pulsa “Empezar” para mostrar la primera pregunta.
+                                </div>
+                                <div id="qaAnswer" class="qa-a"></div>
+                            </div>
+
+                            <div class="qa-controls">
+                                <button id="qaStartBtn" class="work-btn" type="button">Empezar</button>
+                                <button id="qaNextBtn" class="work-btn" type="button" disabled>Siguiente</button>
+                                <button id="qaResetBtn" class="work-btn work-btn-secondary" type="button"
+                                    disabled type="button">Reiniciar</button>
+                            </div>
+                        </div>
+
+                        <div class="conflict-actions">
+                            <button class="work-btn work-btn-secondary" type="button" data-next="case" type="button">← Volver al
+                                caso</button>
+                            <button class="work-btn" type="button" data-next="fix" type="button">Ir a versión corregida →</button>
+                        </div>
+                    </div>
+
+                    <!-- ESCENA 3: VERSIÓN CORREGIDA -->
+                    <div class="conflict-scene" data-scene="fix">
+                        <h3>✅ Versión correcta del caso (si yo lo arreglara)</h3>
+
+                        <div class="conflict-box">
+                            <p><strong>Versión mejor comunicada:</strong></p>
+
+                            <p>
+                                En la reunión, Jimena detecta el problema y en vez de apretar en público, pregunta con
+                                calma:
+                                “Alfonso, ¿qué ha pasado esta semana? Necesito contexto para reorganizar el trabajo.”
+                            </p>
+
+                            <p>
+                                Alfonso se siente con espacio para ser honesto: explica lo del bebé enfermo y reconoce
+                                que no lo
+                                comunicó a tiempo por miedo a quedar mal. Ahí Jimena responde con claridad: “Gracias por
+                                decirlo.
+                                La próxima vez prefiero que me lo digas antes, porque así ajustamos plazos y reparto.”
+                            </p>
+
+                            <p>
+                                Jorge, si quiere ayudar, lo plantea sin invadir: “Si os sirve, puedo apoyar en tareas
+                                concretas
+                                y pequeñas para quitar presión, pero decidid vosotros qué necesitáis.” Jimena lo
+                                agradece,
+                                pero deja claro el liderazgo: “Perfecto. Alfonso, dime qué parte quieres delegar y yo lo
+                                valido.”
+                            </p>
+
+                            <p>
+                                Después de la reunión, la directora fija un mini-protocolo: check-in rápido semanal,
+                                reparto
+                                realista, y si alguien está saturado se comunica sin miedo. Resultado: menos tensión,
+                                más confianza
+                                y la ayuda de Jorge se integra sin que nadie quede “en mal lugar”.
+                            </p>
+
+                            <p>
+                                <strong>Conclusión:</strong> el conflicto no era “trabajo”, era
+                                <strong>comunicación</strong>:
+                                límites, transparencia y apoyo sin ego.
+                            </p>
+                        </div>
+
+                        <div class="conflict-actions">
+                            <button class="work-btn work-btn-secondary" type="button" data-next="qa" type="button">← Volver a
+                                preguntas</button>
+                        </div>
+                    </div>
+
+                </section>
+            </article>
+
         </div>
     </main>
 
@@ -611,29 +1103,29 @@
                 }
             });
         })();
-function resetActivity2(card) {
-    // Reiniciar pantalla de instrucción
-    const instruction = card.querySelector('#feedback-instruction');
-    const analysis = card.querySelector('#feedback-analysis');
-    const conclusion = card.querySelector('#conclusion');
-    
-    if (instruction) instruction.style.display = 'block';
-    if (analysis) analysis.style.display = 'none';
-    if (conclusion) conclusion.style.display = 'none';
+        function resetActivity2(card) {
+            // Reiniciar pantalla de instrucción
+            const instruction = card.querySelector('#feedback-instruction');
+            const analysis = card.querySelector('#feedback-analysis');
+            const conclusion = card.querySelector('#conclusion');
 
-    // Ocultar todos los pasos
-    card.querySelectorAll('[id^="feedback-step"], [id^="analysis-step"]').forEach(el => {
-        el.style.display = 'none';
-    });
+            if (instruction) instruction.style.display = 'block';
+            if (analysis) analysis.style.display = 'none';
+            if (conclusion) conclusion.style.display = 'none';
 
-    // Reiniciar botón
-    const btnNext = card.querySelector('#btn-next-step');
-    if (btnNext) {
-        btnNext.textContent = "▶ Mostrar siguiente parte";
-        btnNext.disabled = false;
-        btnNext.style.opacity = '1';
-    }
-}
+            // Ocultar todos los pasos
+            card.querySelectorAll('[id^="feedback-step"], [id^="analysis-step"]').forEach(el => {
+                el.style.display = 'none';
+            });
+
+            // Reiniciar botón
+            const btnNext = card.querySelector('#btn-next-step');
+            if (btnNext) {
+                btnNext.textContent = "▶ Mostrar siguiente parte";
+                btnNext.disabled = false;
+                btnNext.style.opacity = '1';
+            }
+        }
         function initSceneNarrative() {
             // Reiniciar estado cada vez que se entra
             let currentPhase = 1;
@@ -775,6 +1267,140 @@ function resetActivity2(card) {
             });
         })();
     </script>
+
+<script>
+/* ===========================
+   ACTIVIDAD 3: CONFLICTO (A3)
+=========================== */
+(function () {
+    const a3 = document.querySelector('.activity-card[data-activity="a3"]');
+    if (!a3) return;
+
+    // Tabs/Scenes
+    const tabs = a3.querySelectorAll('.conflict-tab');
+    const scenes = a3.querySelectorAll('.conflict-scene');
+
+    function showScene(key) {
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.scene === key));
+        scenes.forEach(s => s.classList.toggle('active', s.dataset.scene === key));
+    }
+
+    tabs.forEach(t => t.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showScene(t.dataset.scene);
+    }));
+
+    a3.querySelectorAll('[data-next]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showScene(btn.getAttribute('data-next'));
+        });
+    });
+
+    // Q&A (como si fueras tú)
+    const qa = [
+        {
+            q: "¿Qué ha ocurrido?",
+            a: "Básicamente se ha juntado todo: Jimena delega por inercia sin comprobar carga real, Alfonso está saturado por el bebé y no comunica, y Jorge intenta ayudar pero lo hace en un momento y forma que deja a Alfonso expuesto. Resultado: Alfonso se siente cuestionado, se lo toma personal y explota fuera de contexto (en el aseo) en vez de hablarlo bien."
+        },
+        {
+            q: "¿Qué rol respecto a la comunicación desempeña Jimena?",
+            a: "Jimena tiene un rol de liderazgo, pero aquí le falta comunicación preventiva. Va a resultados y a control, pero no crea el espacio para que Alfonso diga “no puedo” sin miedo. O sea: comunica desde arriba y en público, y eso aprieta."
+        },
+        {
+            q: "¿Qué rol respecto a la comunicación desempeña Jorge?",
+            a: "Jorge es el “salvador / mediador” con buena intención, pero se mete donde hay jerarquía y orgullo. Su comunicación es de ayuda, sí, pero le falta tacto: debería ofrecer apoyo sin invadir y siempre alineado con Alfonso, no delante de todos."
+        },
+        {
+            q: "¿Qué rol respecto a la comunicación desempeña Alfonso?",
+            a: "Alfonso es el perfil que evita el conflicto hasta que revienta. No pone límites a tiempo, no pide ayuda, y cuando se siente humillado lo suelta en un sitio mal (el baño) y en un tono de reproche. Le falta asertividad: decir la verdad antes y proponer soluciones."
+        },
+        {
+            q: "¿Qué rol respecto a la comunicación desempeña la directora?",
+            a: "La directora actúa como árbitro: convoca reunión urgente para cortar el problema. Su rol debería ser ordenar: escuchar versiones, bajar tensión, definir responsabilidades y un sistema para que esto no se repita."
+        },
+        {
+            q: "Si pudieras corregir la situación, ¿cómo lo harías?",
+            a: "Yo haría 3 cosas: (1) reunión corta y calmada con los 3 para aclarar hechos sin culpas, (2) repartir tareas de forma realista (si Alfonso está saturado, se ajusta el plan) y (3) poner una regla: si alguien va mal, lo comunica antes y se replanifica. Y a Jorge le marcaría límites: ayudar sí, pero coordinado con Alfonso."
+        },
+        {
+            q: "Reproduce la versión correcta de la historia para que la dinámica mejore.",
+            a: "La versión buena es: Alfonso avisa a tiempo de su situación, Jimena responde ajustando tareas y plazos en vez de presionar en público, y Jorge ofrece ayuda con permiso y tareas concretas. La directora cierra con un mini-protocolo de seguimiento. Con eso se mantiene el respeto y la empresa no se come el drama."
+        }
+    ];
+
+    const qaStep = a3.querySelector('#qaStep');
+    const qaQuestion = a3.querySelector('#qaQuestion');
+    const qaAnswer = a3.querySelector('#qaAnswer');
+    const startBtn = a3.querySelector('#qaStartBtn');
+    const nextBtn = a3.querySelector('#qaNextBtn');
+    const resetBtn = a3.querySelector('#qaResetBtn');
+
+    let idx = -1;
+
+    function renderQA() {
+        qaStep.textContent = `${Math.max(0, idx + 1)}/${qa.length}`;
+
+        if (idx < 0) {
+            qaQuestion.textContent = "Pulsa “Empezar” para mostrar la primera pregunta.";
+            qaAnswer.textContent = "";
+            nextBtn.disabled = true;
+            resetBtn.disabled = true;
+            return;
+        }
+
+        qaQuestion.textContent = qa[idx].q;
+        qaAnswer.textContent = qa[idx].a;
+
+        // Next siempre avanza; al llegar al final, reinicia
+        nextBtn.disabled = idx < 0;
+        resetBtn.disabled = false;
+
+        if (idx >= qa.length - 1) {
+            nextBtn.textContent = "Reiniciar ↺";
+        } else {
+            nextBtn.textContent = "Siguiente";
+        }
+    }
+
+    startBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        idx = 0;
+        startBtn.disabled = true;
+        nextBtn.disabled = false;
+        resetBtn.disabled = false;
+        renderQA();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (idx < 0) return;
+
+        if (idx >= qa.length - 1) {
+            idx = 0; // reiniciar
+        } else {
+            idx++;
+        }
+        renderQA();
+    });
+
+    resetBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        idx = -1;
+        startBtn.disabled = false;
+        nextBtn.disabled = true;
+        resetBtn.disabled = true;
+        nextBtn.textContent = "Siguiente";
+        renderQA();
+    });
+
+    // init
+    qaStep.textContent = `0/${qa.length}`;
+    renderQA();
+})();
+</script>
+
+
 </body>
 
 </html>

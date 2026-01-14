@@ -4,15 +4,33 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión emocional · IPE DAW II</title>
+    <title>Gestión del tiempo · IPE II</title>
     <link rel="stylesheet" href="../puntero/cursor.css">
-    <link rel="stylesheet" href="../paginas/emocional.css" />
+    <link rel="stylesheet" href="tiempo.css" />
+
+    <!-- Estilos mínimos para que las tareas se vean -->
+    <style>
+        .task-card {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #212529;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+            border-left: 4px solid #4CAF50;
+        }
+        .e-hazlo .task-card { border-left-color: #e53935; }
+        .e-programa .task-card { border-left-color: #1E88E5; }
+        .e-delega .task-card { border-left-color: #FFB300; }
+        .e-elimina .task-card { border-left-color: #757575; }
+    </style>
 </head>
 
 <body>
     <!-- VIDEO DE FONDO -->
     <div class="video-bg">
-        <video src="../imagenes/video/video5.mp4" autoplay muted loop playsinline></video>
+        <video src="../imagenes/video/video1.mp4" autoplay muted loop playsinline></video>
     </div>
 
     <!-- BARRA SUPERIOR -->
@@ -22,291 +40,228 @@
             <img src="../imagenes/topletras/Logoprincipal.png" class="top-icon-img" alt="icono">
             <img src="../imagenes/topletras/segunda.png" class="top-icon-img" alt="icono">
             <img src="../imagenes/topletras/tercera.png" class="top-icon-img" alt="icono">
-            <span class="top-title">Diario IPE DAW II </span>
+            <span class="top-title">Gestión del tiempo · IPE II</span>
         </div>
+
         <div class="top-buttons">
             <div class="top-btn">▁</div>
+            <button id="fullscreen-btn" class="top-btn maximize" type="button">▢</button>
+            <div class="top-btn close">✕</div>
         </div>
-        <button id="fullscreen-btn" class="top-btn maximize">▢</button>
-        <div class="top-btn close">✕</div>
     </header>
 
-    <!-- LOGO DVD -->
-    <div id="dvd-pfp" class="dvd-pfp">
-        <div class="dvd-frame">
-            <div class="dvd-inner">
-                <img src="../imagenes/pfp.png" alt="Foto de perfil">
-            </div>
-        </div>
-    </div>
-
-    <!-- CAPA DE ACTIVIDADES -->
+    <!-- CAPA CENTRAL: UNA SOLA ACTIVIDAD (SIN TARJETA EXTRA) -->
     <main class="activities-layer">
-        <div class="activities-grid">
-            <!-- Solo una actividad: Frustración y aceptación -->
-            <article class="activity-card" data-activity="emo1">
-                <button class="activity-close" type="button">✕</button>
-                <header class="activity-header">
-                    <span class="activity-title">Actividad 1</span>
-                    <span class="activity-subtitle">Frustración y aceptación</span>
-                </header>
-
-                <div class="activity-body">
-                    <div class="activity-icon">
-                        <img src="../imagenes/iconos/Game007.ico" alt="Icono">
-                    </div>
-                    <div class="activity-text">
-                        <h3>Juego de los saltos y las expectativas</h3>
-                        <p>Revive la actividad del salto como si fuera una misión. Avanza escena a escena.</p>
-                        <span class="activity-tag">Haz clic en la tarjeta para ampliar</span>
-                    </div>
+        <section class="time-shell">
+            <!-- CABECERA -->
+            <header class="time-header">
+                <div class="time-tagline">
+                    <span class="time-pill">Actividad · Gestión del tiempo</span>
+                    <span class="time-mini">SMART · Eisenhower · Delegar · Eficiencia</span>
                 </div>
+                <h1 class="time-title">Mi “ADMIN”: mi centro de operaciones para organizarme</h1>
+                <p class="time-subtitle">
+                    Uso un GoogleDoc llamado <strong>Admin</strong> como si fuese la <strong>batcueva</strong>:
+                    pestañas, colores, prioridades y objetivos claros. Esto me mantiene vivo
+                    cuando tengo mil cosas encima.
+                </p>
+            </header>
 
-                <!-- CONTENIDO INTERACTIVO -->
-                <section class="activity-content emo-game">
-                    <!-- ESCENA 1 · INTRO MISIÓN -->
-                    <div id="emo-scene-1" class="emo-scene emo-scene-active">
-                        <div class="emo-hud">
-                            <span class="emo-hud-label">Misión emocional · Nivel 1</span>
-                            <span class="emo-hud-step">Escena 1/5 · Briefing</span>
+            <!-- CUERPO -->
+            <div class="time-body">
+                <!-- PANEL IZQUIERDO: SIMULADOR DEL ADMIN -->
+                <section class="admin-panel">
+                    <div class="admin-top">
+                        <div class="admin-title">
+                            <span class="admin-dot"></span>
+                            <span>ADMIN · Documento</span>
                         </div>
+                        <div class="admin-hint">Cambia de pestaña para ver cómo lo uso.</div>
+                    </div>
 
-                        <div class="emo-scene-main">
-                            <h3 class="emo-title">Frustración y aceptación: el día del salto</h3>
-                            <p class="emo-text">
-                                Estás en el gimnasio. El profe propone una actividad rara:
-                                escribir tu nombre en un papel y pegarlo en la pared a la altura
-                                hasta donde crees que puedes saltar desde un punto fijo.
-                                Con eso se mide la relación <strong>objetivo / recompensa / expectativa /
-                                    realidad</strong>.
-                            </p>
-                            <p class="emo-text">
-                                En este juego vas a tomar mis decisiones y meterte en mi cabeza
-                                para ver cómo viví la actividad… y qué aprendí de verdad de todo esto.
-                            </p>
-
-                            <button id="btn-emo-start" class="emo-main-btn">
-                                ▶ Empezar misión
+                    <div class="admin-main">
+                        <!-- lista lateral -->
+                        <aside class="admin-tabs" aria-label="Pestañas del documento">
+                            <button class="admin-tab active" data-tab="acc" type="button">
+                                <span class="tab-ico">🔐</span>
+                                <span class="tab-text">Acc</span>
                             </button>
-                        </div>
-                    </div>
-
-                    <!-- ESCENA 2 · ELECCIÓN DE EXPECTATIVA -->
-                    <div id="emo-scene-2" class="emo-scene">
-                        <div class="emo-hud">
-                            <span class="emo-hud-label">Misión emocional · Nivel 2</span>
-                            <span class="emo-hud-step">Escena 2/5 · Elijo mi marca</span>
-                        </div>
-
-                        <div class="emo-scene-main">
-                            <h3 class="emo-title">¿Dónde colocarías tu nombre?</h3>
-                            <p class="emo-text">
-                                Imagina la pared delante de ti. Sabes que puedes saltar alto,
-                                pero tampoco quieres fliparte. Elige la altura a la que pegarías el papel
-                                con tu nombre.
-                            </p>
-
-                            <div class="emo-options-row">
-                                <button class="emo-option" data-value="40">
-                                    <span class="emo-option-label">40&nbsp;%</span>
-                                    <span class="emo-option-desc">
-                                        Tiro por lo seguro. No está mal, pero no arriesgo nada.
-                                    </span>
-                                </button>
-
-                                <button class="emo-option" data-value="60">
-                                    <span class="emo-option-label">60&nbsp;%</span>
-                                    <span class="emo-option-desc">
-                                        Realista pero no conformista. Creo que llego… o eso pienso.
-                                    </span>
-                                </button>
-
-                                <button class="emo-option" data-value="80">
-                                    <span class="emo-option-label">80&nbsp;%</span>
-                                    <span class="emo-option-desc">
-                                        Voy a tope. Igual me paso de optimista y me la pego.
-                                    </span>
-                                </button>
-                            </div>
-
-                            <p id="emo-choice-message" class="emo-feedback-text">
-                                Elige una de las tres opciones para continuar.
-                            </p>
-
-                            <button id="btn-emo-validate" class="emo-main-btn">
-                                ✅ Confirmar altura
+                            <button class="admin-tab" data-tab="strategy" type="button">
+                                <span class="tab-ico">🧠</span>
+                                <span class="tab-text">Strategy</span>
                             </button>
-                        </div>
-                    </div>
+                            <button class="admin-tab" data-tab="evolution" type="button">
+                                <span class="tab-ico">📈</span>
+                                <span class="tab-text">Evolution</span>
+                            </button>
+                            <button class="admin-tab" data-tab="schedule" type="button">
+                                <span class="tab-ico">🗓️</span>
+                                <span class="tab-text">Schedule</span>
+                            </button>
+                            <button class="admin-tab" data-tab="marks" type="button">
+                                <span class="tab-ico">🏆</span>
+                                <span class="tab-text">Marks</span>
+                            </button>
+                            <button class="admin-tab" data-tab="life" type="button">
+                                <span class="tab-ico">🧩</span>
+                                <span class="tab-text">Life</span>
+                            </button>
+                            <button class="admin-tab" data-tab="sus" type="button">
+                                <span class="tab-ico">💳</span>
+                                <span class="tab-text">Suscripciones</span>
+                            </button>
+                        </aside>
 
-                    <!-- ESCENA 3 · EL SALTO Y EL ++ -->
-                    <div id="emo-scene-3" class="emo-scene">
-                        <div class="emo-hud">
-                            <span class="emo-hud-label">Misión emocional · Nivel 3</span>
-                            <span class="emo-hud-step">Escena 3/5 · El salto</span>
-                        </div>
-
-                        <div class="emo-scene-main">
-                            <h3 class="emo-title">Momento de la verdad</h3>
-                            <p class="emo-text">
-                                Ya has pegado tu nombre a una altura que te parece razonable.
-                                Ahora toca saltar de verdad.
-                            </p>
-
-                            <div class="emo-jump-meter">
-                                <div class="emo-jump-bg">
-                                    <div class="emo-jump-target">Tu marca estimada (60&nbsp;%)</div>
-                                    <div class="emo-jump-real" id="emo-jump-real">
-                                        <span class="emo-jump-label">Salto real</span>
-                                    </div>
-                                </div>
+                        <!-- visor -->
+                        <div class="admin-view">
+                            <div class="admin-image-frame">
+                                <img id="admin-image" src="../imagenes/tiempo/Life.png" alt="Captura del Admin">
                             </div>
 
-                            <p id="emo-jump-message" class="emo-feedback-text">
-                                Pulsa el botón para intentar el salto.
-                            </p>
-
-                            <div class="emo-jump-buttons">
-                                <button id="btn-emo-jump" class="emo-main-btn">
-                                    🦘 Saltar
-                                </button>
-                                <button id="btn-emo-to-4" class="emo-secondary-btn" style="display:none;">
-                                    ▶ Ver qué significa “++”
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ESCENA 4 · DESCUBRIMIENTO Y AUTO-DIÁLOGO -->
-                    <div id="emo-scene-4" class="emo-scene">
-                        <div class="emo-hud">
-                            <span class="emo-hud-label">Misión emocional · Nivel 4</span>
-                            <span class="emo-hud-step">Escena 4/5 · Lo que descubrí</span>
-                        </div>
-
-                        <div class="emo-scene-main">
-                            <h3 class="emo-title">Cuando el “creo que puedo” se queda corto</h3>
-
-                            <!-- ZONA SCROLLEABLE -->
-                            <div id="emo-thoughts-wrapper" class="emo-thoughts-wrapper">
-                                <div class="emo-thoughts">
-                                    <div class="emo-thought-card emo-thought-hidden" data-step="1">
-                                        <p>
-                                            Al final, coloqué mi nombre a un
-                                            <strong>60&nbsp;% de la altura máxima</strong> que realmente
-                                            llegué a alcanzar. Eso, en nuestra escala, era un
-                                            <strong>“++”</strong>: superar tus expectativas de sobra.
-                                        </p>
-                                        <p>
-                                            Eso me hizo pensar mucho, porque yo me considero una persona
-                                            bastante realista, pero <strong>no conformista</strong>. Siempre
-                                            intento apuntar alto, confiar en que lo que quiero lo puedo
-                                            conseguir.
-                                        </p>
-                                    </div>
-
-                                    <div class="emo-thought-card emo-thought-hidden" data-step="2">
-                                        <p>
-                                            Esta actividad me dejó claro que
-                                            <strong>nosotros mismos decidimos nuestros límites</strong> todo el tiempo,
-                                            casi sin darnos cuenta. A veces no es que no podamos, es que
-                                            <strong>creemos que no podemos</strong>.
-                                        </p>
-                                        <p>
-                                            Y esa diferencia, aunque parece pequeña, lo cambia todo.
-                                            Muchas veces uno se queda corto, no porque el objetivo sea
-                                            imposible, sino porque lo ve demasiado grande para sí mismo.
-                                        </p>
-                                    </div>
-
-                                    <div class="emo-thought-card emo-thought-hidden" data-step="3">
-                                        <p>
-                                            Es como cuando llevas días diciéndote:
-                                            “esto es demasiado” o “yo no valgo para esto” y luego,
-                                            cuando llega el momento de la verdad, lo haces, lo sacas
-                                            adelante y piensas:
-                                            <strong>“¿en serio he perdido tanto tiempo dudando de mí?”</strong>.
-                                        </p>
-                                        <p>
-                                            Ahí ves que las barreras más fuertes no están fuera,
-                                            sino dentro: comparaciones constantes, expectativas irreales,
-                                            presión social y todo lo que internet te lanza
-                                            diciéndote cómo tienes que ser y cuánto tienes que conseguir.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- PIE FIJO: TEXTO + BOTÓN -->
-                            <div class="emo-footer-fixed">
-                                <p id="emo-thought-message" class="emo-feedback-text">
-                                    Pulsa el botón para ir desbloqueando lo que fui pensando.
-                                </p>
-
-                                <button id="btn-emo-next-think" class="emo-main-btn">
-                                    💭 Mostrar siguiente pensamiento
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ESCENA 5 · CONCLUSIÓN Y METÁFORA -->
-                    <div id="emo-scene-5" class="emo-scene">
-                        <div class="emo-hud">
-                            <span class="emo-hud-label">Misión emocional · Nivel 5</span>
-                            <span class="emo-hud-step">Escena 5/5 · Conclusión</span>
-                        </div>
-
-                        <div class="emo-scene-main">
-                            <h3 class="emo-title">Si crees que puedes volar, buscarás alas</h3>
-
-                            <div class="emo-conclusion-card">
-                                <p>
-                                    Al final entendí que <strong>soy yo quien marca el techo</strong>,
-                                    todos los días, en cosas pequeñas y grandes.
-                                    Cuando pones tu nombre al 60&nbsp;% de tu capacidad real,
-                                    sin querer estás diciendo:
-                                    <strong>“creo que esto es lo máximo que puedo”</strong>.
-                                </p>
-                                <p>
-                                    Luego saltas, lo superas por muchísimo y ves que
-                                    quizá no estás apuntando tan alto como deberías, porque sigues
-                                    tratando tus límites como algo fijo, cuando en realidad
-                                    <strong>son moldeables</strong>.
-                                </p>
-                                <p>
-                                    Para mí, lo clave es la actitud. Si realmente apunto alto,
-                                    aunque dé vértigo, tengo muchas más posibilidades de llegar
-                                    que si empiezo ya recortándome.
-                                </p>
-                                <p>
-                                    Como dice un colega mío:
-                                </p>
-                                <p class="emo-quote">
-                                    “Si crees que el humano puede volar, vas a buscarte alas.
-                                    Si crees que solo puede caminar, te conformarás con
-                                    no cansarte demasiado”.
-                                </p>
-                                <p>
-                                    Esta actividad, que parecía una tontería, fue la prueba de
-                                    que <strong>lo que creemos sobre nosotros mismos</strong> pesa
-                                    muchísimo más de lo que imaginamos. Y que muchas veces,
-                                    la verdadera gestión emocional empieza cuando te atreves
-                                    a dejar de ponerte límites tan bajos.
-                                </p>
-                            </div>
-
-                            <div class="emo-achievement">
-                                <span class="emo-achievement-badge">LOGRO DESBLOQUEADO</span>
-                                <span class="emo-achievement-text">
-                                    Frustración y aceptación · Redefinir mis límites
-                                </span>
+                            <div class="admin-caption">
+                                <span id="admin-caption-title" class="cap-title">Life</span>
+                                <span id="admin-caption-sub" class="cap-sub">Mi tablero diario: objetivos +
+                                    prioridades.</span>
                             </div>
                         </div>
                     </div>
                 </section>
-            </article>
-        </div>
+
+                <!-- PANEL DERECHO: EXPLICACIÓN + INTERACTIVO -->
+                <section class="work-panel">
+                    <!-- EXPLICACIÓN QUE CAMBIA -->
+                    <div class="work-section">
+                        <h2 class="work-h2">¿Qué es esta pestaña?</h2>
+                        <p id="admin-explain" class="work-p">
+                            <span class="hl">Life</span> es la más importante: aquí decido el día.
+                            Marco objetivos <strong>realistas</strong>, y los pinto por prioridad con mi metodología de
+                            colores.
+                            Si no lo pongo aquí, literalmente se me puede olvidar o lo dejo para “luego”.
+                        </p>
+
+                        <div class="callout">
+                            <div class="callout-badge">Metodología simple</div>
+                            <div id="admin-tip" class="callout-text">
+                                Verde = “Hazlo ya” · Azul = “Programa” · Amarillo = “Delega” · Rojo = “Elimina”
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SMART BUILDER -->
+                    <div class="work-section">
+                        <h2 class="work-h2">1) Objetivos SMART</h2>
+                        <p class="work-p">
+                            Para que un objetivo no sea humo, lo bajo a tierra con <strong>SMART</strong>:
+                            específico, medible, alcanzable, relevante y con tiempo.
+                        </p>
+
+                        <div class="smart-grid">
+                            <label class="smart-field">
+                                <span>Específico (S)</span>
+                                <input id="smart_s" type="text" placeholder="Ej: Terminar la práctica RA2 en 2h">
+                            </label>
+
+                            <label class="smart-field">
+                                <span>Medible (M)</span>
+                                <input id="smart_m" type="text" placeholder="Ej: 3 apartados completos + commit">
+                            </label>
+
+                            <label class="smart-field">
+                                <span>Alcanzable (A)</span>
+                                <input id="smart_a" type="text" placeholder="Ej: tengo los apuntes y 2h libres">
+                            </label>
+
+                            <label class="smart-field">
+                                <span>Relevante (R)</span>
+                                <input id="smart_r" type="text" placeholder="Ej: sube mi nota y me deja respirar">
+                            </label>
+
+                            <label class="smart-field smart-field-wide">
+                                <span>Tiempo (T)</span>
+                                <input id="smart_t" type="text" placeholder="Ej: hoy antes de las 21:00">
+                            </label>
+                        </div>
+
+                        <div class="smart-preview">
+                            <div class="preview-title">Resultado SMART</div>
+                            <div id="smart_out" class="preview-text">
+                                Rellena los campos y verás tu objetivo listo para ejecutarse.
+                            </div>
+
+                            <div class="preview-actions">
+                                <button id="smart_example" class="work-btn" type="button">Ejemplo con mi estilo</button>
+                                <button id="smart_clear" class="work-btn work-btn-secondary"
+                                    type="button">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EISENHOWER -->
+                    <div class="time-section">
+                        <h3>2) Priorizar · Matriz de Eisenhower</h3>
+                        <p class="section-desc">Aquí organizo mis tareas según importancia y urgencia. Pulsa el botón
+                            para generar un ejemplo realista.</p>
+
+                        <button id="genExampleBtn" class="time-btn">Generar ejemplo</button>
+
+                        <div class="eisenhower-grid">
+
+                            <!-- Hazlo -->
+                            <div class="e-box e-hazlo">
+                                <h4>Hazlo<br><span>Importante + Urgente</span></h4>
+                                <div class="e-tasks" id="hazloTasks"></div>
+                            </div>
+
+                            <!-- Programa -->
+                            <div class="e-box e-programa">
+                                <h4>Programa<br><span>Importante + No urgente</span></h4>
+                                <div class="e-tasks" id="programaTasks"></div>
+                            </div>
+
+                            <!-- Delega -->
+                            <div class="e-box e-delega">
+                                <h4>Delega<br><span>Urgente + No importante</span></h4>
+                                <div class="e-tasks" id="delegaTasks"></div>
+                            </div>
+
+                            <!-- Elimina -->
+                            <div class="e-box e-elimina">
+                                <h4>Elimina<br><span>No urgente + No importante</span></h4>
+                                <div class="e-tasks" id="eliminaTasks"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- DELEGAR -->
+                    <div class="work-section">
+                        <h2 class="work-h2">3) Delegar (cuando toca)</h2>
+                        <p class="work-p">
+                            Delegar no es “escaquearse”. Es liberar tiempo para lo que sí depende de mí.
+                            Si algo es urgente pero no es clave, se delega si hay opción.
+                        </p>
+
+                        <div class="delegate-row">
+                            <div class="delegate-card">
+                                <div class="delegate-badge">Ejemplo</div>
+                                <div class="delegate-text">
+                                    <strong>Urgente y no importante:</strong> entregar un informe “de trámite”.
+                                    Si alguien puede ayudar, lo pido y yo me quedo con lo crítico.
+                                </div>
+                            </div>
+
+                            <div class="delegate-card">
+                                <div class="delegate-badge">Anti-ejemplo</div>
+                                <div class="delegate-text">
+                                    <strong>Importante y urgente:</strong> “presentar un reto / entrega final”.
+                                    Eso lo hago yo porque ahí está la nota, el criterio y el resultado.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
     </main>
 
     <!-- BARRA INFERIOR -->
@@ -315,63 +270,82 @@
             <img src="../imagenes/iconos/App004.ico" class="taskbar-icon" alt="Inicio">
             <span class="start-text">Inicio</span>
         </button>
+
         <div class="task-area">
             <button class="task-button" onclick="location.href='ra2.html'">
                 <img src="../imagenes/iconos/Alert026.ico" class="task-icon-img" alt="RA2">
                 <span>RA2 – Competencias</span>
             </button>
+
             <button class="task-button" onclick="location.href='equipo.html'">
                 <img src="../imagenes/iconos/User003.ico" class="task-icon-img" alt="Equipo">
                 <span>Equipo de trabajo</span>
             </button>
+
             <button class="task-button" onclick="location.href='comunicacion.html'">
                 <img src="../imagenes/iconos/Display052.ico" class="task-icon-img" alt="Comunicación">
                 <span>Comunicación</span>
             </button>
+
             <button class="task-button" onclick="location.href='emocional.html'">
                 <img src="../imagenes/iconos/Game007.ico" class="task-icon-img" alt="Emocional">
                 <span>Gestión emocional</span>
             </button>
+
             <button class="task-button active-task" onclick="location.href='tiempo.html'">
                 <img src="../imagenes/iconos/Clock005.ico" class="task-icon-img" alt="Tiempo">
                 <span>Gestión del tiempo</span>
             </button>
         </div>
+
         <div class="tray-area">
             <div class="tray-tab" id="tray-tab">
                 <div class="tray-arrow"></div>
             </div>
+
             <div class="tray-popup" id="tray-popup">
                 <div class="tray-popup-grid">
                     <div class="tray-grid-item">
                         <a href="https://github.com/darfixs" target="_blank" class="tray-grid-link"
                             title="GitHub @darfixs">
-                            <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/github-mark-white.svg" alt="GitHub">
+                            </span>
                         </a>
                     </div>
+
                     <div class="tray-grid-item">
                         <a href="https://sites.google.com/g.educaand.es/jose-daro-alfaro-santos?usp=sharing"
                             target="_blank" class="tray-grid-link" title="Portafolio Google Sites">
-                            <img src="../imagenes/skin1.ico" alt="Google Sites">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/skin1.ico" alt="Google Sites">
+                            </span>
                         </a>
                     </div>
+
                     <div class="tray-grid-item">
-                        <a href="https://drive.google.com/file/d/1Z9_u-usSgHbeIQ0XDAJBIhYxPz-ANJ00/view?usp=drive_link"
-                            target="_blank" class="tray-grid-link" title="Documento en Drive">
-                            <img src="../imagenes/skin2.ico" alt="Google Drive">
+                        <a href="https://drive.google.com" target="_blank" class="tray-grid-link" title="Drive">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/skin2.ico" alt="Google Drive">
+                            </span>
                         </a>
                     </div>
+
                     <div class="tray-grid-item">
                         <a href="https://skin3i.com" target="_blank" class="tray-grid-link" title="skin3i.com">
-                            <img src="../imagenes/skin3.ico" alt="Skin3">
+                            <span class="tray-grid-icon">
+                                <img src="../imagenes/skin3.ico" alt="Skin3">
+                            </span>
                         </a>
                     </div>
-                    <div class="tray-grid-item"><span></span></div>
-                    <div class="tray-grid-item"><span></span></div>
-                    <div class="tray-grid-item"><span></span></div>
-                    <div class="tray-grid-item"><span></span></div>
-                    <div class="tray-grid-item"><span></span></div>
+
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
+                    <div class="tray-grid-item"><span class="tray-grid-icon"></span></div>
                 </div>
+
                 <div class="tray-popup-github">
                     <a href="https://github.com/darfixs" target="_blank" class="tray-popup-link">
                         <span class="popup-github-mark">
@@ -385,240 +359,180 @@
     </footer>
 
     <script>
-        // Pantalla completa
-        document.getElementById("fullscreen-btn").addEventListener("click", function () {
-            const doc = document.documentElement;
-            if (!document.fullscreenElement) {
-                if (doc.requestFullscreen) doc.requestFullscreen();
-                else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
-                else if (doc.mozRequestFullScreen) doc.mozRequestFullScreen();
-                else if (doc.msRequestFullscreen) doc.msRequestFullscreen();
-            } else {
-                if (document.exitFullscreen) document.exitFullscreen();
-                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-                else if (document.msExitFullscreen) document.msExitFullscreen();
-            }
-        });
-
-        // DVD bouncing
-        (function () {
-            const logo = document.getElementById('dvd-pfp');
-            const topBar = document.querySelector('.top-bar');
-            const bottomBar = document.querySelector('.bottom-bar');
-            if (!logo || !topBar || !bottomBar) return;
-            const LOGO_WIDTH = 90;
-            logo.style.width = LOGO_WIDTH + "px";
-            let x = 40;
-            let y = topBar.offsetHeight + 40;
-            let vx = 2.4;
-            let vy = 2.0;
-            const bounds = { left: 0, right: 0, top: 0, bottom: 0, w: 0, h: 0 };
-            function updateBounds() {
-                const rect = logo.getBoundingClientRect();
-                bounds.w = rect.width;
-                bounds.h = rect.height;
-                bounds.left = 0;
-                bounds.right = window.innerWidth - bounds.w;
-                const topH = topBar.offsetHeight;
-                const bottomH = bottomBar.offsetHeight;
-                bounds.top = topH;
-                bounds.bottom = window.innerHeight - bottomH - bounds.h;
-            }
-            function step() {
-                x += vx;
-                y += vy;
-                if (x <= bounds.left) { x = bounds.left; vx = Math.abs(vx); }
-                else if (x >= bounds.right) { x = bounds.right; vx = -Math.abs(vx); }
-                if (y <= bounds.top) { y = bounds.top; vy = Math.abs(vy); }
-                else if (y >= bounds.bottom) { y = bounds.bottom; vy = -Math.abs(vy); }
-                logo.style.left = x + 'px';
-                logo.style.top = y + 'px';
-                requestAnimationFrame(step);
-            }
-            window.addEventListener('resize', updateBounds);
-            updateBounds();
-            requestAnimationFrame(step);
-        })();
-
-        // Tray popup
-        (function () {
-            const tab = document.getElementById('tray-tab');
-            const popup = document.getElementById('tray-popup');
-            if (tab && popup) {
-                tab.addEventListener('click', () => {
-                    tab.classList.toggle('open');
-                    popup.classList.remove('animate');
-                    void popup.offsetWidth;
-                    popup.classList.add('animate');
-                });
-            }
-        })();
-
-        // Sistema de tarjeta expandible (solo 1 actividad)
-        (function () {
-            const layer = document.querySelector('.activities-layer');
-            const card = document.querySelector('.activity-card[data-activity="emo1"]');
-            if (!layer || !card) return;
-
-            function closeAll() {
-                layer.classList.remove('expanded');
-                card.classList.remove('expanded');
-            }
-
-            const closeBtn = card.querySelector('.activity-close');
-
-            card.addEventListener('click', (e) => {
-                if (e.target.closest('.activity-close')) return;
-                if (card.classList.contains('expanded')) return;
-                closeAll();
-                layer.classList.add('expanded');
-                card.classList.add('expanded');
-                initEmoGame();
-            });
-
-            if (closeBtn) {
-                closeBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    closeAll();
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fullscreen
+            const fullscreenBtn = document.getElementById("fullscreen-btn");
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener("click", function () {
+                    const doc = document.documentElement;
+                    if (!document.fullscreenElement) {
+                        if (doc.requestFullscreen) doc.requestFullscreen();
+                        else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
+                        else if (doc.mozRequestFullScreen) doc.mozRequestFullScreen();
+                        else if (doc.msRequestFullscreen) doc.msRequestFullscreen();
+                    } else {
+                        if (document.exitFullscreen) document.exitFullscreen();
+                        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                        else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+                        else if (document.msExitFullscreen) document.msExitFullscreen();
+                    }
                 });
             }
 
-            layer.addEventListener('click', (e) => {
-                if (layer.classList.contains('expanded') && !e.target.closest('.activity-card')) {
-                    closeAll();
+            // Tray popup
+            const trayTab = document.getElementById('tray-tab');
+            const trayPopup = document.getElementById('tray-popup');
+            if (trayTab && trayPopup) {
+                trayTab.addEventListener('click', () => {
+                    trayTab.classList.toggle('open');
+                    trayPopup.classList.remove('animate');
+                    void trayPopup.offsetWidth;
+                    trayPopup.classList.add('animate');
+                });
+            }
+
+            // Admin tabs
+            const data = {
+                acc: {
+                    img: "../imagenes/tiempo/Acc.png",
+                    title: "Acc",
+                    sub: "Accesos rápidos y cosas clave para entrar en modo trabajo.",
+                    explain: "<span class='hl'>Acc</span> es como mi botón de encendido: enlaces, accesos y lo necesario para arrancar rápido sin perderme.",
+                    tip: "Objetivo: tardar <strong>0</strong> en empezar. Si tengo que pensar dónde está algo, ya estoy perdiendo tiempo."
+                },
+                strategy: {
+                    img: "../imagenes/tiempo/Strategy.png",
+                    title: "Strategy",
+                    sub: "Reglas del juego: colores, prioridades y método.",
+                    explain: "<span class='hl'>Strategy</span> es mi manual. Aquí defino mi sistema: colores, prioridades y cómo decido qué va primero.",
+                    tip: "Colores = decisiones rápidas: <strong>verde</strong> hazlo · <strong>azul</strong> programa · <strong>amarillo</strong> delega · <strong>rojo</strong> elimina."
+                },
+                evolution: {
+                    img: "../imagenes/tiempo/Evolution.png",
+                    title: "Evolution",
+                    sub: "Seguimiento del curso y progreso (con la lógica de colores).",
+                    explain: "<span class='hl'>Evolution</span> es donde veo mi progreso. Tablas y seguimiento: lo miro y me ubico. Si estoy flojo en algo, aquí canta.",
+                    tip: "Esto me sirve para ajustar: si una semana voy mal, cambio el enfoque y vuelvo a control."
+                },
+                schedule: {
+                    img: "../imagenes/tiempo/Schedule.png",
+                    title: "Schedule",
+                    sub: "Horario del instituto, simple y directo.",
+                    explain: "<span class='hl'>Schedule</span> es simple: horario. Me evita dudas y me recuerda el marco real del día.",
+                    tip: "Si sé mis bloques, puedo colocar mejor lo importante sin improvisar."
+                },
+                marks: {
+                    img: "../imagenes/tiempo/Marks.png",
+                    title: "Marks",
+                    sub: "Mi estante de trofeos: notas para motivarme.",
+                    explain: "<span class='hl'>Marks</span> es motivación pura. Ver avances y notas me engancha a seguir subiendo el nivel.",
+                    tip: "Motivación visual = constancia. Si lo veo, me pica por mantenerlo."
+                },
+                life: {
+                    img: "../imagenes/tiempo/Life.png",
+                    title: "Life",
+                    sub: "Mi tablero diario: objetivos + prioridades.",
+                    explain: "<span class='hl'>Life</span> es la más importante. Aquí decido el día: objetivos del día y prioridades. Si no está aquí, puede quedarse en el limbo.",
+                    tip: "Verde = “Hazlo ya” · Azul = “Programa” · Amarillo = “Delega” · Rojo = “Elimina”."
+                },
+                sus: {
+                    img: "../imagenes/tiempo/Suscripciones.png",
+                    title: "Suscripciones",
+                    sub: "Control de gastos recurrentes / suscripciones.",
+                    explain: "<span class='hl'>Suscripciones</span> es control: saber qué pago, cuándo, y evitar fugas tontas de dinero.",
+                    tip: "Menos ruido mental: si lo tengo controlado, no me distrae."
                 }
-            });
-        })();
+            };
 
-        // LÓGICA DEL JUEGO EMOCIONAL
-        function initEmoGame() {
-            const scenes = [
-                document.getElementById('emo-scene-1'),
-                document.getElementById('emo-scene-2'),
-                document.getElementById('emo-scene-3'),
-                document.getElementById('emo-scene-4'),
-                document.getElementById('emo-scene-5')
-            ];
+            const tabs = document.querySelectorAll(".admin-tab");
+            const img = document.getElementById("admin-image");
+            const capTitle = document.getElementById("admin-caption-title");
+            const capSub = document.getElementById("admin-caption-sub");
+            const explain = document.getElementById("admin-explain");
+            const tip = document.getElementById("admin-tip");
 
-            function showScene(index) {
-                scenes.forEach((sc, i) => {
-                    if (!sc) return;
-                    sc.classList.toggle('emo-scene-active', i === index);
-                });
+            function setTab(key) {
+                const d = data[key];
+                if (!d) return;
+
+                tabs.forEach(t => t.classList.remove("active"));
+                document.querySelector(`.admin-tab[data-tab="${key}"]`)?.classList.add("active");
+
+                img.src = d.img;
+                capTitle.textContent = d.title;
+                capSub.textContent = d.sub;
+
+                explain.innerHTML = d.explain;
+                tip.innerHTML = d.tip;
             }
 
-            // reset estado
-            showScene(0);
-
-            // Escena 1
-            const btnStart = document.getElementById('btn-emo-start');
-            btnStart.onclick = () => showScene(1);
-
-            // Escena 2
-            const options = document.querySelectorAll('.emo-option');
-            const msgChoice = document.getElementById('emo-choice-message');
-            let selectedValue = null;
-
-            options.forEach(opt => {
-                opt.classList.remove('emo-option-selected', 'emo-option-wrong');
-                opt.addEventListener('click', () => {
-                    options.forEach(o => o.classList.remove('emo-option-selected', 'emo-option-wrong'));
-                    opt.classList.add('emo-option-selected');
-                    selectedValue = opt.dataset.value;
-                    msgChoice.textContent = "Has elegido " + selectedValue + "% · ahora confirma tu decisión.";
-                });
+            tabs.forEach(t => {
+                t.addEventListener("click", () => setTab(t.getAttribute("data-tab")));
             });
 
-            const btnValidate = document.getElementById('btn-emo-validate');
-            btnValidate.onclick = () => {
-                if (!selectedValue) {
-                    msgChoice.textContent = "Primero elige una altura. No puedes avanzar sin decidirte.";
+            setTab("life");
+
+            // SMART builder
+            const s = document.getElementById("smart_s");
+            const m = document.getElementById("smart_m");
+            const a = document.getElementById("smart_a");
+            const r = document.getElementById("smart_r");
+            const t = document.getElementById("smart_t");
+            const out = document.getElementById("smart_out");
+
+            function render() {
+                const vs = s.value.trim();
+                const vm = m.value.trim();
+                const va = a.value.trim();
+                const vr = r.value.trim();
+                const vt = t.value.trim();
+
+                if (!vs && !vm && !va && !vr && !vt) {
+                    out.textContent = "Rellena los campos y verás tu objetivo listo para ejecutarse.";
                     return;
                 }
-                if (selectedValue === "60") {
-                    msgChoice.textContent = "Has elegido 60 %: realista pero no conformista. Es justo lo que yo hice.";
-                    msgChoice.classList.remove('emo-text-error');
-                    setTimeout(() => showScene(2), 900);
-                } else {
-                    msgChoice.textContent = "Interesante elección, pero en mi caso la puse al 60 %. Prueba a pensar en algo alcanzable pero que no sea quedarse corto.";
-                    msgChoice.classList.add('emo-text-error');
-                    options.forEach(o => {
-                        if (o.dataset.value === selectedValue) {
-                            o.classList.add('emo-option-wrong');
-                        }
-                    });
-                }
-            };
 
-            // Escena 3
-            const jumpBar = document.getElementById('emo-jump-real');
-            const msgJump = document.getElementById('emo-jump-message');
-            const btnJump = document.getElementById('btn-emo-jump');
-            const btnTo4 = document.getElementById('btn-emo-to-4');
-
-            jumpBar.classList.remove('emo-jump-animate');
-            msgJump.textContent = "Pulsa el botón para intentar el salto.";
-            btnTo4.style.display = 'none';
-
-            btnJump.onclick = () => {
-                jumpBar.classList.add('emo-jump-animate');
-                msgJump.textContent = "Saltando...";
-                setTimeout(() => {
-                    msgJump.textContent = "Has superado con creces la marca que habías puesto. Resultado: ++ (superar tus expectativas de sobra).";
-                    btnTo4.style.display = 'inline-flex';
-                }, 1200);
-            };
-
-            btnTo4.onclick = () => showScene(3);
-
-            // Escena 4
-            const thoughtCards = document.querySelectorAll('.emo-thought-card');
-            const msgThought = document.getElementById('emo-thought-message');
-            const btnNextThink = document.getElementById('btn-emo-next-think');
-            const thoughtsWrapper = document.getElementById('emo-thoughts-wrapper');
-
-            thoughtCards.forEach(c => c.classList.add('emo-thought-hidden'));
-            let currentThought = 0;
-            msgThought.textContent = "Pulsa el botón para ir desbloqueando lo que fui pensando.";
-
-            function revealThought() {
-                if (currentThought < thoughtCards.length) {
-                    thoughtCards[currentThought].classList.remove('emo-thought-hidden');
-                    thoughtCards[currentThought].classList.add('emo-thought-visible');
-                    currentThought++;
-
-                    // Auto-scroll al último bloque para que se vea siempre abajo
-                    if (thoughtsWrapper) {
-                        thoughtsWrapper.scrollTop = thoughtsWrapper.scrollHeight;
-                    }
-
-                    if (currentThought === thoughtCards.length) {
-                        msgThought.textContent = "Has desbloqueado toda la reflexión intermedia. Ahora puedes ver la conclusión final.";
-                        btnNextThink.textContent = "🏁 Ver conclusión final";
-                    } else {
-                        msgThought.textContent = "Sigue avanzando. Aún queda más que procesé después del salto.";
-                    }
-                } else {
-                    // cuando ya están todos, pasa a la escena 5 (conclusión)
-                    showScene(4);
-                }
+                out.innerHTML =
+                    `<div class="smart-line"><span class="tag">S</span> ${vs || "<em>—</em>"}</div>` +
+                    `<div class="smart-line"><span class="tag">M</span> ${vm || "<em>—</em>"}</div>` +
+                    `<div class="smart-line"><span class="tag">A</span> ${va || "<em>—</em>"}</div>` +
+                    `<div class="smart-line"><span class="tag">R</span> ${vr || "<em>—</em>"}</div>` +
+                    `<div class="smart-line"><span class="tag">T</span> ${vt || "<em>—</em>"}</div>`;
             }
-            
-            btnNextThink.onclick = () => {
-                if (currentThought < thoughtCards.length) {
-                    revealThought();
-                } else {
-                    showScene(4);
-                }
-            };
 
-            // mostrar el primer pensamiento automáticamente al entrar en escena 4
-            currentThought = 0;
-            revealThought();
+            [s, m, a, r, t].forEach(inp => inp.addEventListener("input", render));
 
-            // Escena 5 no necesita lógica especial
-        }
+            document.getElementById("smart_example").addEventListener("click", () => {
+                s.value = "Terminar la actividad de Gestión del tiempo en la web (tiempo.html) con interfaz ADMIN.";
+                m.value = "Que cambie pestañas + explicación + SMART + Matriz funcionando.";
+                a.value = "Tengo el diseño base, solo es adaptar contenido y pulir CSS.";
+                r.value = "Me sube nota y demuestra organización real y criterio.";
+                t.value = "Hoy antes de las 21:00 con 1 commit final.";
+                render();
+            });
+
+            document.getElementById("smart_clear").addEventListener("click", () => {
+                s.value = ""; m.value = ""; a.value = ""; r.value = ""; t.value = "";
+                render();
+            });
+
+            render();
+
+            // ✅ Eisenhower – BOTÓN QUE FUNCIONA
+            document.getElementById("genExampleBtn").addEventListener("click", () => {
+                const examples = {
+                    hazlo: "Entregar reto final hoy",
+                    programa: "Organizar contenido del portfolio",
+                    delega: "Enviar informe administrativo",
+                    elimina: "Mirar redes cada 5 minutos"
+                };
+
+                document.getElementById("hazloTasks").innerHTML = `<div class='task-card'>${examples.hazlo}</div>`;
+                document.getElementById("programaTasks").innerHTML = `<div class='task-card'>${examples.programa}</div>`;
+                document.getElementById("delegaTasks").innerHTML = `<div class='task-card'>${examples.delega}</div>`;
+                document.getElementById("eliminaTasks").innerHTML = `<div class='task-card'>${examples.elimina}</div>`;
+            });
+        });
     </script>
 </body>
 

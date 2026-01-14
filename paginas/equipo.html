@@ -7,6 +7,375 @@
     <title>Portada IPEII</title>
     <link rel="stylesheet" href="../puntero/cursor.css">
     <link rel="stylesheet" href="../paginas/equipo.css" />
+
+    <!-- ✅ SOLO AÑADIDO: estilos extra para el eje + escenas (sin tocar tu CSS externo) -->
+    <style>
+        /* ====== Actividad 1 · Escenas ====== */
+        .scene-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 10px 0 14px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #fefefe, #d6e7ff);
+            border: 1px solid #5f8dd0;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .scene-nav .scene-step {
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0b2c5e;
+            font-size: 0.8rem;
+        }
+
+        .scene-nav .scene-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .scene-btn {
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(0, 0, 0, 0.65);
+            background: linear-gradient(180deg, #ffffff, #ccd9ff);
+            font-weight: 800;
+            font-size: 0.85rem;
+            cursor: url("../puntero/roundyhand.cur"), pointer;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 2px 5px rgba(0, 0, 0, 0.35);
+        }
+
+        .scene-btn:disabled {
+            opacity: 0.55;
+            cursor: default;
+        }
+
+        .scene {
+            display: none;
+            margin-top: 8px;
+        }
+
+        .scene.active {
+            display: block;
+        }
+
+        /* ====== Tabla bonita ====== */
+        .role-table {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 12px;
+        }
+
+        .role-table-col {
+            position: relative;
+            border-radius: 14px;
+            padding: 12px 12px 46px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 40, 90, 0.35);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.85), 0 6px 16px rgba(0, 0, 0, 0.18);
+        }
+
+        .role-table-col h4 {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0b2c5e;
+        }
+
+        .role-table-col ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .role-table-col li {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 6px 8px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #f7fbff, #e4efff);
+            border: 1px solid rgba(0, 40, 90, 0.12);
+            margin-bottom: 6px;
+            font-size: 0.88rem;
+            color: #132a52;
+        }
+
+        .role-total {
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 10px;
+            height: 30px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #06224a;
+            background: linear-gradient(180deg, #fffbdc, #ffe090);
+            border: 1px solid rgba(150, 120, 40, 0.5);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+        }
+
+        /* ====== Eje interactivo (sin imagen) ====== */
+        .axis-shell {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 14px;
+            margin-top: 12px;
+            align-items: start;
+        }
+
+        .axis-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            min-height: 260px;
+            border-radius: 16px;
+            background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.9), rgba(210, 230, 255, 0.9));
+            border: 1px solid rgba(0, 40, 90, 0.55);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 10px 24px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        .axis-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(0, 40, 90, 0.10) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 40, 90, 0.10) 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.65;
+            pointer-events: none;
+        }
+
+        .axis-cross {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .axis-cross::before,
+        .axis-cross::after {
+            content: "";
+            position: absolute;
+            background: rgba(0, 35, 80, 0.85);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.55);
+        }
+
+        /* eje vertical */
+        .axis-cross::before {
+            width: 3px;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* eje horizontal */
+        .axis-cross::after {
+            height: 3px;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .axis-label {
+            position: absolute;
+            font-weight: 900;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0b2c5e;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(0, 40, 90, 0.25);
+            border-radius: 999px;
+            padding: 5px 10px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .axis-label.top {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .axis-label.bottom {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .axis-label.left {
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: left center;
+        }
+
+        .axis-label.right {
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            transform-origin: right center;
+        }
+
+        .quadrant {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.10em;
+            font-size: 0.78rem;
+            color: rgba(9, 35, 93, 0.90);
+            padding: 10px;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .q-tl {
+            left: 0;
+            top: 0;
+            background: rgba(255, 80, 80, 0.12);
+        }
+
+        .q-tr {
+            right: 0;
+            top: 0;
+            background: rgba(120, 255, 120, 0.12);
+        }
+
+        .q-bl {
+            left: 0;
+            bottom: 0;
+            background: rgba(255, 230, 120, 0.16);
+        }
+
+        .q-br {
+            right: 0;
+            bottom: 0;
+            background: rgba(120, 170, 255, 0.16);
+        }
+
+        .axis-point {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #ff5252 60%, #b80000);
+            border: 2px solid rgba(0, 0, 0, 0.75);
+            box-shadow: 0 0 10px rgba(255, 80, 80, 0.85), 0 0 0 2px rgba(255, 255, 255, 0.7);
+            transform: translate(-50%, -50%);
+            display: none;
+            pointer-events: none;
+        }
+
+        .axis-point.preview {
+            display: block;
+            opacity: 0.55;
+            filter: saturate(0.9);
+        }
+
+        .axis-point.final {
+            display: block;
+            opacity: 1;
+        }
+
+        .axis-side {
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 40, 90, 0.35);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.85), 0 10px 24px rgba(0, 0, 0, 0.18);
+            padding: 12px;
+        }
+
+        .axis-side h4 {
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0b2c5e;
+            margin-bottom: 6px;
+        }
+
+        .axis-side p {
+            font-size: 0.88rem;
+            color: #132a52;
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .draw-btn {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.65);
+            background: linear-gradient(180deg, #fffce8, #ffd671);
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #3b2a00;
+            cursor: url("../puntero/roundyhand.cur"), pointer;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 10px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .draw-result {
+            margin-top: 10px;
+            border-radius: 12px;
+            padding: 10px 10px;
+            background: linear-gradient(180deg, #f7fbff, #e4efff);
+            border: 1px solid rgba(0, 40, 90, 0.18);
+            color: #0a2148;
+            font-size: 0.9rem;
+            font-weight: 800;
+            display: none;
+        }
+
+        .draw-result.visible {
+            display: block;
+        }
+
+        .role-reflection {
+            border-radius: 14px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 40, 90, 0.35);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.85), 0 10px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .role-reflection p {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: #132a52;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 980px) {
+            .axis-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .role-table {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -43,45 +412,157 @@
     <!-- CAPA CENTRAL: ACTIVIDADES RA2 -->
     <main class="activities-layer">
         <div class="activities-grid">
-             <!-- Actividad 1 -->
+
+            <!-- ✅ ACTIVIDAD 1 (equipo) - ahora: contenido OCULTO en la tarjeta y aparece al expandir -->
             <article class="activity-card" data-activity="a3">
                 <button class="activity-close" type="button">✕</button>
                 <header class="activity-header">
                     <span class="activity-title">Actividad 1</span>
-                    <span class="activity-subtitle">Trabajo en equipo</span>
+                    <span class="activity-subtitle">Rol de estilo social</span>
                 </header>
+
                 <div class="activity-body">
                     <div class="activity-icon">
-                        <img src="../imagenes/iconos/Game007.ico" alt="Icono actividad 3">
+                        <img src="../imagenes/iconos/User003.ico" alt="Icono actividad 1">
                     </div>
                     <div class="activity-text">
-                        <h3>Radar de grupo</h3>
+                        <h3>Resultado: Técnico Analítico</h3>
                         <p>
-                            Analiza tu rol dentro del grupo y el de tus compañeros
-                            a partir de una dinámica tipo “radar”.
+                            Rellené la tabla y, al sumar los valores, mi perfil salió
+                            <strong>Técnico Analítico</strong>. Entra para ver la tabla, el eje interactivo y mi reflexión.
                         </p>
                         <span class="activity-tag">Haz clic para abrir</span>
                     </div>
                 </div>
 
-                <section class="activity-content">
-                    <h3>Actividad 3 · Radar de grupo</h3>
-                    <p>
-                        Diseña un radar con varios aspectos del trabajo en equipo:
-                        comunicación, responsabilidad, iniciativa, escucha, apoyo…
-                    </p>
-                    <ul>
-                        <li>Valórate a ti mismo en cada aspecto (1–5).</li>
-                        <li>Valora al grupo en conjunto.</li>
-                        <li>Escribe al final dos compromisos de mejora.</li>
-                    </ul>
-                    <p>
-                        Esta reflexión formará parte de tu diario y podrás revisarla
-                        al final del trimestre.
-                    </p>
+                <!-- ✅ CONTENIDO EXTENDIDO (solo visible al maximizar) -->
+                <section class="activity-content activity3-content">
+                    <!-- NAV de escenas -->
+                    <div class="scene-nav">
+                        <span class="scene-step" id="a3-step">Escena 1/3</span>
+                        <div class="scene-actions">
+                            <button class="scene-btn" id="a3-prev" type="button" disabled>◀ Anterior</button>
+                            <button class="scene-btn" id="a3-next" type="button">Siguiente ▶</button>
+                        </div>
+                    </div>
+
+                    <!-- ESCENA 1: TABLA -->
+                    <div class="scene active" data-scene="0">
+                        <h3>📊 Tabla de resultados – Autopercepción en el equipo</h3>
+                        <p>
+                            Puntúo cada rasgo del <strong>1 al 4</strong> (1 = lo que más va conmigo, 4 = lo que menos).
+                            La suma final marca mi posición dentro del eje.
+                        </p>
+
+                        <div class="role-table">
+                            <div class="role-table-col">
+                                <h4>Personalidad</h4>
+                                <ul>
+                                    <li>Riesgo <strong>2</strong></li>
+                                    <li>Comunicación <strong>4</strong></li>
+                                    <li>Opinión / Aceptación <strong>4</strong></li>
+                                    <li>Exigente <strong>4</strong></li>
+                                    <li>Contacto visual <strong>1</strong></li>
+                                    <li>Competitivo <strong>2</strong></li>
+                                    <li>Diálogo <strong>3</strong></li>
+                                    <li>Tono de voz <strong>3</strong></li>
+                                </ul>
+                                <div class="role-total">Total: 23</div>
+                            </div>
+
+                            <div class="role-table-col">
+                                <h4>Sensibilidad</h4>
+                                <ul>
+                                    <li>Social <strong>3</strong></li>
+                                    <li>Intuitivo <strong>3</strong></li>
+                                    <li>Énfasis <strong>4</strong></li>
+                                    <li>Conversaciones <strong>3</strong></li>
+                                    <li>Gesticular <strong>2</strong></li>
+                                    <li>Cara alegre <strong>3</strong></li>
+                                    <li>Abierto <strong>3</strong></li>
+                                    <li>Amigable <strong>1</strong></li>
+                                </ul>
+                                <div class="role-total">Total: 22</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ESCENA 2: EJE INTERACTIVO + BOTÓN DIBUJAR -->
+                    <div class="scene" data-scene="1">
+                        <h3>🎯 Eje de coordenadas – Dibuja mi punto</h3>
+                        <p>
+                            Haz <strong>click dentro del eje</strong> para previsualizar el punto. Luego pulsa
+                            <strong>“Dibujar”</strong> para colocarlo y ver el rol del cuadrante.
+                        </p>
+
+                        <div class="axis-shell">
+                            <div class="axis-container" id="a3-axis" aria-label="Eje de estilos sociales">
+                                <div class="axis-grid"></div>
+                                <div class="axis-cross"></div>
+
+                                <span class="axis-label top">Mayor asertividad</span>
+                                <span class="axis-label bottom">Menor asertividad</span>
+                                <span class="axis-label left">Menor emotividad</span>
+                                <span class="axis-label right">Mayor emotividad</span>
+
+                                <!-- cuadrantes (con el rol escrito en cada uno) -->
+                                <div class="quadrant q-tl">Emprendedor</div>
+                                <div class="quadrant q-tr">Expresivo</div>
+                                <div class="quadrant q-bl">Técnico<br>Analítico</div>
+                                <div class="quadrant q-br">Afable</div>
+
+                                <!-- puntos -->
+                                <div class="axis-point preview" id="a3-point-preview" title="Previsualización"></div>
+                                <div class="axis-point final" id="a3-point-final" title="Mi posición"></div>
+                            </div>
+
+                            <aside class="axis-side">
+                                <h4>Controles</h4>
+                                <p>
+                                    Consejo: mi resultado es <strong>Técnico Analítico</strong>, así que mi punto
+                                    cae en el cuadrante <strong>abajo-izquierda</strong>.
+                                </p>
+
+                                <button class="draw-btn" id="a3-draw" type="button">✳ Dibujar mi punto</button>
+
+                                <div class="draw-result" id="a3-result"></div>
+                            </aside>
+                        </div>
+                    </div>
+
+                    <!-- ESCENA 3: REFLEXIÓN -->
+                    <div class="scene" data-scene="2">
+                        <h3>🧠 Reflexión – ¿Por qué me ha tocado Técnico Analítico?</h3>
+
+                        <div class="role-reflection">
+                            <p>
+                                Mi resultado como <strong>Técnico Analítico</strong> encaja mucho con cómo soy cuando trabajo en equipo:
+                                suelo ir a lo <strong>seguro</strong>, prefiero entender el contexto antes de actuar y me centro en que las cosas
+                                queden bien hechas, más que en improvisar o tirarme sin pensar.
+                            </p>
+
+                            <p>
+                                En la tabla se nota que no soy una persona de “hacer show” socialmente: por ejemplo, en comunicación y opinión/aceptación
+                                tengo valores altos (4), lo que indica que no suelo buscar destacar o imponerme, sino que tiendo a ser más reservado y
+                                a hablar cuando tengo algo claro que aportar.
+                            </p>
+
+                            <p>
+                                A la vez, el hecho de que el <strong>contacto visual</strong> me salga fuerte (1) y el diálogo/tono de voz estén en medio (3),
+                                me cuadra con un perfil que puede comunicarse bien, pero desde un enfoque más <strong>serio y racional</strong> que emocional.
+                            </p>
+
+                            <p>
+                                En sensibilidad, aunque puedo ser abierto y social, tampoco soy el típico perfil “expresivo”. Por eso el conjunto me coloca en
+                                el cuadrante donde predomina lo <strong>lógico, pausado y analítico</strong>.
+                            </p>
+
+                            <p><strong>Conclusión:</strong> mi rol en un equipo suele ser aportar <strong>orden, lógica y revisión crítica</strong>.
+                                Mientras otros tiran de energía social o impulsan el cambio, yo estabilizo, estructuro y hago que el trabajo tenga base.</p>
+                        </div>
+                    </div>
                 </section>
             </article>
-
 
             <!-- Actividad 2 – Identifico tipos de liderazgo -->
             <article class="activity-card" data-activity="a2">
@@ -116,7 +597,7 @@
                                 <iframe src="https://www.youtube.com/watch?v=9O44I0POZDw" allowfullscreen></iframe>
                             </div>
 
-                            <button class="mini-unlock-btn">🎮 Mostrar mi análisis</button>
+                            <button class="mini-unlock-btn" type="button">🎮 Mostrar mi análisis</button>
 
                             <div class="mini-answer">
                                 <p>
@@ -134,7 +615,7 @@
                                 <iframe src="https://www.youtube.com/watch?v=E8UQrDD2nQw" allowfullscreen></iframe>
                             </div>
 
-                            <button class="mini-unlock-btn">🎮 Mostrar mi análisis</button>
+                            <button class="mini-unlock-btn" type="button">🎮 Mostrar mi análisis</button>
 
                             <div class="mini-answer">
                                 <p>
@@ -152,20 +633,18 @@
                                 <iframe src="https://www.youtube.com/watch?v=7nZbDqN3A44" allowfullscreen></iframe>
                             </div>
 
-                            <button class="mini-unlock-btn">🎮 Mostrar mi análisis</button>
+                            <button class="mini-unlock-btn" type="button">🎮 Mostrar mi análisis</button>
 
                             <div class="mini-answer">
                                 <p>
                                     Un liderazgo guiado por <strong>emociones y sentimientos personales</strong>,
-                                    actuando
-                                    según cómo se siente y persiguiendo sus objetivos sin importar las consecuencias.
+                                    actuando según cómo se siente y persiguiendo sus objetivos sin importar las consecuencias.
                                 </p>
                             </div>
                         </article>
                     </div>
                 </section>
             </article>
-
 
             <!-- Actividad 3 – Selector de rol tipo videojuego -->
             <article class="activity-card" data-activity="a1">
@@ -257,7 +736,7 @@
                     </div>
                 </section>
             </article>
-          
+
         </div>
     </main>
 
@@ -377,7 +856,7 @@
             } else {
                 if (document.exitFullscreen) document.exitFullscreen();
                 else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+                else if (document.mozCancelFullScreen) doc.mozCancelFullScreen();
                 else if (document.msExitFullscreen) document.msExitFullscreen();
             }
         });
@@ -436,8 +915,6 @@
             requestAnimationFrame(step);
         })();
 
-
-
         // Pestaña GitHub / Apps
         (function () {
             const trayTab = document.getElementById('tray-tab');
@@ -454,7 +931,7 @@
             });
         })();
 
-        // Animación tarjetas de actividades
+        // Animación tarjetas de actividades (expand/cerrar)
         (function () {
             const layer = document.querySelector('.activities-layer');
             const cards = document.querySelectorAll('.activity-card');
@@ -491,7 +968,6 @@
                     }
                 });
 
-                // opcional: también cerrar con el botón de cerrar
                 if (closeBtn) {
                     closeBtn.addEventListener('click', (e) => {
                         e.stopPropagation();
@@ -500,7 +976,6 @@
                 }
             });
 
-            // cerrar al hacer clic en el fondo oscuro (fuera de la ventana expandida)
             layer.addEventListener('click', (e) => {
                 if (!layer.classList.contains('expanded')) return;
                 if (e.target.closest('.activity-card')) return;
@@ -508,7 +983,135 @@
             });
         })();
 
-        // Minijuego Actividad 1: elegir rol guiado
+        // ✅ Actividad 1 (a3) · escenas + eje interactivo con botón "Dibujar"
+        (function () {
+            const card = document.querySelector('.activity-card[data-activity="a3"]');
+            if (!card) return;
+
+            const scenes = card.querySelectorAll('.scene');
+            const stepEl = card.querySelector('#a3-step');
+            const prevBtn = card.querySelector('#a3-prev');
+            const nextBtn = card.querySelector('#a3-next');
+
+            const axis = card.querySelector('#a3-axis');
+            const previewPoint = card.querySelector('#a3-point-preview');
+            const finalPoint = card.querySelector('#a3-point-final');
+            const drawBtn = card.querySelector('#a3-draw');
+            const resultBox = card.querySelector('#a3-result');
+
+            let sceneIndex = 0;
+
+            // coords normalizadas (-1..1)
+            // Por defecto: técnico analítico (abajo-izquierda)
+            let pick = { x: -0.35, y: -0.28 };   // preview
+            let final = { x: -0.35, y: -0.28 };  // final
+
+            function clamp(n, min, max) {
+                return Math.max(min, Math.min(max, n));
+            }
+
+            function showScene(i) {
+                sceneIndex = clamp(i, 0, scenes.length - 1);
+                scenes.forEach((s, idx) => s.classList.toggle('active', idx === sceneIndex));
+
+                stepEl.textContent = `Escena ${sceneIndex + 1}/${scenes.length}`;
+                prevBtn.disabled = sceneIndex === 0;
+                nextBtn.disabled = sceneIndex === scenes.length - 1;
+            }
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showScene(sceneIndex - 1);
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showScene(sceneIndex + 1);
+            });
+
+            function toPixels(nX, nY) {
+                // nX: -1 izquierda, +1 derecha
+                // nY: -1 abajo, +1 arriba
+                const rect = axis.getBoundingClientRect();
+                const px = ((nX + 1) / 2) * rect.width;
+                const py = ((1 - (nY + 1) / 2)) * rect.height;
+                return { px, py };
+            }
+
+            function setPoint(el, nX, nY, mode) {
+                const rect = axis.getBoundingClientRect();
+                const { px, py } = toPixels(nX, nY);
+
+                el.style.left = clamp(px, 0, rect.width) + 'px';
+                el.style.top = clamp(py, 0, rect.height) + 'px';
+
+                el.classList.remove('preview', 'final');
+                el.classList.add(mode);
+                el.style.display = 'block';
+            }
+
+            function quadrantRole(nX, nY) {
+                // top-left: Emprendedor | top-right: Expresivo | bottom-left: Técnico Analítico | bottom-right: Afable
+                const top = nY > 0;
+                const right = nX > 0;
+
+                if (top && !right) return 'Emprendedor';
+                if (top && right) return 'Expresivo';
+                if (!top && !right) return 'Técnico Analítico';
+                return 'Afable';
+            }
+
+            // click en el eje = previsualización
+            axis.addEventListener('click', (e) => {
+                // si el usuario hace click en la escena 2
+                const rect = axis.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // normalizar a -1..1
+                const nX = ((x / rect.width) * 2) - 1;
+                const nY = 1 - ((y / rect.height) * 2);
+
+                pick.x = clamp(nX, -1, 1);
+                pick.y = clamp(nY, -1, 1);
+
+                setPoint(previewPoint, pick.x, pick.y, 'preview');
+                resultBox.classList.remove('visible');
+            });
+
+            // botón dibujar = fija el punto + muestra rol
+            drawBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                final.x = pick.x;
+                final.y = pick.y;
+
+                setPoint(finalPoint, final.x, final.y, 'final');
+
+                const role = quadrantRole(final.x, final.y);
+                resultBox.innerHTML = `✅ Punto dibujado. Cuadrante detectado: <strong>${role}</strong>.`;
+                resultBox.classList.add('visible');
+            });
+
+            // inicial: pinta preview y final en técnico analítico para que se vea desde ya
+            // (cuando abras la actividad y entres a la escena 2, estará correcto)
+            function initDefaultPoints() {
+                // si aún no hay layout estable, espera un frame
+                requestAnimationFrame(() => {
+                    setPoint(previewPoint, pick.x, pick.y, 'preview');
+                    setPoint(finalPoint, final.x, final.y, 'final');
+                });
+            }
+
+            // al abrir/cerrar la tarjeta puede cambiar el tamaño: recalcular posiciones
+            window.addEventListener('resize', initDefaultPoints);
+
+            // arranque
+            showScene(0);
+            initDefaultPoints();
+        })();
+
+        // Minijuego Actividad 3 (a1): elegir rol guiado
         (function () {
             const card = document.querySelector('.activity-card[data-activity="a1"]');
             if (!card) return;
@@ -521,10 +1124,9 @@
             let selectedRole = null;
             let unlocked = false;
 
-            // al hacer clic en una carta de rol
             roleCards.forEach(rc => {
                 rc.addEventListener('click', (e) => {
-                    e.stopPropagation(); // no activar la animación de maximizar
+                    e.stopPropagation();
 
                     if (unlocked) return;
 
@@ -534,13 +1136,11 @@
                     selectedRole = rc.dataset.role;
 
                     if (selectedRole === 'guiado') {
-                        // rol correcto → habilitar botón de desbloqueo
                         unlockBtn.disabled = false;
                         unlockBtn.classList.add('enabled');
                         unlockBtn.textContent = '✅ Confirmar rol Guiado y desbloquear respuesta';
                         hint.textContent = 'Has elegido Guiado. Pulsa el botón para ver tu respuesta en el diario.';
                     } else {
-                        // feedback de error suave
                         rc.classList.add('wrong');
                         unlockBtn.disabled = true;
                         unlockBtn.classList.remove('enabled');
@@ -550,7 +1150,6 @@
                 });
             });
 
-            // al pulsar el botón de desbloqueo
             unlockBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
 
@@ -565,7 +1164,7 @@
             });
         })();
 
-        // Actividad 2 versión horizontal
+        // Actividad 2 (a2): mostrar/ocultar análisis
         (function () {
             const cards = document.querySelectorAll('.video-mini-card');
 
@@ -573,7 +1172,9 @@
                 const btn = card.querySelector('.mini-unlock-btn');
                 const ans = card.querySelector('.mini-answer');
 
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+
                     const isVisible = ans.classList.contains("visible");
 
                     if (!isVisible) {
@@ -581,17 +1182,11 @@
                         btn.textContent = "✅ Análisis mostrado";
                     } else {
                         ans.classList.remove("visible");
-
-                        const v = card.dataset.video;
-
                         btn.textContent = `🎮 Mostrar mi análisis`;
                     }
                 });
             });
         })();
-
-
-
     </script>
 </body>
 

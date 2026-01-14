@@ -43,7 +43,8 @@
     <!-- CAPA DE ACTIVIDADES -->
     <main class="activities-layer">
         <div class="activities-grid">
-            <!-- Solo una actividad: Frustración y aceptación -->
+
+            <!-- Actividad 1 -->
             <article class="activity-card" data-activity="emo1">
                 <button class="activity-close" type="button">✕</button>
                 <header class="activity-header">
@@ -187,7 +188,6 @@
                         <div class="emo-scene-main">
                             <h3 class="emo-title">Cuando el “creo que puedo” se queda corto</h3>
 
-                            <!-- ZONA SCROLLEABLE -->
                             <div id="emo-thoughts-wrapper" class="emo-thoughts-wrapper">
                                 <div class="emo-thoughts">
                                     <div class="emo-thought-card emo-thought-hidden" data-step="1">
@@ -237,7 +237,6 @@
                                 </div>
                             </div>
 
-                            <!-- PIE FIJO: TEXTO + BOTÓN -->
                             <div class="emo-footer-fixed">
                                 <p id="emo-thought-message" class="emo-feedback-text">
                                     Pulsa el botón para ir desbloqueando lo que fui pensando.
@@ -306,6 +305,231 @@
                     </div>
                 </section>
             </article>
+
+            <!-- Actividad 2 -->
+            <article class="activity-card" data-activity="emo2">
+                <button class="activity-close" type="button">✕</button>
+
+                <header class="activity-header">
+                    <span class="activity-title">Actividad 2</span>
+                    <span class="activity-subtitle">Cómo nos sentimos · Cartas</span>
+                </header>
+
+                <div class="activity-body">
+                    <div class="activity-icon">
+                        <img src="../imagenes/iconos/Game007.ico" alt="Cómo nos sentimos">
+                    </div>
+                    <div class="activity-text">
+                        <h3>Carta: <span class="emo-keyword">PERTURBADO</span></h3>
+                        <p>
+                            Leo la carta, me hago las preguntas y lo convierto en una reflexión real.
+                            Dentro encontrarás el texto y luego mis respuestas, una por una, con botón de
+                            <strong>Siguiente</strong>.
+                        </p>
+                        <span class="activity-tag">Haz clic en la tarjeta para entrar</span>
+                    </div>
+                </div>
+
+                <section class="activity-content">
+                    <div class="emo-hud">
+                        <div class="emo-hud-left">
+                            <span class="emo-chip">Emocional</span>
+                            <span class="emo-chip emo-chip-soft">Actividad 2</span>
+                        </div>
+                        <div class="emo-hud-right">
+                            <span id="emo2-step" class="emo-step">Escena 1/3</span>
+                        </div>
+                    </div>
+
+                    <div id="emo2-game" class="emo-game" data-scene="1">
+                        <!-- ESCENA 1: carta -->
+                        <div class="emo-scene emo-scene-active" data-scene="1">
+                            <h3 class="emo-title">🃏 La carta</h3>
+                            <div class="emo-cardbox">
+                                <div class="emo-cardbox-title">PERTURBADO</div>
+                                <div class="emo-cardbox-sub">Pregúntate (Questions en francés)</div>
+                                <ul class="emo-list">
+                                    <li><strong>1)</strong> ¿Sobre qué se siente preocupado?</li>
+                                    <li><strong>2)</strong> ¿Ha dicho lo que piensa a las personas afectadas?</li>
+                                    <li><strong>3)</strong> En su opinión, ¿qué significa esto?</li>
+                                </ul>
+
+                                <div class="emo-affirm" style="margin-top:10px;">
+                                    <div class="emo-affirm-title" style="font-weight:900; letter-spacing:0.08em;">
+                                        Afirmación
+                                    </div>
+                                    <div class="emo-affirm-text" style="margin-top:4px;">
+                                        “Dejo de pensar en ello y me suelto. Todo se aclarará a su debido tiempo.”
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="emo-actions">
+                                <button id="emo2-start" class="emo-main-btn" type="button">▶ Empezar preguntas</button>
+                            </div>
+                        </div>
+
+                        <!-- ESCENA 2: preguntas/respuestas (carrusel) -->
+                        <div class="emo-scene" data-scene="2">
+                            <h3 class="emo-title">🧠 Preguntas (una a una)</h3>
+
+                            <div class="emo-cardbox">
+                                <div class="emo-cardbox-sub">Pulsa “Siguiente” para revelar cada respuesta.</div>
+
+                                <div class="emo-qa" style="margin-top:12px;">
+                                    <div class="emo-q" id="emo2-q" style="font-weight:900;">—</div>
+                                    <div class="emo-a" id="emo2-a" style="margin-top:8px;">—</div>
+                                </div>
+                            </div>
+
+                            <div class="emo-actions">
+                                <button id="emo2-next" class="emo-main-btn" type="button">Siguiente ➜</button>
+                                <button id="emo2-reset" class="emo-secondary-btn" type="button">Reiniciar</button>
+                            </div>
+                        </div>
+
+                        <!-- ESCENA 3: cierre -->
+                        <div class="emo-scene" data-scene="3">
+                            <h3 class="emo-title">✅ Cierre</h3>
+
+                            <div class="emo-conclusion-card">
+                                <p>
+                                    Esta carta me viene bien porque me obliga a ponerle forma a algo que normalmente
+                                    se queda dentro: la preocupación por el futuro, el no querer cargar a otros,
+                                    y el aprender a soltar el control un poco.
+                                </p>
+                                <p class="emo-quote">
+                                    “Dejo de pensar en ello y me suelto. Todo se aclarará a su debido tiempo.”
+                                </p>
+                            </div>
+
+                            <div class="emo-actions">
+                                <button id="emo2-back" class="emo-main-btn" type="button">↩ Volver a la carta</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Actividad 3 -->
+            <article class="activity-card" data-activity="emo3">
+                <button class="activity-close" type="button">✕</button>
+
+                <header class="activity-header">
+                    <span class="activity-title">Actividad 3</span>
+                    <span class="activity-subtitle">Carrusel de emociones en un fin de semana</span>
+                </header>
+
+                <div class="activity-body">
+                    <div class="activity-icon">
+                        <img src="../imagenes/iconos/Game007.ico" alt="Carrusel emociones">
+                    </div>
+                    <div class="activity-text">
+                        <h3>VIERNES · SÁBADO · DOMINGO</h3>
+                        <p>
+                            Proyectos, estudiar y un respiro con mis padres. Entra y avanza día por día con un botón.
+                        </p>
+                        <span class="activity-tag">Haz clic en la tarjeta para entrar</span>
+                    </div>
+                </div>
+
+                <section class="activity-content">
+                    <div class="emo-hud">
+                        <div class="emo-hud-left">
+                            <span class="emo-chip">Emocional</span>
+                            <span class="emo-chip emo-chip-soft">Actividad 3</span>
+                        </div>
+                        <div class="emo-hud-right">
+                            <span id="emo3-step" class="emo-step">Escena 1/3</span>
+                        </div>
+                    </div>
+
+                    <div id="emo3-game" class="emo-game" data-scene="1">
+                        <!-- ESCENA 1: Intro -->
+                        <div class="emo-scene emo-scene-active" data-scene="1">
+                            <h3 class="emo-title">🎠 Carrusel emocional · Briefing</h3>
+
+                            <div class="emo-cardbox">
+                                <div class="emo-cardbox-title">FINDE REAL</div>
+                                <div class="emo-cardbox-sub">Contado como lo viví (sin postureo)</div>
+
+                                <p style="margin-top:10px; line-height:1.6;">
+                                    Este finde ha sido: <strong>entregas + estudiar + aguantar el ritmo</strong>.
+                                    Y aquí lo importante no es “estar happy”, sino entender <strong>qué sentí</strong>,
+                                    por qué, y cómo lo gestioné para no quedarme parado.
+                                </p>
+
+                                <p style="line-height:1.6;">
+                                    Se ve por escenas: <strong>VIERNES → SÁBADO → DOMINGO</strong>.
+                                </p>
+                            </div>
+
+                            <div class="emo-actions">
+                                <button id="emo3-start" class="emo-main-btn" type="button">▶ Empezar (Viernes)</button>
+                            </div>
+                        </div>
+
+                        <!-- ESCENA 2: Día a día (ESTRUCTURA QUE PEDISTE) -->
+                        <div class="emo-scene" data-scene="2">
+                            <!-- DÍA (EN GRANDE, CENTRADO, ARRIBA) -->
+                            <div style="display:flex; justify-content:center; margin: 6px 0 14px;">
+                                <div id="emo3-day" style="
+                                    font-size: 2rem;
+                                    font-weight: 900;
+                                    color: #0b2470;
+                                    text-shadow: 0 1px 0 #ffffff, 0 0 10px rgba(255,255,255,.55);
+                                    letter-spacing: 0.08em;
+                                    text-transform: uppercase;
+                                    text-align:center;">
+                                    VIERNES
+                                </div>
+                            </div>
+
+                            <!-- TEXTO DEL DÍA -->
+                            <div class="emo-cardbox">
+                                <div id="emo3-story" style="
+                                    font-size: 0.95rem;
+                                    line-height: 1.65;
+                                    color: #10213a;">
+                                    <!-- inyecta el JS -->
+                                </div>
+                            </div>
+
+                            <div class="emo-actions">
+                                <button id="emo3-next" class="emo-main-btn" type="button">Siguiente día ➜</button>
+                                <button id="emo3-prev" class="emo-secondary-btn" type="button">⟵ Anterior</button>
+                                <button id="emo3-reset" class="emo-secondary-btn" type="button">Reiniciar</button>
+                            </div>
+                        </div>
+
+                        <!-- ESCENA 3: cierre -->
+                        <div class="emo-scene" data-scene="3">
+                            <h3 class="emo-title">✅ Cierre · lo que saco de este finde</h3>
+
+                            <div class="emo-conclusion-card">
+                                <p>
+                                    Si lo resumo, el finde fue una mezcla rara: por un lado <strong>agobio</strong> y
+                                    cansancio mental por tanto trabajo, y por otro una sensación de <strong>orgullo</strong>
+                                    porque, aunque me raye, sigo cumpliendo y avanzando.
+                                </p>
+                                <p>
+                                    El viernes fue el choque: “estoy dedicando demasiado a una cosa cuando tengo mil más”.
+                                    El sábado fue insistir ya en modo disciplina. Y el domingo fue el contraste:
+                                    la cabeza diciendo “tienes cosas”, pero el corazón diciendo “aprovecha a tus padres”.
+                                </p>
+                                <p class="emo-quote">
+                                    “No necesito tenerlo todo claro hoy. Necesito seguir avanzando sin apagarme.”
+                                </p>
+                            </div>
+
+                            <div class="emo-actions">
+                                <button id="emo3-back" class="emo-main-btn" type="button">↩ Volver al inicio</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
         </div>
     </main>
 
@@ -315,6 +539,7 @@
             <img src="../imagenes/iconos/App004.ico" class="taskbar-icon" alt="Inicio">
             <span class="start-text">Inicio</span>
         </button>
+
         <div class="task-area">
             <button class="task-button" onclick="location.href='ra2.html'">
                 <img src="../imagenes/iconos/Alert026.ico" class="task-icon-img" alt="RA2">
@@ -337,6 +562,7 @@
                 <span>Gestión del tiempo</span>
             </button>
         </div>
+
         <div class="tray-area">
             <div class="tray-tab" id="tray-tab">
                 <div class="tray-arrow"></div>
@@ -344,14 +570,13 @@
             <div class="tray-popup" id="tray-popup">
                 <div class="tray-popup-grid">
                     <div class="tray-grid-item">
-                        <a href="https://github.com/darfixs" target="_blank" class="tray-grid-link"
-                            title="GitHub @darfixs">
+                        <a href="https://github.com/darfixs" target="_blank" class="tray-grid-link" title="GitHub @darfixs">
                             <img src="../imagenes/github-mark-white.svg" alt="GitHub">
                         </a>
                     </div>
                     <div class="tray-grid-item">
-                        <a href="https://sites.google.com/g.educaand.es/jose-daro-alfaro-santos?usp=sharing"
-                            target="_blank" class="tray-grid-link" title="Portafolio Google Sites">
+                        <a href="https://sites.google.com/g.educaand.es/jose-daro-alfaro-santos?usp=sharing" target="_blank"
+                            class="tray-grid-link" title="Portafolio Google Sites">
                             <img src="../imagenes/skin1.ico" alt="Google Sites">
                         </a>
                     </div>
@@ -372,6 +597,7 @@
                     <div class="tray-grid-item"><span></span></div>
                     <div class="tray-grid-item"><span></span></div>
                 </div>
+
                 <div class="tray-popup-github">
                     <a href="https://github.com/darfixs" target="_blank" class="tray-popup-link">
                         <span class="popup-github-mark">
@@ -407,35 +633,48 @@
             const topBar = document.querySelector('.top-bar');
             const bottomBar = document.querySelector('.bottom-bar');
             if (!logo || !topBar || !bottomBar) return;
+
             const LOGO_WIDTH = 90;
             logo.style.width = LOGO_WIDTH + "px";
+
             let x = 40;
             let y = topBar.offsetHeight + 40;
+
             let vx = 2.4;
             let vy = 2.0;
+
             const bounds = { left: 0, right: 0, top: 0, bottom: 0, w: 0, h: 0 };
+
             function updateBounds() {
                 const rect = logo.getBoundingClientRect();
                 bounds.w = rect.width;
                 bounds.h = rect.height;
+
                 bounds.left = 0;
                 bounds.right = window.innerWidth - bounds.w;
+
                 const topH = topBar.offsetHeight;
                 const bottomH = bottomBar.offsetHeight;
                 bounds.top = topH;
                 bounds.bottom = window.innerHeight - bottomH - bounds.h;
             }
+
             function step() {
                 x += vx;
                 y += vy;
+
                 if (x <= bounds.left) { x = bounds.left; vx = Math.abs(vx); }
                 else if (x >= bounds.right) { x = bounds.right; vx = -Math.abs(vx); }
+
                 if (y <= bounds.top) { y = bounds.top; vy = Math.abs(vy); }
                 else if (y >= bounds.bottom) { y = bounds.bottom; vy = -Math.abs(vy); }
+
                 logo.style.left = x + 'px';
                 logo.style.top = y + 'px';
+
                 requestAnimationFrame(step);
             }
+
             window.addEventListener('resize', updateBounds);
             updateBounds();
             requestAnimationFrame(step);
@@ -455,43 +694,61 @@
             }
         })();
 
-        // Sistema de tarjeta expandible (solo 1 actividad)
+        /* =========================================================
+           SISTEMA EXPANDIBLE · abre emo1 / emo2 / emo3
+        ========================================================= */
         (function () {
             const layer = document.querySelector('.activities-layer');
-            const card = document.querySelector('.activity-card[data-activity="emo1"]');
-            if (!layer || !card) return;
+            const cards = document.querySelectorAll('.activity-card');
+
+            if (!layer || !cards.length) return;
 
             function closeAll() {
                 layer.classList.remove('expanded');
-                card.classList.remove('expanded');
+                cards.forEach(c => c.classList.remove('expanded'));
             }
 
-            const closeBtn = card.querySelector('.activity-close');
+            cards.forEach(card => {
+                const closeBtn = card.querySelector('.activity-close');
 
-            card.addEventListener('click', (e) => {
-                if (e.target.closest('.activity-close')) return;
-                if (card.classList.contains('expanded')) return;
-                closeAll();
-                layer.classList.add('expanded');
-                card.classList.add('expanded');
-                initEmoGame();
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.activity-close')) return;
+
+                    if (card.classList.contains('expanded')) {
+                        e.stopPropagation();
+                        return;
+                    }
+
+                    closeAll();
+                    layer.classList.add('expanded');
+                    card.classList.add('expanded');
+
+                    if (!card.dataset.inited) {
+                        if (card.dataset.activity === 'emo1') initEmoGame();
+                        if (card.dataset.activity === 'emo2') initEmo2Game();
+                        if (card.dataset.activity === 'emo3') initEmo3Game();
+                        card.dataset.inited = "1";
+                    }
+                });
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        closeAll();
+                    });
+                }
             });
 
-            if (closeBtn) {
-                closeBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    closeAll();
-                });
-            }
-
             layer.addEventListener('click', (e) => {
-                if (layer.classList.contains('expanded') && !e.target.closest('.activity-card')) {
-                    closeAll();
-                }
+                if (!layer.classList.contains('expanded')) return;
+                if (e.target.closest('.activity-card')) return;
+                closeAll();
             });
         })();
 
-        // LÓGICA DEL JUEGO EMOCIONAL
+        /* =========================================================
+           ACTIVIDAD 1 · LÓGICA DEL JUEGO EMOCIONAL (emo1)
+        ========================================================= */
         function initEmoGame() {
             const scenes = [
                 document.getElementById('emo-scene-1'),
@@ -508,71 +765,73 @@
                 });
             }
 
-            // reset estado
             showScene(0);
 
-            // Escena 1
             const btnStart = document.getElementById('btn-emo-start');
-            btnStart.onclick = () => showScene(1);
+            if (btnStart) btnStart.onclick = () => showScene(1);
 
-            // Escena 2
             const options = document.querySelectorAll('.emo-option');
             const msgChoice = document.getElementById('emo-choice-message');
             let selectedValue = null;
 
             options.forEach(opt => {
                 opt.classList.remove('emo-option-selected', 'emo-option-wrong');
-                opt.addEventListener('click', () => {
+                opt.addEventListener('click', (e) => {
+                    e.stopPropagation();
                     options.forEach(o => o.classList.remove('emo-option-selected', 'emo-option-wrong'));
                     opt.classList.add('emo-option-selected');
                     selectedValue = opt.dataset.value;
-                    msgChoice.textContent = "Has elegido " + selectedValue + "% · ahora confirma tu decisión.";
+                    if (msgChoice) msgChoice.textContent = "Has elegido " + selectedValue + "% · ahora confirma tu decisión.";
                 });
             });
 
             const btnValidate = document.getElementById('btn-emo-validate');
-            btnValidate.onclick = () => {
-                if (!selectedValue) {
-                    msgChoice.textContent = "Primero elige una altura. No puedes avanzar sin decidirte.";
-                    return;
-                }
-                if (selectedValue === "60") {
-                    msgChoice.textContent = "Has elegido 60 %: realista pero no conformista. Es justo lo que yo hice.";
-                    msgChoice.classList.remove('emo-text-error');
-                    setTimeout(() => showScene(2), 900);
-                } else {
-                    msgChoice.textContent = "Interesante elección, pero en mi caso la puse al 60 %. Prueba a pensar en algo alcanzable pero que no sea quedarse corto.";
-                    msgChoice.classList.add('emo-text-error');
-                    options.forEach(o => {
-                        if (o.dataset.value === selectedValue) {
-                            o.classList.add('emo-option-wrong');
+            if (btnValidate) {
+                btnValidate.onclick = () => {
+                    if (!selectedValue) {
+                        if (msgChoice) msgChoice.textContent = "Primero elige una altura. No puedes avanzar sin decidirte.";
+                        return;
+                    }
+                    if (selectedValue === "60") {
+                        if (msgChoice) {
+                            msgChoice.textContent = "Has elegido 60 %: realista pero no conformista. Es justo lo que yo hice.";
+                            msgChoice.classList.remove('emo-text-error');
                         }
-                    });
-                }
-            };
+                        setTimeout(() => showScene(2), 900);
+                    } else {
+                        if (msgChoice) {
+                            msgChoice.textContent = "En mi caso la puse al 60 %. Prueba a pensar en algo alcanzable pero sin quedarte corto.";
+                            msgChoice.classList.add('emo-text-error');
+                        }
+                        options.forEach(o => {
+                            if (o.dataset.value === selectedValue) o.classList.add('emo-option-wrong');
+                        });
+                    }
+                };
+            }
 
-            // Escena 3
             const jumpBar = document.getElementById('emo-jump-real');
             const msgJump = document.getElementById('emo-jump-message');
             const btnJump = document.getElementById('btn-emo-jump');
             const btnTo4 = document.getElementById('btn-emo-to-4');
 
-            jumpBar.classList.remove('emo-jump-animate');
-            msgJump.textContent = "Pulsa el botón para intentar el salto.";
-            btnTo4.style.display = 'none';
+            if (jumpBar) jumpBar.classList.remove('emo-jump-animate');
+            if (msgJump) msgJump.textContent = "Pulsa el botón para intentar el salto.";
+            if (btnTo4) btnTo4.style.display = 'none';
 
-            btnJump.onclick = () => {
-                jumpBar.classList.add('emo-jump-animate');
-                msgJump.textContent = "Saltando...";
-                setTimeout(() => {
-                    msgJump.textContent = "Has superado con creces la marca que habías puesto. Resultado: ++ (superar tus expectativas de sobra).";
-                    btnTo4.style.display = 'inline-flex';
-                }, 1200);
-            };
+            if (btnJump) {
+                btnJump.onclick = () => {
+                    if (jumpBar) jumpBar.classList.add('emo-jump-animate');
+                    if (msgJump) msgJump.textContent = "Saltando...";
+                    setTimeout(() => {
+                        if (msgJump) msgJump.textContent = "Has superado con creces la marca. Resultado: ++ (superar tus expectativas de sobra).";
+                        if (btnTo4) btnTo4.style.display = 'inline-flex';
+                    }, 1200);
+                };
+            }
 
-            btnTo4.onclick = () => showScene(3);
+            if (btnTo4) btnTo4.onclick = () => showScene(3);
 
-            // Escena 4
             const thoughtCards = document.querySelectorAll('.emo-thought-card');
             const msgThought = document.getElementById('emo-thought-message');
             const btnNextThink = document.getElementById('btn-emo-next-think');
@@ -580,7 +839,7 @@
 
             thoughtCards.forEach(c => c.classList.add('emo-thought-hidden'));
             let currentThought = 0;
-            msgThought.textContent = "Pulsa el botón para ir desbloqueando lo que fui pensando.";
+            if (msgThought) msgThought.textContent = "Pulsa el botón para ir desbloqueando lo que fui pensando.";
 
             function revealThought() {
                 if (currentThought < thoughtCards.length) {
@@ -588,36 +847,314 @@
                     thoughtCards[currentThought].classList.add('emo-thought-visible');
                     currentThought++;
 
-                    // Auto-scroll al último bloque para que se vea siempre abajo
-                    if (thoughtsWrapper) {
-                        thoughtsWrapper.scrollTop = thoughtsWrapper.scrollHeight;
-                    }
+                    if (thoughtsWrapper) thoughtsWrapper.scrollTop = thoughtsWrapper.scrollHeight;
 
                     if (currentThought === thoughtCards.length) {
-                        msgThought.textContent = "Has desbloqueado toda la reflexión intermedia. Ahora puedes ver la conclusión final.";
-                        btnNextThink.textContent = "🏁 Ver conclusión final";
+                        if (msgThought) msgThought.textContent = "Has desbloqueado toda la reflexión intermedia. Ahora puedes ver la conclusión final.";
+                        if (btnNextThink) btnNextThink.textContent = "🏁 Ver conclusión final";
                     } else {
-                        msgThought.textContent = "Sigue avanzando. Aún queda más que procesé después del salto.";
+                        if (msgThought) msgThought.textContent = "Sigue avanzando. Aún queda más que procesé después del salto.";
                     }
                 } else {
-                    // cuando ya están todos, pasa a la escena 5 (conclusión)
                     showScene(4);
                 }
             }
-            
-            btnNextThink.onclick = () => {
-                if (currentThought < thoughtCards.length) {
-                    revealThought();
-                } else {
-                    showScene(4);
-                }
-            };
 
-            // mostrar el primer pensamiento automáticamente al entrar en escena 4
+            if (btnNextThink) {
+                btnNextThink.onclick = () => {
+                    if (currentThought < thoughtCards.length) revealThought();
+                    else showScene(4);
+                };
+            }
+
             currentThought = 0;
             revealThought();
+        }
 
-            // Escena 5 no necesita lógica especial
+        /* =========================================================
+           ACTIVIDAD 2 · CÓMO NOS SENTIMOS (emo2)
+        ========================================================= */
+        function initEmo2Game() {
+            const game = document.getElementById('emo2-game');
+            if (!game) return;
+
+            const stepEl = document.getElementById('emo2-step');
+            const btnStart = document.getElementById('emo2-start');
+            const btnNext = document.getElementById('emo2-next');
+            const btnReset = document.getElementById('emo2-reset');
+            const btnBack = document.getElementById('emo2-back');
+
+            const qEl = document.getElementById('emo2-q');
+            const aEl = document.getElementById('emo2-a');
+
+            const scenes = Array.from(game.querySelectorAll('.emo-scene'));
+
+            function showScene(n) {
+                scenes.forEach(s => s.classList.remove('emo-scene-active'));
+                const target = game.querySelector(`.emo-scene[data-scene="${n}"]`);
+                if (target) target.classList.add('emo-scene-active');
+                game.dataset.scene = String(n);
+                if (stepEl) stepEl.textContent = `Escena ${n}/3`;
+            }
+
+            const qa = [
+                {
+                    q: "1) ¿Sobre qué se siente preocupado?",
+                    a:
+                        "Ahora mismo, sobre mi futuro. No es miedo como tal, es más esa sensación de “vale, ¿por dónde tiro?”. " +
+                        "Todavía no tengo un camino único súper claro y a veces me rayo pensando en si estoy eligiendo lo correcto. " +
+                        "Por eso sigo con mi sistema: si me mantengo en movimiento (estudiar, mejorar proyectos, avanzar poco a poco), " +
+                        "no me quedo parado y la respuesta termina apareciendo."
+                },
+                {
+                    q: "2) ¿Ha dicho lo que piensa a las personas afectadas?",
+                    a:
+                        "La verdad es que no del todo. No quiero preocupar a nadie de mi entorno con mi indecisión y mi búsqueda constante " +
+                        "de eso que me haga sentir que estoy en el sitio correcto. Prefiero cargarlo yo, ir construyendo en silencio, " +
+                        "y cuando lo tenga más claro, ahí sí explicarlo con calma."
+                },
+                {
+                    q: "3) En su opinión, ¿qué significa esto?",
+                    a:
+                        "Para mí significa que estoy en un punto de transición. No es algo malo: es literalmente crecimiento. " +
+                        "Si me siento así es porque me importa lo que viene y porque quiero hacerlo bien, no por drama. " +
+                        "También significa que tengo que bajar el ruido mental: decidir desde la acción y no desde el overthinking. " +
+                        "Si sigo avanzando, el camino se define solo."
+                },
+                {
+                    q: "Afirmación",
+                    a: "Dejo de pensar en ello y me suelto. Todo se aclarará a su debido tiempo."
+                }
+            ];
+
+            let i = -1;
+
+            function resetQA() {
+                i = -1;
+                if (qEl) qEl.textContent = "—";
+                if (aEl) aEl.innerHTML = "Pulsa <strong>Siguiente</strong> para revelar mi respuesta.";
+                if (btnNext) btnNext.textContent = "Siguiente ➜";
+            }
+
+            if (btnStart) {
+                btnStart.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showScene(2);
+                    resetQA();
+                });
+            }
+
+            if (btnNext) {
+                btnNext.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    i++;
+
+                    if (i >= qa.length) {
+                        showScene(3);
+                        return;
+                    }
+
+                    if (qEl) qEl.textContent = qa[i].q;
+                    if (aEl) aEl.textContent = qa[i].a;
+
+                    btnNext.textContent = (i === qa.length - 1) ? "Finalizar ➜" : "Siguiente ➜";
+                });
+            }
+
+            if (btnReset) {
+                btnReset.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    resetQA();
+                });
+            }
+
+            if (btnBack) {
+                btnBack.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showScene(1);
+                    resetQA();
+                });
+            }
+
+            showScene(1);
+            resetQA();
+        }
+
+        /* =========================================================
+           ACTIVIDAD 3 · CARRUSEL FINDE (emo3) - ESTRUCTURA VIERNES/SÁBADO/DOMINGO
+        ========================================================= */
+        function initEmo3Game() {
+            const game = document.getElementById('emo3-game');
+            if (!game) return;
+
+            const stepEl = document.getElementById('emo3-step');
+            const btnStart = document.getElementById('emo3-start');
+            const btnNext = document.getElementById('emo3-next');
+            const btnPrev = document.getElementById('emo3-prev');
+            const btnReset = document.getElementById('emo3-reset');
+            const btnBack = document.getElementById('emo3-back');
+
+            const dayEl = document.getElementById('emo3-day');
+            const storyEl = document.getElementById('emo3-story');
+
+            const scenes = Array.from(game.querySelectorAll('.emo-scene'));
+
+            function showScene(n) {
+                scenes.forEach(s => s.classList.remove('emo-scene-active'));
+                const target = game.querySelector(`.emo-scene[data-scene="${n}"]`);
+                if (target) target.classList.add('emo-scene-active');
+                game.dataset.scene = String(n);
+                if (stepEl) stepEl.textContent = `Escena ${n}/3`;
+            }
+
+            const days = [
+                {
+                    day: "VIERNES",
+                    story: `
+                        <p>
+                            El viernes fue el típico día que llegas a casa y no tienes ni el “modo descanso” activado,
+                            porque sabes que tienes cosas encima. Llegué, comí y me senté al PC con la mentalidad de:
+                            <strong>“vale, voy a cerrar esto hoy sí o sí”</strong>.
+                        </p>
+                        <p>
+                            Me puse con el proyecto de <strong>despliegue de aplicaciones web</strong> y literalmente se me fue la tarde.
+                            Iba avanzando, pero a la vez sentía que me estaba dejando un trozo de cabeza en cada paso.
+                            Lo terminé ya tarde y fue como… sí, alivio, pero también <strong>cansancio mental y emocional</strong>
+                            de ese que no se ve al principio y luego te cae de golpe.
+                        </p>
+                        <p>
+                            Lo que más me rayó fue esa sensación de:
+                            <em>“le estoy dedicando demasiado a una cosa cuando tengo otras mil”</em>.
+                            Como que la lista nunca se acaba. Y ahí fue cuando me dije:
+                            <strong>“vale, necesito respirar un momento porque si no entro en bucle”</strong>.
+                        </p>
+                        <p>
+                            Entonces hice lo que suelo hacer para no quedarme atrapado: me puse vídeos de YouTube de
+                            <strong>teoría musical</strong>. No era por procrastinar, era más como cambiar de canal mental.
+                            Me despeja porque siento que aprendo algo que me gusta y me baja la presión sin desconectarme del todo.
+                        </p>
+                        <p>
+                            Al final del viernes me quedé con esa mezcla rara: <strong>orgullo</strong> por haberlo terminado,
+                            y <strong>agotamiento</strong> por cómo te drena una tarde entera cuando vas con la cabeza al límite.
+                        </p>
+                    `
+                },
+                {
+                    day: "SÁBADO",
+                    story: `
+                        <p>
+                            El sábado amanecí tarde, cerca de las 12. Y no fue “plan relax”, fue el cuerpo diciendo:
+                            <strong>“necesito reiniciar”</strong>. Me levanté con sueño, pero con prisa por dentro,
+                            porque ya estaba pensando en lo que quedaba.
+                        </p>
+                        <p>
+                            Fue un día muy de <strong>estudiar y avanzar</strong>. No había ni motivación epica ni nada,
+                            era sentarme y tirar. El sábado fue modo:
+                            <strong>“disciplina y ya”</strong>. De esos días en los que no haces las cosas porque te apetezcan,
+                            sino porque sabes que si no lo haces, luego te explota todo.
+                        </p>
+                        <p>
+                            Emocionalmente me notaba más frío, más en mi mundo. Pero también notaba que cada cosa que tachaba
+                            me bajaba un poco la ansiedad. Era como:
+                            <em>“vale, no está todo hecho, pero por lo menos estoy avanzando”</em>.
+                        </p>
+                        <p>
+                            También me vino la típica duda de “¿por qué siempre voy tan al límite?”, pero luego pensé que esto
+                            también es aprender a entender que no todo debe estar perfecto.
+                        </p>
+                    `
+                },
+                {
+                    day: "DOMINGO",
+                    story: `
+                        <p>
+                            El domingo salí con mis padres, porque es el único día que ellos descansan y podemos hacer algo juntos.
+                            Y ahí me pasó lo típico: estaba en dos emociones a la vez.
+                        </p>
+                        <p>
+                            Por un lado, me sentía <strong>agobiado</strong> porque todavía me faltaban cosas y mi cabeza no paraba
+                            de recordármelo, como con un mini reloj diciendo: <em>“no te relajes demasiado”</em>.
+                        </p>
+                        <p>
+                            Pero por otro lado, me sentía <strong>bien</strong> de verdad. Estar con mis padres me baja el ruido mental
+                            y me recuerda que no todo es producir y entregar. A veces se me olvida que también necesito estos momentos
+                            para que el resto no me consuma.
+                        </p>
+                        <p>
+                            El domingo fue equilibrio: aceptar que no puedo controlarlo todo a la vez.
+                            Si solo trabajo, me quemo. Si solo descanso, me rayo por lo pendiente.
+                            Entonces intenté quedarme con lo mejor: disfrutar con ellos y luego volver con más calma.
+                        </p>
+                        <p>
+                            Al final del día me quedé con una sensación bastante sana:
+                            <strong>“vale, sigo teniendo cosas… pero también he vivido un poco”</strong>. Y eso también cuenta.
+                        </p>
+                    `
+                }
+            ];
+
+            let idx = 0;
+
+            function renderDay() {
+                const d = days[idx];
+                if (dayEl) dayEl.textContent = d.day;
+                if (storyEl) storyEl.innerHTML = d.story;
+
+                if (btnPrev) btnPrev.disabled = (idx === 0);
+                if (btnNext) btnNext.textContent = (idx === days.length - 1) ? "Finalizar ➜" : "Siguiente día ➜";
+            }
+
+            function resetAll() {
+                idx = 0;
+                renderDay();
+            }
+
+            if (btnStart) {
+                btnStart.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showScene(2);
+                    resetAll();
+                });
+            }
+
+            if (btnNext) {
+                btnNext.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (idx >= days.length - 1) {
+                        showScene(3);
+                        return;
+                    }
+                    idx++;
+                    renderDay();
+                });
+            }
+
+            if (btnPrev) {
+                btnPrev.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (idx <= 0) return;
+                    idx--;
+                    renderDay();
+                });
+            }
+
+            if (btnReset) {
+                btnReset.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    resetAll();
+                });
+            }
+
+            if (btnBack) {
+                btnBack.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showScene(1);
+                    resetAll();
+                });
+            }
+
+            showScene(1);
+            resetAll();
         }
     </script>
 </body>
